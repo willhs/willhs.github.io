@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  padding: 24px;
+  background: #1a1611;
+  color: #f4f1ea;
+  font: 16px/1.5 'SF Mono', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  max-width: 800px;
+}
+
+h1 { color: #ffd23f; }
+h2 { color: #ff8c42; }
+
+a { color: #ff8c42; }
+
+.muted { color: #b5a896; }
+.small { font-size: 0.9rem; }
