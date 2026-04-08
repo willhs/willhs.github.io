@@ -11,7 +11,12 @@ const {
 } = Astro.props;
 ---
 
-<figure class="chart" data-chart-id={id}>
+<figure
+  class="chart"
+  data-chart-id={id}
+  data-labels={JSON.stringify(labels)}
+  data-values={JSON.stringify(values)}
+>
   <svg viewBox="0 0 320 180" role="img" aria-label="Interactive bar chart">
     <g class="bars"></g>
     <g class="labels"></g>
@@ -21,8 +26,6 @@ const {
     <span class="hint">click bars too</span>
   </figcaption>
 </figure>
-
-<script type="application/json" data-chart-init set:html={JSON.stringify({ id, labels, values })} />
 
 <style>
   .chart {
@@ -89,10 +92,8 @@ const {
     document.querySelectorAll<HTMLElement>('.chart').forEach((chart) => {
       if ((chart as any).__wired) return;
       (chart as any).__wired = true;
-      const initEl = chart.querySelector<HTMLScriptElement>('script[data-chart-init]');
-      if (!initEl?.textContent) return;
-      const { labels } = JSON.parse(initEl.textContent) as { labels: string[] };
-      let values = (JSON.parse(initEl.textContent) as { values: number[] }).values.slice();
+      const labels = JSON.parse(chart.dataset.labels ?? '[]') as string[];
+      let values = (JSON.parse(chart.dataset.values ?? '[]') as number[]).slice();
       render(chart, values, labels);
 
       chart.querySelector('[data-action="randomize"]')?.addEventListener('click', () => {
