@@ -1,0 +1,56 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  const tags = [...new Set(posts.flatMap((p) => p.data.tags))];
+  return tags.map((tag) => ({
+    params: { tag },
+    props: {
+      tag,
+      posts: posts
+        .filter((p) => p.data.tags.includes(tag))
+        .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()),
+    },
+  }));
+}
+
+const { tag, posts } = Astro.props;
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={`#${tag}`} description={`Posts tagged ${tag}`} />
+  </head>
+  <body>
+    <Header />
+    <main class="container">
+      <h1>#{tag}</h1>
+      <ul class="post-list">
+        {posts.map((post) => (
+          <li>
+            <a href={`/posts/${post.id}/`}>{post.data.title}</a>
+            <time datetime={post.data.pubDate.toISOString()}>{fmt(post.data.pubDate)}</time>
+          </li>
+        ))}
+      </ul>
+      <p><a href="/posts/">← all posts</a></p>
+    </main>
+    <style>
+      .post-list { list-style: none; padding: 0; }
+      .post-list li {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.5rem 0;
+        border-bottom: 1px dashed var(--color-border);
+      }
+      .post-list time { color: var(--color-text-muted); font-size: 0.85rem; white-space: nowrap; }
+    </style>
+  </body>
+</html>
