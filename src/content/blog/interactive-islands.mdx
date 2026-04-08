@@ -1,0 +1,43 @@
+---
+title: "Interactive islands (and a chart)"
+description: "A first test of embedding an interactive component in an MDX post."
+pubDate: 2026-04-09
+tags: ["meta", "astro"]
+---
+
+import BarChart from '../../components/BarChart.astro';
+
+One of the reasons I picked Astro for this site is that it lets me drop
+interactive bits into posts without the whole page becoming a single-page
+app. The rest of the page stays as static HTML; only the island ships JS.
+
+Here's a tiny bar chart. Click **randomize**, or click any bar to jiggle it:
+
+<BarChart id="demo" labels={["mon","tue","wed","thu","fri","sat","sun"]} values={[3,7,2,9,5,6,4]} />
+
+The whole thing is maybe 80 lines of vanilla JS + SVG — no chart library,
+no framework. The `<script>` inside the component gets hoisted by Astro and
+runs once on load. Good enough for a notebook.
+
+## Why this matters
+
+Most writing platforms force a tradeoff: either your posts are plain text
+and you link off to a demo, or your whole site is a heavyweight app because
+*one* post needed interactivity. Islands split the difference: this post's
+HTML is ~2KB; the chart's script is an extra ~1KB, loaded only here. The
+/about/ page has zero JS.
+
+I want to use this for the things I actually care about: small simulations,
+parameter sliders for explaining algorithms, little puzzles. More soon.
+
+## A code block, for the syntax highlighting test
+
+```ts
+function fib(n: number): number {
+  if (n < 2) return n;
+  return fib(n - 1) + fib(n - 2);
+}
+
+// Dracula theme should make this look reasonable.
+console.log([...Array(10)].map((_, i) => fib(i)));
+```
