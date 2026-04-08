@@ -1,0 +1,61 @@
+---
+import { SITE_TITLE } from '../consts';
+---
+
+<header>
+  <div class="container">
+    <nav>
+      <a href="/" class="site-title">{SITE_TITLE}</a>
+      <ul>
+        <li><a href="/posts/">posts</a></li>
+        <li><a href="/about/">about</a></li>
+        <li><a href="/rss.xml" title="RSS feed">rss</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  header {
+    border-bottom: 1px solid var(--color-border);
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .site-title {
+    color: var(--color-h1);
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .site-title:hover {
+    color: var(--color-h1);
+    text-decoration: none;
+    opacity: 0.85;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  li a {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+  }
+
+  li a:hover {
+    color: var(--color-link-hover);
+  }
+</style>
