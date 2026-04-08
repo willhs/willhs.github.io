@@ -18,10 +18,13 @@
 
 html {
   font-size: 17px;
+  background-color: var(--color-bg);
+  min-height: 100%;
 }
 
 body {
   background-color: var(--color-bg);
+  min-height: 100vh;
   color: var(--color-text);
   font-family: var(--font-sans);
   font-feature-settings: 'kern', 'liga', 'calt';

@@ -1,0 +1,116 @@
+---
+interface Props {
+  id?: string;
+  labels?: string[];
+  values?: number[];
+}
+const {
+  id = 'chart',
+  labels = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'],
+  values = [3, 7, 2, 9, 5, 6, 4],
+} = Astro.props;
+---
+
+<figure
+  class="chart"
+  data-chart-id={id}
+  data-labels={JSON.stringify(labels)}
+  data-values={JSON.stringify(values)}
+>
+  <svg viewBox="0 0 320 180" role="img" aria-label="Interactive bar chart">
+    <g class="bars"></g>
+    <g class="labels"></g>
+  </svg>
+  <figcaption>
+    <button type="button" data-action="randomize">randomize</button>
+    <span class="hint">click bars too</span>
+  </figcaption>
+</figure>
+
+<style>
+  .chart {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: #0f0d0a;
+  }
+  .chart svg { width: 100%; height: auto; display: block; }
+  .chart rect { fill: var(--color-h2); transition: fill 120ms, y 220ms ease, height 220ms ease; cursor: pointer; }
+  .chart rect:hover { fill: var(--color-h1); }
+  .chart text { fill: var(--color-text-muted); font-size: 10px; font-family: var(--font-mono); }
+  .chart figcaption {
+    display: flex; align-items: center; gap: 1rem;
+    margin-top: 0.75rem; font-size: 0.85rem; color: var(--color-text-muted);
+  }
+  .chart button {
+    background: transparent;
+    color: var(--color-link);
+    border: 1px solid var(--color-border);
+    padding: 0.3rem 0.75rem;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    cursor: pointer;
+  }
+  .chart button:hover { color: var(--color-link-hover); border-color: var(--color-link-hover); }
+</style>
+
+<script>
+  const W = 320, H = 180, PAD_X = 20, PAD_Y = 20, GAP = 6;
+
+  function render(chart: HTMLElement, values: number[], labels: string[]) {
+    const bars = chart.querySelector('.bars')!;
+    const labelsG = chart.querySelector('.labels')!;
+    bars.innerHTML = '';
+    labelsG.innerHTML = '';
+    const max = Math.max(...values, 1);
+    const barW = (W - PAD_X * 2 - GAP * (values.length - 1)) / values.length;
+    values.forEach((v, i) => {
+      const h = ((H - PAD_Y * 2) * v) / max;
+      const x = PAD_X + i * (barW + GAP);
+      const y = H - PAD_Y - h;
+      const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      rect.setAttribute('x', String(x));
+      rect.setAttribute('y', String(y));
+      rect.setAttribute('width', String(barW));
+      rect.setAttribute('height', String(h));
+      rect.setAttribute('rx', '2');
+      rect.dataset.index = String(i);
+      bars.appendChild(rect);
+
+      const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      text.setAttribute('x', String(x + barW / 2));
+      text.setAttribute('y', String(H - PAD_Y + 12));
+      text.setAttribute('text-anchor', 'middle');
+      text.textContent = labels[i] ?? '';
+      labelsG.appendChild(text);
+    });
+  }
+
+  function init() {
+    document.querySelectorAll<HTMLElement>('.chart').forEach((chart) => {
+      if ((chart as any).__wired) return;
+      (chart as any).__wired = true;
+      const labels = JSON.parse(chart.dataset.labels ?? '[]') as string[];
+      let values = (JSON.parse(chart.dataset.values ?? '[]') as number[]).slice();
+      render(chart, values, labels);
+
+      chart.querySelector('[data-action="randomize"]')?.addEventListener('click', () => {
+        values = values.map(() => Math.floor(Math.random() * 10) + 1);
+        render(chart, values, labels);
+      });
+
+      chart.querySelector('.bars')?.addEventListener('click', (e) => {
+        const target = e.target as SVGElement;
+        if (target.tagName !== 'rect') return;
+        const i = Number(target.dataset.index);
+        values[i] = Math.floor(Math.random() * 10) + 1;
+        render(chart, values, labels);
+      });
+    });
+  }
+
+  init();
+  document.addEventListener('astro:page-load', init);
+</script>
