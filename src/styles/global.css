@@ -48,7 +48,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 { color: var(--color-h1); font-size: 1.8rem; }
-h2 { color: var(--color-h2); font-size: 1.4rem; }
+h2 { color: var(--color-h2); font-size: 1.4rem; margin-top: 3.5rem; }
 h3 { color: var(--color-h2); font-size: 1.15rem; }
 
 a {
@@ -110,10 +110,135 @@ blockquote {
   color: var(--color-text-muted);
 }
 
+.aside {
+  border-left: 3px solid var(--color-h2);
+  margin: 2rem 0;
+  padding: 0.25rem 0 0.25rem 1.5rem;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.aside > :first-child {
+  margin-top: 0;
+}
+
+.aside > :last-child {
+  margin-bottom: 0;
+}
+
+.aside.note {
+  font-style: italic;
+}
+
 img {
   max-width: 100%;
   height: auto;
   border-radius: 4px;
+}
+
+.hero {
+  width: min(840px, 100vw - 3rem);
+  margin: 0 0 1.5rem;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.frames {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.4rem;
+}
+
+.frames img {
+  width: 100%;
+}
+
+.yamnet-flow {
+  margin: 1.75rem 0;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.yamnet-flow .yf-stage {
+  background: #0f0d0a;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.75rem 0.9rem;
+}
+
+.yamnet-flow .yf-tag {
+  display: block;
+  color: var(--color-text-muted);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.yamnet-flow .yf-rows > div {
+  white-space: nowrap;
+  overflow-x: auto;
+  padding: 0.1rem 0;
+  color: var(--color-text-muted);
+}
+
+.yamnet-flow .yf-rows b {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.yamnet-flow .yf-t {
+  display: inline-block;
+  width: 3.4em;
+  color: var(--color-h1);
+}
+
+.yamnet-flow .yf-arrow {
+  color: var(--color-text-muted);
+  font-size: 0.72rem;
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+.yamnet-flow .yf-arrow::before {
+  content: "↓ ";
+  color: var(--color-h2);
+}
+
+.yamnet-flow .yf-summary {
+  color: var(--color-text-muted);
+}
+
+.yamnet-flow .yf-bucket {
+  display: inline-block;
+  background: var(--color-h2);
+  color: var(--color-bg);
+  font-weight: 600;
+  padding: 0.05em 0.5em;
+  border-radius: 3px;
+  margin-right: 0.5rem;
+}
+
+.yamnet-flow .yf-final .yf-sound {
+  color: var(--color-text);
+  white-space: normal;
+  line-height: 1.55;
+}
+
+.yamnet-flow figcaption {
+  margin-top: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+figcaption.prompt-caption {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  opacity: 0.85;
+  margin-top: 0.5rem;
 }
 
 @media (max-width: 600px) {

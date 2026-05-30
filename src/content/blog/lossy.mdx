@@ -1,0 +1,198 @@
+---
+title: "1mb movie"
+description: "A useless but radical compression project: getting films down to 1mb and back again with language models"
+pubDate: 2026-04-18
+tags: ["lossy", "video", "compression"]
+---
+
+import PipelineViz from '../../components/PipelineViz.astro';
+
+<figure class="hero">
+  <img src="/lossy/hero.jpg" alt="A 4×3 grid of mid-clip frames from twelve films reconstructed by the lossy pipeline." />
+</figure>
+
+How could we compress a film to \<1mb while preserving the most quality?
+
+We know about bitmap resolution (1080p, 480p, etc), frame rate (movies and tv are usually 24fps), and audio sample rate (160kbps is Spotify's High quality), but can we crank those down enuogh for sub-1mb? We'll explore that dead-end next.
+
+Shakespeare's plays have been re-enacted for a few hundred years with nothing but screenplays which each probably fit into 1mb, but they're plays, not films or tv shows which are much more detailed, like instantiations of plays.
+
+Modern-day multi-modal models make my mind melt. Apparently what started as *language* models sprouted the ability to do vision and audio too?? So I'm using this 1mb movie framing as an excuse to learn about MMMs, and to try writing.
+
+I'm hoping you'll learn something and MMMs and/or be entertained 🙏
+
+
+### How low can you go? (video & audio resolution)
+
+The lowest resolution we can go with conventional compression is around 1.1kbps for audio and 6kbps for video, the audio 
+
+{/* SCAFFOLD — conventional-compression cliff demo. Prose around these embeds is Will's to write. */}
+
+<figure>
+  <video src="/lossy/demos/probe-clip.mp4" controls playsinline preload="metadata" />
+  <figcaption>Source — 15 sec, ~521 kbps H.264, 978 KB. 124.7 min at this rate ≈ 470 MB.</figcaption>
+</figure>
+
+<figure>
+  <video src="/lossy/demos/clip-100k.mp4" controls playsinline preload="metadata" />
+  <figcaption>100 kbps AV1 — 250 KB for 15s. 124.7 min ≈ 93 MB.</figcaption>
+</figure>
+
+<figure>
+  <video src="/lossy/demos/clip-30k.mp4" controls playsinline preload="metadata" />
+  <figcaption>30 kbps AV1, 320×136, 12fps — 78 KB. 124.7 min ≈ 29 MB.</figcaption>
+</figure>
+
+<figure>
+  <video src="/lossy/demos/clip-10k.mp4" controls playsinline preload="metadata" />
+  <figcaption>10 kbps AV1, 160×68, 8fps — 39 KB. The codec floor. 124.7 min ≈ 15 MB. Still 15× over budget.</figcaption>
+</figure>
+
+<figure>
+  <audio src="/lossy/demos/audio-6k.opus" controls preload="metadata" />
+  <figcaption>6 kbps Opus speech-only — Opus's hard floor. 124.7 min ≈ 5.6 MB.</figcaption>
+</figure>
+
+{/* END SCAFFOLD */}
+
+<hr />
+
+<aside class="aside">
+
+**Inspiration: Nothing, Forever**
+
+<figure>
+  <img src="/lossy/nothing-forever.gif" alt="Clip from Nothing, Forever showing low-poly characters in an apartment scene" />
+  <figcaption>Nothing, Forever (Mismatch Media, 2023).</figcaption>
+</figure>
+
+*Nothing, Forever* was a 2023 live stream of generated *Seinfeld* (90s sitcom) episodes. 
+
+Elements of the show like the common settings, characters, comedic style made into a new (terrible but intriguing) version of the show. 
+
+Dialogue made by LLMs (gpt-3: text-davinci-003) and narration done by text-to-speech voices. The characters rotate between doing the dishes, sitting on the couch, etc, reading out lines from their new scripts, accompanied by canned laughter.
+
+</aside>
+
+
+## Encode: make the film get really small
+
+<figure class="hero">
+  <img src="/lossy/hagrid-hedwig.jpg" alt="Hagrid and Hedwig the snowy owl, reconstructed by the lossy pipeline (character-identity-enriched generation)." />
+  <figcaption class="prompt-caption">Prompt fed to Wan 2.1 (character-enriched): “Rubeus Hagrid: A large, imposing man with a massive frame, characterized by his long, wild, unkempt dark hair and a thick, bushy beard…”</figcaption>
+</figure>
+
+### Shot by shot
+
+Since VLMs (video language models) generate short videos of around 5-10 seconds and shots in films tend to be a similar length, it would seem that VLMs could be used to generate a film from a sequence of shots. 
+
+It turns out there's a python library for finding shot boundaries in films! [PySceneDetect](https://www.scenedetect.com/).
+
+<aside class="aside note">
+
+Note: it turns out the short output length of VLMs isn't as much a constraint as I thought because of the `first_image` VLM param, more on that later.
+
+</aside>
+
+`ffmpeg` is a popular toolset for working with videos. You can use it to all sorts of things like extracing audio from video, also extracting images and clips.
+
+### Describe each shot
+
+Instead of compressing a film by reducing the pixels or sampling rates, get an image LM to summarise each shot in the film, given a few frames sampled from the shot.
+
+Going through security, *The Matrix* (8.8 seconds)
+
+<figure>
+  <div class="frames">
+    <img src="/lossy/matrix-shot-01.jpg" alt="Close on a black coat and duffel bag as the camera begins to pull back." />
+    <img src="/lossy/matrix-shot-02.jpg" alt="The camera pulls back further in the lobby." />
+    <img src="/lossy/matrix-shot-03.jpg" alt="Trinity begins to come into frame." />
+    <img src="/lossy/matrix-shot-04.jpg" alt="Trinity revealed in a black vinyl coat and sunglasses." />
+    <img src="/lossy/matrix-shot-05.jpg" alt="Trinity and Neo walking forward together through the lobby." />
+    <img src="/lossy/matrix-shot-06.jpg" alt="Neo reaches into his coat for his holstered guns." />
+    <img src="/lossy/matrix-shot-07.jpg" alt="The pair continue walking toward the camera." />
+    <img src="/lossy/matrix-shot-08.jpg" alt="Wide view of Neo and Trinity striding through the lobby." />
+  </div>
+  <figcaption>The 8 frames sampled from this 8.8s shot — the only input the vision model saw.</figcaption>
+</figure>
+
+```json
+{
+  "shot_type": "medium",
+  "camera_movement": "slow zoom out",
+  "subjects": "A woman in a black vinyl coat and a man in a black trench coat, both wearing dark sunglasses.",
+  "action": "The two characters walk forward together through a lobby. The man draws two handguns from his coat holsters simultaneously as they continue walking.",
+  "lighting": "High-contrast, cool-toned interior lighting with bright highlights reflecting off the vinyl fabric.",
+  "color_palette": "Black, dark grey, muted green, and white.",
+  "mood": "Intense, cool, determined, and action-oriented.",
+  "setting": "A modern, sterile office building lobby with stone walls and a green 'EXIT' sign in the background.",
+  "sound": "A mix of intense, rhythmic electronic music, ambient room tone, and the sharp, metallic sound of guns being drawn."
+}
+```
+
+#### Clustering on characters
+
+
+### What about audio?
+
+Movies have a few layers of audio: dialogue, music, and sound effects.
+
+We'll at least split up dialogue from music and sound effects. 
+
+I'll cheat a bit with dialogue by directly using the subtitles for the film, which are sometimes embedded in the film itself.
+
+#### Listening for sounds
+
+We can use an audio classification model like [YAMNet](https://tfhub.dev/google/yamnet/1) to detect which of 521 everyday sound classes are present at which times
+
+<figure class="yamnet-flow">
+  <div class="yf-stage">
+    <span class="yf-tag">YAMNet · one reading every 0.48s · 521 class scores</span>
+    <div class="yf-rows">
+      <div><span class="yf-t">+0.0s</span> Music <b>0.15</b> · Arrow 0.09</div>
+      <div><span class="yf-t">+1.4s</span> Music <b>0.87</b> · Timpani 0.01</div>
+      <div><span class="yf-t">+3.3s</span> Domestic animals 0.19 · Dog 0.16</div>
+      <div><span class="yf-t">+5.2s</span> Outside, urban 0.12 · Vehicle 0.08</div>
+      <div><span class="yf-t">+7.1s</span> Inside, small room 0.17 · Bicycle 0.16</div>
+    </div>
+  </div>
+  <div class="yf-arrow">average the 20 frames in this shot, keep the top 5, pick a bucket</div>
+  <div class="yf-stage">
+    <span class="yf-tag">per-shot audio summary</span>
+    <div class="yf-summary"><span class="yf-bucket">effects</span>Music 0.14 · Inside, small room 0.06 · Typing 0.05 · Explosion 0.05 · Gunshot 0.05</div>
+  </div>
+  <div class="yf-arrow">hand to the vision model with the sampled frames + subtitle lines</div>
+  <div class="yf-stage yf-final">
+    <span class="yf-tag">written into the shot entry</span>
+    <div class="yf-sound">"sound": "A mix of intense, rhythmic electronic music, ambient room tone, and the sharp, metallic sound of guns being drawn."</div>
+  </div>
+  <figcaption>The Matrix lobby shot (8.8s) down the audio side of the encoder. Noisy per-frame guesses — a dog, a bicycle — wash out when the shot's 20 frames are averaged, leaving a stable bucket and top labels that seed the vision model's final sound description.</figcaption>
+</figure>
+
+
+### Putting it together: the *lossy* compression encode pipeline
+
+<PipelineViz />
+
+## Decode: making the least crap film from the smallest amount of information for the lowest cost
+
+<figure class="hero">
+  <img src="/lossy/banner-decode.jpg" alt="A reconstructed frame from Fantasia 2000, generated by the lossy pipeline." />
+  <figcaption class="prompt-caption">Prompt fed to Wan 2.1: “a man and a woman in 1940s-style business attire, holding a small child with a red ball above their heads. the camera zooms out to reveal the couple standing in a spotlight…”</figcaption>
+</figure>
+
+### Generating the video
+
+### The Continuity Problem: Describing Mark Hamill's face in 50 words or less
+
+Something that suprised me about VLMs was how small the input prompt is. The sweet spot for the VLMs I considered (WAN 2.1-2.2, Seedance)
+
+
+#### Where to generate 
+
+### Generating the audio
+
+
+### The good parts & the slop
+
+### Conclusion?
