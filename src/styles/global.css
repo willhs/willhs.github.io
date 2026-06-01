@@ -61,6 +61,23 @@ a:hover {
   text-decoration: underline;
 }
 
+/* In-content prose links carry a persistent (muted) underline so they read as
+   links, not headings — both share the orange hue, the underline is what
+   separates them. Scoped to article prose so nav/post-list/chip links stay
+   clean. See docs/design.md. */
+article p:not(.meta) a,
+article li a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+  text-decoration-color: color-mix(in srgb, var(--color-link) 45%, transparent);
+}
+
+article p:not(.meta) a:hover,
+article li a:hover {
+  text-decoration-color: currentColor;
+}
+
 p {
   margin: 0 0 1.25rem;
 }
@@ -153,6 +170,40 @@ img {
   width: 100%;
 }
 
+.model-compare {
+  margin: 1.75rem 0;
+}
+
+.model-compare .mc-pair {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.model-compare .mc-panel {
+  position: relative;
+  line-height: 0;
+}
+
+.model-compare .mc-panel img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.model-compare .mc-label {
+  position: absolute;
+  top: 0.4rem;
+  left: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  line-height: 1;
+  padding: 0.25em 0.5em;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  letter-spacing: 0.02em;
+}
+
 .yamnet-flow {
   margin: 1.75rem 0;
   font-family: var(--font-mono);
@@ -220,6 +271,7 @@ img {
 }
 
 .yamnet-flow .yf-final .yf-sound {
+  font-family: var(--font-sans);
   color: var(--color-text);
   white-space: normal;
   line-height: 1.55;
@@ -239,6 +291,140 @@ figcaption.prompt-caption {
   color: var(--color-text-muted);
   opacity: 0.85;
   margin-top: 0.5rem;
+}
+
+.shot-prompts {
+  margin: 1.5rem 0;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.shot-prompts .sp-row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: baseline;
+  background: #0f0d0a;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.6rem 0.85rem;
+  margin-bottom: 0.4rem;
+}
+
+.shot-prompts .sp-n {
+  flex: none;
+  color: var(--color-h2);
+  font-weight: 600;
+}
+
+.shot-prompts .sp-t {
+  flex: none;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.shot-prompts .sp-p {
+  font-family: var(--font-sans);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shot-prompts .sp-more {
+  color: var(--color-text-muted);
+  text-align: center;
+  padding: 0.4rem 0;
+  letter-spacing: 0.15em;
+}
+
+.cost-table {
+  margin: 1.5rem 0;
+  font-family: var(--font-sans);
+}
+
+.cost-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #0f0d0a;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  overflow: hidden;
+  font-size: 0.85rem;
+}
+
+.cost-table th,
+.cost-table td {
+  text-align: left;
+  padding: 0.5rem 0.85rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.cost-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.cost-table th {
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.cost-table .num {
+  text-align: right;
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+.cost-table tbody .num {
+  color: var(--color-h2);
+}
+
+.cost-table figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.shot-prompts figcaption {
+  margin-top: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.prompt-example {
+  margin: 1.5rem 0;
+}
+
+.prompt-example .pe-card {
+  background: #0f0d0a;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.85rem 1rem;
+}
+
+.prompt-example .pe-meta {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--color-h2);
+  letter-spacing: 0.03em;
+  margin-bottom: 0.5rem;
+}
+
+.prompt-example .pe-text {
+  margin: 0;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  font-size: 0.92rem;
+}
+
+.prompt-example figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
 }
 
 @media (max-width: 600px) {
