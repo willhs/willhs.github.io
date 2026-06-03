@@ -185,7 +185,8 @@ img {
   line-height: 0;
 }
 
-.model-compare .mc-panel img {
+.model-compare .mc-panel img,
+.model-compare .mc-panel video {
   width: 100%;
   border-radius: 4px;
 }

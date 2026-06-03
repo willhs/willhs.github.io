@@ -1,0 +1,116 @@
+---
+interface Clip {
+  src: string;
+  label?: string;
+  caption?: string;
+}
+interface Props {
+  id?: string;
+  clips?: Clip[];
+}
+const { id = 'carousel', clips = [] } = Astro.props;
+---
+
+<figure class="carousel" data-carousel-id={id}>
+  <div class="cr-viewport">
+    <div class="cr-track">
+      {clips.map((c, i) => (
+        <div class="cr-slide" data-slide={i} data-label={c.label ?? ''} data-caption={c.caption ?? ''}>
+          <video src={c.src} controls playsinline muted loop preload="none"></video>
+        </div>
+      ))}
+    </div>
+    {clips.length > 1 && (
+      <>
+        <button type="button" class="cr-nav cr-prev" data-prev aria-label="Previous clip">‹</button>
+        <button type="button" class="cr-nav cr-next" data-next aria-label="Next clip">›</button>
+      </>
+    )}
+  </div>
+  {clips.length > 1 && (
+    <div class="cr-dots">
+      {clips.map((_, i) => (
+        <button type="button" class="cr-dot" data-dot={i} aria-label={`Go to clip ${i + 1}`}></button>
+      ))}
+    </div>
+  )}
+  <figcaption class="cr-caption"></figcaption>
+</figure>
+
+<style>
+  .carousel { margin: 1.75rem 0; }
+  .cr-viewport {
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+    border: 1px solid var(--color-border);
+    background: #0f0d0a;
+  }
+  .cr-track { display: flex; transition: transform 320ms ease; }
+  .cr-slide { flex: 0 0 100%; line-height: 0; }
+  .cr-slide video { width: 100%; display: block; }
+  .cr-nav {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 2.2rem; height: 2.2rem; border-radius: 50%;
+    border: none; background: rgba(0, 0, 0, 0.55); color: #fff;
+    font-size: 1.4rem; line-height: 1; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .cr-nav:hover { background: rgba(0, 0, 0, 0.8); }
+  .cr-prev { left: 0.5rem; }
+  .cr-next { right: 0.5rem; }
+  .cr-dots { display: flex; justify-content: center; gap: 0.4rem; margin-top: 0.6rem; }
+  .cr-dot {
+    width: 0.5rem; height: 0.5rem; padding: 0; border-radius: 50%;
+    border: none; background: var(--color-border); cursor: pointer;
+  }
+  .cr-dot[aria-current="true"] { background: var(--color-h2); }
+  .cr-caption {
+    margin-top: 0.6rem; font-size: 0.85rem; line-height: 1.5;
+    color: var(--color-text-muted);
+  }
+  .cr-caption .cr-label {
+    font-family: var(--font-mono); font-size: 0.72rem;
+    color: var(--color-h2); margin-right: 0.5rem;
+  }
+</style>
+
+<script>
+  function init() {
+    document.querySelectorAll<HTMLElement>('[data-carousel-id]').forEach((root) => {
+      if ((root as any).__wired) return;
+      (root as any).__wired = true;
+
+      const track = root.querySelector<HTMLElement>('.cr-track')!;
+      const slides = Array.from(root.querySelectorAll<HTMLElement>('.cr-slide'));
+      const dots = Array.from(root.querySelectorAll<HTMLElement>('.cr-dot'));
+      const caption = root.querySelector<HTMLElement>('.cr-caption')!;
+      let cur = 0;
+
+      function show(i: number) {
+        cur = (i + slides.length) % slides.length;
+        track.style.transform = `translateX(-${cur * 100}%)`;
+        dots.forEach((d, j) => d.setAttribute('aria-current', String(j === cur)));
+        // pause every video except the active one
+        slides.forEach((s, j) => {
+          const v = s.querySelector('video');
+          if (v && j !== cur) v.pause();
+        });
+        const label = slides[cur].dataset.label ?? '';
+        const text = slides[cur].dataset.caption ?? '';
+        caption.innerHTML = (label ? `<span class="cr-label">${label}</span>` : '') + text;
+      }
+
+      root.querySelector('[data-prev]')?.addEventListener('click', () => show(cur - 1));
+      root.querySelector('[data-next]')?.addEventListener('click', () => show(cur + 1));
+      dots.forEach((d) =>
+        d.addEventListener('click', () => show(Number(d.dataset.dot))),
+      );
+
+      show(0);
+    });
+  }
+
+  init();
+  document.addEventListener('astro:page-load', init);
+</script>
