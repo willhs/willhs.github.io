@@ -1,43 +1,52 @@
 ---
 // Encode-pipeline diagram: film → split into shots → analyse each shot across
-// four modalities → fuse into a per-shot JSON entry → tiny text manifest.
+// four modalities → fuse into a per-shot JSON entry → tiny manifest. Laid out as
+// a funnel — node widths narrow toward the manifest so the shape carries the
+// ~7000× compression. Sans by default; mono is reserved for machine data (sizes,
+// specs, model/tool names, JSON keys, the multiplier).
+
+const glyphs: Record<string, string> = {
+  vision: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M1 8s2.5-4.6 7-4.6S15 8 15 8s-2.5 4.6-7 4.6S1 8 1 8z"/><circle cx="8" cy="8" r="1.8"/></svg>`,
+  motion: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h12"/><path d="M5 5 2 8l3 3"/><path d="M11 5l3 3-3 3"/></svg>`,
+  sound: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h2l3-2.5v9L5 10H3z"/><path d="M10.6 6.2a3 3 0 0 1 0 3.6"/><path d="M12.3 4.8a5.2 5.2 0 0 1 0 6.4"/></svg>`,
+  speech: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 3.5h11v7h-6l-3 2.5V10.5h-2z"/></svg>`,
+};
+
+const lanes = [
+  { key: 'vision', tag: 'vision', in: '2–8 frames', inSpec: '@512px · ffmpeg', out: 'Gemini VLM', outDesc: 'scene caption' },
+  { key: 'motion', tag: 'motion', in: 'optical flow', inSpec: 'Farnebäck', out: 'camera-move', outDesc: 'pan / zoom / static' },
+  { key: 'sound', tag: 'sound', in: 'audio', inSpec: '16 kHz mono · ffmpeg', out: 'YAMNet', outDesc: 'bucket + top labels' },
+  { key: 'speech', tag: 'speech', in: 'subtitles', inSpec: 'SRT · ffmpeg', out: 'dialogue', outDesc: 'lines + timings' },
+];
+
+const fields = ['shot_type', 'camera_movement', 'subjects', 'action', 'lighting', 'color_palette', 'mood', 'setting', 'sound', 'dialogue'];
 ---
 
 <figure class="pipeviz">
   <div class="pv-flow">
-    <div class="pv-node pv-io">Film<span>~600 MB · ~2 hr · 1080p</span></div>
+    <div class="pv-node pv-io">
+      <span class="pv-title">Film</span>
+      <span class="pv-meta">~600 MB · ~2 hr · 1080p</span>
+    </div>
 
-    <div class="pv-step">↓ detect shot boundaries · PySceneDetect</div>
+    <div class="pv-step">↓ detect shot boundaries · <span class="pv-tool">PySceneDetect</span></div>
 
-    <div class="pv-node pv-shots">~2,070 shots<span>~3.6 s each</span></div>
+    <div class="pv-node pv-shots">
+      <span class="pv-title">~2,070 shots</span>
+      <span class="pv-meta">~3.6 s each</span>
+    </div>
 
     <div class="pv-step">↓ for each shot — extract, then analyse</div>
 
     <div class="pv-lanes">
-      <div class="pv-lane">
-        <span class="pv-tag">vision</span>
-        <div class="pv-in">2–8 frames<small>@512px · ffmpeg</small></div>
-        <div class="pv-down">↓</div>
-        <div class="pv-out">Gemini VLM<small>scene caption</small></div>
-      </div>
-      <div class="pv-lane">
-        <span class="pv-tag">motion</span>
-        <div class="pv-in">optical flow<small>Farnebäck</small></div>
-        <div class="pv-down">↓</div>
-        <div class="pv-out">camera-move<small>pan / zoom / static</small></div>
-      </div>
-      <div class="pv-lane">
-        <span class="pv-tag">sound</span>
-        <div class="pv-in">audio<small>16 kHz mono · ffmpeg</small></div>
-        <div class="pv-down">↓</div>
-        <div class="pv-out">YAMNet<small>bucket + top labels</small></div>
-      </div>
-      <div class="pv-lane">
-        <span class="pv-tag">speech</span>
-        <div class="pv-in">subtitles<small>SRT · ffmpeg</small></div>
-        <div class="pv-down">↓</div>
-        <div class="pv-out">dialogue<small>lines + timings</small></div>
-      </div>
+      {lanes.map((l) => (
+        <div class="pv-lane">
+          <span class="pv-tag"><span class="pv-glyph" set:html={glyphs[l.key]} />{l.tag}</span>
+          <div class="pv-in">{l.in}<small>{l.inSpec}</small></div>
+          <div class="pv-down">↓</div>
+          <div class="pv-out"><span class="pv-model">{l.out}</span><small>{l.outDesc}</small></div>
+        </div>
+      ))}
     </div>
 
     <div class="pv-note">motion, sound &amp; speech also feed the VLM as hints</div>
@@ -45,106 +54,87 @@
     <div class="pv-step">↓ fuse into one entry per shot</div>
 
     <div class="pv-node pv-entry">
-      <div class="pv-entry-title">per-shot JSON entry</div>
+      <span class="pv-title">per-shot JSON entry</span>
       <div class="pv-fields">
-        <span class="pv-field">shot_type</span>
-        <span class="pv-field">camera_movement</span>
-        <span class="pv-field">subjects</span>
-        <span class="pv-field">action</span>
-        <span class="pv-field">lighting</span>
-        <span class="pv-field">color_palette</span>
-        <span class="pv-field">mood</span>
-        <span class="pv-field">setting</span>
-        <span class="pv-field">sound</span>
-        <span class="pv-field">dialogue</span>
+        {fields.map((f) => <span class="pv-field">{f}</span>)}
       </div>
     </div>
 
-    <div class="pv-step">↓ collect ~2,070 entries + character clusters</div>
+    <div class="pv-step">↓ collect all ~2,070 entries + character clusters</div>
 
-    <div class="pv-node pv-manifest">Manifest<span>manifest.json · ~88 KB · ≈ 7000× smaller</span></div>
+    <div class="pv-node pv-manifest">
+      <span class="pv-title">Manifest</span>
+      <span class="pv-meta">manifest.json · ~88 KB</span>
+      <span class="pv-sub">the whole compressed film — every shot entry + character clusters</span>
+      <span class="pv-mult">≈ 7000× smaller</span>
+    </div>
   </div>
 </figure>
 
 <style>
+  /* Sans by default; mono only where the text is machine data. */
   .pipeviz {
     margin: 1.75rem 0;
     padding: 1.25rem;
-    border: 1px solid var(--color-border);
     border-radius: 8px;
     background: #0f0d0a;
   }
   .pv-flow { display: flex; flex-direction: column; align-items: stretch; gap: 0.65rem; }
 
+  /* funnel taper — widths narrow toward the manifest, centered */
+  .pv-node,
+  .pv-step,
+  .pv-note { margin-left: auto; margin-right: auto; }
+
   .pv-node {
     text-align: center;
     padding: 0.7rem;
     border-radius: 6px;
-    font-family: var(--font-mono);
-    font-size: 0.92rem;
-    border: 1px solid var(--color-border);
   }
-  .pv-node span { display: block; font-size: 0.72rem; color: var(--color-text-muted); margin-top: 0.2rem; }
-  .pv-io { background: #1f1a12; }
-  .pv-shots { background: #15120c; }
-  .pv-manifest { background: var(--color-h2); color: var(--color-bg); border-color: var(--color-h2); }
-  .pv-manifest span { color: var(--color-bg); opacity: 0.82; }
+  .pv-title { display: block; font-size: 0.95rem; font-weight: 600; }
+  .pv-meta { display: block; font-family: var(--font-mono); font-size: 0.72rem; color: var(--color-text-muted); margin-top: 0.2rem; }
+  .pv-sub { display: block; font-size: 0.7rem; color: var(--color-text-muted); margin-top: 0.3rem; line-height: 1.4; }
+  .pv-mult { display: block; font-family: var(--font-mono); font-size: 0.78rem; font-weight: 600; color: var(--color-h2); margin-top: 0.35rem; }
 
-  .pv-step { text-align: center; font-family: var(--font-mono); font-size: 0.74rem; color: var(--color-text-muted); }
+  .pv-io { background: #1f1a12; width: 94%; }
+  .pv-shots { background: #15120c; width: 76%; }
+  .pv-entry { background: #15120c; padding: 0.8rem 0.7rem; width: 60%; }
+  .pv-manifest { background: #15120c; width: 46%; }
 
-  /* parallel modality lanes */
-  .pv-lanes {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.6rem;
-  }
+  .pv-step { text-align: center; font-size: 0.8rem; color: var(--color-text-muted); }
+  .pv-tool { font-family: var(--font-mono); font-size: 0.92em; }
+
+  /* parallel modality lanes — the wide fan-out in the middle of the funnel */
+  .pv-lanes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; width: 100%; }
   .pv-lane {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.4rem;
-    padding: 0.6rem 0.5rem;
-    border: 1px solid var(--color-border);
-    border-radius: 6px;
-    font-family: var(--font-mono);
-    text-align: center;
+    display: flex; flex-direction: column; align-items: stretch; gap: 0.4rem;
+    padding: 0.6rem 0.5rem; background: #15120c; border-radius: 6px; text-align: center;
   }
   .pv-tag {
-    font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.06em;
-    color: var(--color-h1);
+    display: flex; align-items: center; justify-content: center; gap: 0.3rem;
+    font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-h1);
   }
-  .pv-in, .pv-out { font-size: 0.76rem; }
-  .pv-in small, .pv-out small { display: block; font-size: 0.64rem; color: var(--color-text-muted); margin-top: 0.15rem; }
-  .pv-out {
-    border-top: 2px solid var(--color-h2);
-    padding-top: 0.4rem;
-    margin-top: auto;
-  }
+  .pv-glyph { display: inline-flex; width: 0.95rem; height: 0.95rem; }
+  .pv-glyph :global(svg) { width: 100%; height: 100%; display: block; }
+  .pv-in, .pv-model { font-family: var(--font-mono); font-size: 0.76rem; }
+  .pv-in small { display: block; font-family: var(--font-mono); font-size: 0.64rem; color: var(--color-text-muted); margin-top: 0.15rem; }
+  .pv-out small { display: block; font-size: 0.68rem; color: var(--color-text-muted); margin-top: 0.15rem; }
+  .pv-out { border-top: 1px solid var(--color-h2); padding-top: 0.4rem; margin-top: auto; }
   .pv-down { font-size: 0.72rem; color: var(--color-text-muted); }
 
-  .pv-note {
-    text-align: center;
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    font-style: italic;
-    color: var(--color-text-muted);
-  }
+  .pv-note { text-align: center; font-size: 0.7rem; font-style: italic; color: var(--color-text-muted); }
 
-  /* per-shot entry with field chips */
-  .pv-entry { background: #15120c; padding: 0.8rem 0.7rem; }
-  .pv-entry-title { font-family: var(--font-mono); font-size: 0.82rem; text-align: center; margin-bottom: 0.6rem; }
-  .pv-fields { display: flex; flex-wrap: wrap; gap: 0.35rem; justify-content: center; }
+  /* per-shot entry with field chips (JSON keys stay mono) */
+  .pv-fields { display: flex; flex-wrap: wrap; gap: 0.35rem; justify-content: center; margin-top: 0.55rem; }
   .pv-field {
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    color: var(--color-text-muted);
-    background: #0f0d0a;
-    border: 1px solid var(--color-border);
-    border-radius: 3px;
-    padding: 0.12rem 0.4rem;
+    font-family: var(--font-mono); font-size: 0.68rem; color: var(--color-text-muted);
+    background: #0f0d0a; border-radius: 3px; padding: 0.12rem 0.4rem;
   }
 
   @media (max-width: 560px) {
     .pv-lanes { grid-template-columns: repeat(2, 1fr); }
+    /* drop the taper on narrow screens so nothing gets cramped */
+    .pv-io, .pv-shots, .pv-entry, .pv-manifest { width: 100%; }
   }
 </style>
+</content>

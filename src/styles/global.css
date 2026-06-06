@@ -10,7 +10,7 @@
   --color-h2: #ff8c42;
   --color-link: #ff8c42;
   --color-link-hover: #ffad70;
-  --color-border: #3a3020;
+  --color-border: #29231a;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
   --max-width: 680px;
@@ -107,7 +107,6 @@ code {
 
 pre {
   background: #0f0d0a;
-  border: 1px solid var(--color-border);
   border-radius: 6px;
   padding: 1.25rem;
   overflow-x: auto;
@@ -121,14 +120,14 @@ pre code {
 }
 
 blockquote {
-  border-left: 3px solid var(--color-h2);
+  border-left: 2px solid var(--color-h2);
   margin: 0 0 1.25rem;
   padding: 0.25rem 0 0.25rem 1.25rem;
   color: var(--color-text-muted);
 }
 
 .aside {
-  border-left: 3px solid var(--color-h2);
+  border-left: 2px solid var(--color-h2);
   margin: 2rem 0;
   padding: 0.25rem 0 0.25rem 1.5rem;
   color: var(--color-text-muted);
@@ -147,10 +146,23 @@ blockquote {
   font-style: italic;
 }
 
-img {
+img,
+video {
   max-width: 100%;
   height: auto;
   border-radius: 4px;
+}
+
+figure {
+  margin: 1.5rem 0;
+}
+
+figcaption {
+  margin-top: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
 }
 
 .hero {
@@ -213,7 +225,6 @@ img {
 
 .yamnet-flow .yf-stage {
   background: #0f0d0a;
-  border: 1px solid var(--color-border);
   border-radius: 6px;
   padding: 0.75rem 0.9rem;
 }
@@ -305,7 +316,6 @@ figcaption.prompt-caption {
   gap: 0.75rem;
   align-items: baseline;
   background: #0f0d0a;
-  border: 1px solid var(--color-border);
   border-radius: 6px;
   padding: 0.6rem 0.85rem;
   margin-bottom: 0.4rem;
@@ -347,7 +357,6 @@ figcaption.prompt-caption {
   width: 100%;
   border-collapse: collapse;
   background: #0f0d0a;
-  border: 1px solid var(--color-border);
   border-radius: 6px;
   overflow: hidden;
   font-size: 0.85rem;
@@ -357,11 +366,12 @@ figcaption.prompt-caption {
 .cost-table td {
   text-align: left;
   padding: 0.5rem 0.85rem;
-  border-bottom: 1px solid var(--color-border);
 }
 
-.cost-table tbody tr:last-child td {
-  border-bottom: none;
+/* A single rule under the header separates labels from data; body rows are
+   separated by row padding alone (data-ink — drop the per-row dividers). */
+.cost-table thead th {
+  border-bottom: 1px solid var(--color-border);
 }
 
 .cost-table th {
@@ -400,7 +410,6 @@ figcaption.prompt-caption {
 
 .prompt-example .pe-card {
   background: #0f0d0a;
-  border: 1px solid var(--color-border);
   border-radius: 6px;
   padding: 0.85rem 1rem;
 }

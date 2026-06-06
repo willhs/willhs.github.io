@@ -1,0 +1,173 @@
+---
+// TEMPORARY trial page — flip between heading+body font pairings live at
+// /font-trial. Mono is held constant (JetBrains) so only the prose/heading voice
+// changes. Delete this file once a pairing is chosen.
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import PipelineViz from '../components/PipelineViz.astro';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title="Font trial" description="Trialing heading + body font pairings." />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,600;0,700;1,400&family=Fraunces:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@400;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;0,700;1,400&family=Literata:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Newsreader:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Spectral:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+    />
+  </head>
+  <body>
+    <Header />
+
+    <div class="ft-switch" data-fontswitch>
+      <button type="button" class="ft-nav" data-prev aria-label="Previous pairing">‹</button>
+      <span class="ft-label" data-label></span>
+      <button type="button" class="ft-nav" data-next aria-label="Next pairing">›</button>
+      <span class="ft-hint">mono kept for code/names only · 1–8 single family · 9–10 one superfamily, two members</span>
+    </div>
+
+    <main class="container">
+      <article class="fonttrial" data-fonttrial>
+        <h1>The least-crap film from the smallest data</h1>
+
+        <p>
+          A two-hour film is about 600&nbsp;MB. What if we threw nearly all of it away —
+          kept only a <em>description</em> of each shot — and asked a video model to
+          imagine the movie back? This post is about how far that idea goes, and where
+          it falls apart. The honest answer is: further than you'd think, and in
+          stranger places.
+        </p>
+
+        <p>
+          The encoder reads the film shot by shot, then writes each one down. You can
+          read more about the <a href="#">shot-detection step</a> below, but the gist
+          is that every cut becomes a row in a tiny <code>manifest.json</code> — the
+          whole compressed film, ≈7000× smaller than where it started.
+        </p>
+
+        <h2>Decode: rebuilding the movie</h2>
+
+        <p>
+          Now we hand each description to a video model and stitch the clips back
+          together. The cheap models hallucinate; the expensive ones cost more than the
+          film was worth. Somewhere in the middle is a usable picture.
+        </p>
+
+        <blockquote>
+          The codec floor isn't a bitrate — it's <em>meaning</em>. Below a certain
+          point you stop losing detail and start losing the plot.
+        </blockquote>
+
+        <aside class="aside note">
+
+        A quick aside: "lossy" here is doing a lot of work. We're not compressing pixels,
+        we're compressing <em>intent</em> — and the model fills the rest back in.
+
+        </aside>
+
+        <h3>What each shot description carries</h3>
+
+        <ul>
+          <li>The look of the frame — lighting, palette, mood, setting.</li>
+          <li>What's moving, and how the camera moves with it.</li>
+          <li>What it sounds like, and any dialogue, with timings.</li>
+        </ul>
+
+        <figure class="cost-table">
+          <table>
+            <thead>
+              <tr><th>Model</th><th>Where</th><th class="num">cost / sec</th><th class="num">whole film</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Wan 2.1 T2V 1.3B</td><td>self-hosted (RunPod 4090)</td><td class="num">$0.002</td><td class="num">≈$16</td></tr>
+              <tr><td>Seedance 1.0 Pro</td><td>paid API (fal)</td><td class="num">$0.05</td><td class="num">≈$370</td></tr>
+              <tr><td>Seedance 2.0</td><td>paid API (list price)</td><td class="num">≈$0.15</td><td class="num">≈$1,100</td></tr>
+            </tbody>
+          </table>
+          <figcaption>Per-second rates measured on our own runs; full-film figures extrapolate one clip per shot. Captions stay in the UI sans.</figcaption>
+        </figure>
+
+        <p>The pipeline itself, end to end:</p>
+
+        <PipelineViz />
+
+        <pre><code>{`# encode one film into a manifest
+shots = detect_shots("starwars.mkv")      # ~2,070 cuts
+for shot in shots:
+    entry = analyse(shot)                 # vision + motion + sound + speech
+    manifest.append(entry)
+write_json("manifest.json", manifest)     # ~88 KB`}</code></pre>
+
+        <p>
+          That's the whole trick. Everything after this is just deciding how much
+          imagination we can afford to buy back.
+        </p>
+      </article>
+    </main>
+
+    <style>
+      /* ---- switcher chrome (not part of the sample) ---- */
+      .ft-switch {
+        position: sticky; top: 0; z-index: 10;
+        display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;
+        padding: 0.7rem 1rem; margin-bottom: 1.5rem;
+        background: #0f0d0a; box-shadow: 0 1px 0 var(--color-border);
+      }
+      .ft-label { font-family: var(--font-mono); font-size: 0.82rem; color: var(--color-text); min-width: 18rem; text-align: center; }
+      .ft-hint { flex-basis: 100%; text-align: center; font-size: 0.72rem; color: var(--color-text-muted); }
+      .ft-nav {
+        width: 2rem; height: 2rem; border-radius: 50%; border: none; cursor: pointer;
+        background: #2a2418; color: var(--color-text); font-size: 1.2rem; line-height: 1;
+      }
+      .ft-nav:hover { background: #3a3020; }
+
+      /* ---- the sample: body = serif var, headings = display var ---- */
+      .fonttrial { font-family: var(--ft-serif, var(--font-sans)); }
+      .fonttrial h1,
+      .fonttrial h2,
+      .fonttrial h3 { font-family: var(--ft-display, var(--font-sans)); }
+      /* figures, captions, code stay in their content-appropriate faces */
+      .fonttrial figcaption { font-family: var(--font-sans); }
+      .fonttrial .pipeviz { font-family: var(--font-sans); }
+      .fonttrial code,
+      .fonttrial pre,
+      .fonttrial .num { font-family: var(--font-mono); }
+
+      .fonttrial > p:first-of-type { font-size: 1.1rem; color: var(--color-text); }
+    </style>
+
+    <script>
+      const pairings = [
+        // single family — one typeface for headings + body (mono stays for code only)
+        { label: '1 · Inter — single family (sans baseline)', display: "'Inter', sans-serif", serif: "'Inter', sans-serif" },
+        { label: '2 · Source Serif 4 — single family', display: "'Source Serif 4', serif", serif: "'Source Serif 4', Georgia, serif" },
+        { label: '3 · Newsreader — single family', display: "'Newsreader', serif", serif: "'Newsreader', Georgia, serif" },
+        { label: '4 · Spectral — single family', display: "'Spectral', serif", serif: "'Spectral', Georgia, serif" },
+        { label: '5 · Literata — single family', display: "'Literata', serif", serif: "'Literata', Georgia, serif" },
+        { label: '6 · Lora — single family', display: "'Lora', serif", serif: "'Lora', Georgia, serif" },
+        { label: '7 · Bitter — single family (slab)', display: "'Bitter', serif", serif: "'Bitter', Georgia, serif" },
+        { label: '8 · Fraunces — single family (characterful)', display: "'Fraunces', serif", serif: "'Fraunces', Georgia, serif" },
+        // superfamily — one designed family, two members (sans headings / serif body)
+        { label: '9 · IBM Plex — Sans headings / Serif body', display: "'IBM Plex Sans', sans-serif", serif: "'IBM Plex Serif', Georgia, serif" },
+        { label: '10 · Source — Sans 3 headings / Serif 4 body', display: "'Source Sans 3', sans-serif", serif: "'Source Serif 4', Georgia, serif" },
+      ];
+      const root = document.querySelector<HTMLElement>('[data-fonttrial]');
+      const sw = document.querySelector<HTMLElement>('[data-fontswitch]');
+      if (root && sw) {
+        const labelEl = sw.querySelector<HTMLElement>('[data-label]')!;
+        let cur = 0;
+        function apply(i: number) {
+          cur = (i + pairings.length) % pairings.length;
+          const p = pairings[cur];
+          root!.style.setProperty('--ft-display', p.display);
+          root!.style.setProperty('--ft-serif', p.serif);
+          labelEl.textContent = p.label;
+        }
+        sw.querySelector('[data-prev]')?.addEventListener('click', () => apply(cur - 1));
+        sw.querySelector('[data-next]')?.addEventListener('click', () => apply(cur + 1));
+        apply(0);
+      }
+    </script>
+  </body>
+</html>
+</content>

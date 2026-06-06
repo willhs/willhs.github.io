@@ -1,6 +1,7 @@
 ---
 interface Clip {
   src: string;
+  poster?: string;
   label?: string;
   caption?: string;
 }
@@ -16,7 +17,7 @@ const { id = 'carousel', clips = [] } = Astro.props;
     <div class="cr-track">
       {clips.map((c, i) => (
         <div class="cr-slide" data-slide={i} data-label={c.label ?? ''} data-caption={c.caption ?? ''}>
-          <video src={c.src} controls playsinline muted loop preload="none"></video>
+          <video data-src={c.src} poster={c.poster} controls playsinline preload="none"></video>
         </div>
       ))}
     </div>
@@ -34,7 +35,10 @@ const { id = 'carousel', clips = [] } = Astro.props;
       ))}
     </div>
   )}
-  <figcaption class="cr-caption"></figcaption>
+  <figcaption class="cr-caption">
+    <span class="cr-label"></span>
+    <span class="cr-text"></span>
+  </figcaption>
 </figure>
 
 <style>
@@ -43,7 +47,6 @@ const { id = 'carousel', clips = [] } = Astro.props;
     position: relative;
     overflow: hidden;
     border-radius: 6px;
-    border: 1px solid var(--color-border);
     background: #0f0d0a;
   }
   .cr-track { display: flex; transition: transform 320ms ease; }
@@ -70,8 +73,9 @@ const { id = 'carousel', clips = [] } = Astro.props;
     color: var(--color-text-muted);
   }
   .cr-caption .cr-label {
+    display: block;
     font-family: var(--font-mono); font-size: 0.72rem;
-    color: var(--color-h2); margin-right: 0.5rem;
+    color: var(--color-h2); margin-bottom: 0.25rem;
   }
 </style>
 
@@ -84,12 +88,24 @@ const { id = 'carousel', clips = [] } = Astro.props;
       const track = root.querySelector<HTMLElement>('.cr-track')!;
       const slides = Array.from(root.querySelectorAll<HTMLElement>('.cr-slide'));
       const dots = Array.from(root.querySelectorAll<HTMLElement>('.cr-dot'));
-      const caption = root.querySelector<HTMLElement>('.cr-caption')!;
+      const labelEl = root.querySelector<HTMLElement>('.cr-label')!;
+      const textEl = root.querySelector<HTMLElement>('.cr-text')!;
       let cur = 0;
+
+      // set the real src on a slide's video the first time it's needed
+      function load(j: number) {
+        if (j < 0 || j >= slides.length) return;
+        const v = slides[j].querySelector('video');
+        if (v && !v.src && v.dataset.src) v.src = v.dataset.src;
+      }
 
       function show(i: number) {
         cur = (i + slides.length) % slides.length;
         track.style.transform = `translateX(-${cur * 100}%)`;
+        // load the active slide plus its immediate neighbours
+        load(cur);
+        load(cur - 1);
+        load(cur + 1);
         dots.forEach((d, j) => d.setAttribute('aria-current', String(j === cur)));
         // pause every video except the active one
         slides.forEach((s, j) => {
@@ -97,14 +113,45 @@ const { id = 'carousel', clips = [] } = Astro.props;
           if (v && j !== cur) v.pause();
         });
         const label = slides[cur].dataset.label ?? '';
-        const text = slides[cur].dataset.caption ?? '';
-        caption.innerHTML = (label ? `<span class="cr-label">${label}</span>` : '') + text;
+        const num = `${cur + 1} / ${slides.length}`;
+        labelEl.textContent = label ? `${num} · ${label}` : num;
+        labelEl.style.display = 'block';
+        textEl.textContent = slides[cur].dataset.caption ?? '';
       }
 
       root.querySelector('[data-prev]')?.addEventListener('click', () => show(cur - 1));
       root.querySelector('[data-next]')?.addEventListener('click', () => show(cur + 1));
       dots.forEach((d) =>
         d.addEventListener('click', () => show(Number(d.dataset.dot))),
+      );
+
+      // horizontal swipe (mobile)
+      const viewport = root.querySelector<HTMLElement>('.cr-viewport')!;
+      let startX = 0;
+      let startY = 0;
+      let swiping = false;
+      viewport.addEventListener(
+        'touchstart',
+        (e) => {
+          startX = e.touches[0].clientX;
+          startY = e.touches[0].clientY;
+          swiping = true;
+        },
+        { passive: true },
+      );
+      viewport.addEventListener(
+        'touchend',
+        (e) => {
+          if (!swiping) return;
+          swiping = false;
+          const dx = e.changedTouches[0].clientX - startX;
+          const dy = e.changedTouches[0].clientY - startY;
+          // only treat as swipe if mostly horizontal and far enough
+          if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+            show(dx < 0 ? cur + 1 : cur - 1);
+          }
+        },
+        { passive: true },
       );
 
       show(0);
