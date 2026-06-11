@@ -1,9 +1,9 @@
 ---
 // Encode-pipeline diagram: film → split into shots → analyse each shot across
-// four modalities → fuse into a per-shot JSON entry → tiny manifest. Laid out as
-// a funnel — node widths narrow toward the manifest so the shape carries the
-// ~7000× compression. Sans by default; mono is reserved for machine data (sizes,
-// specs, model/tool names, JSON keys, the multiplier).
+// four modalities → fuse into a per-shot JSON entry → collect into shots.json →
+// compress. Laid out as a funnel — node widths narrow toward the compressed
+// archive so the shape carries the ~2,000× compression. Sans by default; mono is
+// reserved for machine data (sizes, specs, model/tool names, JSON keys, the multiplier).
 
 const glyphs: Record<string, string> = {
   vision: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M1 8s2.5-4.6 7-4.6S15 8 15 8s-2.5 4.6-7 4.6S1 8 1 8z"/><circle cx="8" cy="8" r="1.8"/></svg>`,
@@ -62,13 +62,23 @@ const fields = ['shot_type', 'camera_movement', 'subjects', 'action', 'lighting'
 
     <div class="pv-step">↓ collect all ~2,070 entries + character clusters</div>
 
+    <div class="pv-node pv-shotsfile">
+      <span class="pv-title">The summarised film</span>
+      <span class="pv-meta">shots.json + characters.json · ~3 MB</span>
+      <span class="pv-sub">every shot entry + the dialog timeline + character clusters, as plain text — so it still has slack left to compress</span>
+      <span class="pv-mult">≈ 200× smaller</span>
+    </div>
+
+    <div class="pv-step">↓ compress · <span class="pv-tool">xz -9e</span></div>
+
     <div class="pv-node pv-manifest">
-      <span class="pv-title">Manifest</span>
-      <span class="pv-meta">manifest.json · ~88 KB</span>
-      <span class="pv-sub">the whole compressed film — every shot entry + character clusters</span>
-      <span class="pv-mult">≈ 7000× smaller</span>
+      <span class="pv-title">Zipped up</span>
+      <span class="pv-meta">~300 KB compressed</span>
+      <span class="pv-sub">the whole film as text, smaller than a single phone photo</span>
+      <span class="pv-mult">≈ 2,000× smaller</span>
     </div>
   </div>
+  <figcaption>Text has slack a video codec doesn't, so <code>xz</code> squeezes the shot descriptions another ~10×. Run the same compressor on the original <code>.mp4</code> and it shaves under 1% — H.264 already wrung the redundancy out of the pixels.</figcaption>
 </figure>
 
 <style>
@@ -99,7 +109,8 @@ const fields = ['shot_type', 'camera_movement', 'subjects', 'action', 'lighting'
   .pv-io { background: #1f1a12; width: 94%; }
   .pv-shots { background: #15120c; width: 76%; }
   .pv-entry { background: #15120c; padding: 0.8rem 0.7rem; width: 60%; }
-  .pv-manifest { background: #15120c; width: 46%; }
+  .pv-shotsfile { background: #15120c; width: 52%; }
+  .pv-manifest { background: #15120c; width: 42%; }
 
   .pv-step { text-align: center; font-size: 0.8rem; color: var(--color-text-muted); }
   .pv-tool { font-family: var(--font-mono); font-size: 0.92em; }
@@ -131,10 +142,20 @@ const fields = ['shot_type', 'camera_movement', 'subjects', 'action', 'lighting'
     background: #0f0d0a; border-radius: 3px; padding: 0.12rem 0.4rem;
   }
 
+  .pipeviz figcaption {
+    margin: 0.9rem auto 0;
+    max-width: 90%;
+    text-align: center;
+    font-size: 0.72rem;
+    line-height: 1.5;
+    color: var(--color-text-muted);
+  }
+  .pipeviz figcaption code { font-family: var(--font-mono); font-size: 0.92em; }
+
   @media (max-width: 560px) {
     .pv-lanes { grid-template-columns: repeat(2, 1fr); }
     /* drop the taper on narrow screens so nothing gets cramped */
-    .pv-io, .pv-shots, .pv-entry, .pv-manifest { width: 100%; }
+    .pv-io, .pv-shots, .pv-entry, .pv-shotsfile, .pv-manifest { width: 100%; }
   }
 </style>
 </content>
