@@ -11,53 +11,13 @@ import Carousel from '../../components/Carousel.astro';
   <img src="/lossy/hero.jpg" alt="A 4×3 grid of mid-clip frames from twelve films reconstructed by the lossy pipeline." />
 </figure>
 
-How could we compress a film to \<1mb while preserving the most quality?
+How could we compress a film to less than 1 MB while preserving the most quality?
 
-Dimensions that we normally compress videos on are bitmap resolution (1080p, 480p, etc), frame rate (movies and tv are usually 24fps), and audio sample rate (160kbps is Spotify's High quality), but can we crank those down enough for sub-1mb? We'll look at that dead-end in the next section.
+This seemed like an interesting thing to try to learn about what video and audio models are capable of.
 
-Shakespeare's screenplays each probably fit into 1mb, but they're plays, not films or tv shows which are more detailed, like a single re-enactment of a play.
+Normally when want a smaller video we do things like lower the frame resolution (1080p, 480p, etc), and audio sample rate (160 kbps is Spotify's High quality), and maybe the frame rate (movies and tv are usually 24fps). But can we crank those down enough for sub-1 MB? We'll see why it's not enough in the next section.
 
-Language models are good at summarising information so seem ideal for compression. Multi-model models can work with image and audio inputs. 
-
-LMs are also ideal for the de-compression too because they're good at generate video and audio from small text prompts.
-
-In this article I'll go through my experience and learnings to achieve radical compression through language models for the lowest cost.
-
-
-### How we normally compress films
-
-The lowest resolution we can go with conventional compression is around 1.1kbps for audio and 6kbps for video, the audio 
-
-{/* SCAFFOLD — conventional-compression cliff demo. Prose around these embeds is Will's to write. */}
-
-<figure>
-  <video src="/lossy/demos/probe-clip.mp4" controls playsinline preload="metadata" />
-  <figcaption>Source — 15 sec, ~521 kbps H.264, 978 KB. 124.7 min at this rate ≈ 470 MB.</figcaption>
-</figure>
-
-<figure>
-  <video src="/lossy/demos/clip-100k.mp4" controls playsinline preload="metadata" />
-  <figcaption>100 kbps AV1 — 250 KB for 15s. 124.7 min ≈ 93 MB.</figcaption>
-</figure>
-
-<figure>
-  <video src="/lossy/demos/clip-30k.mp4" controls playsinline preload="metadata" />
-  <figcaption>30 kbps AV1, 320×136, 12fps — 78 KB. 124.7 min ≈ 29 MB.</figcaption>
-</figure>
-
-<figure>
-  <video src="/lossy/demos/clip-10k.mp4" controls playsinline preload="metadata" />
-  <figcaption>10 kbps AV1, 160×68, 8fps — 39 KB. The codec floor. 124.7 min ≈ 15 MB. Still 15× over budget.</figcaption>
-</figure>
-
-<figure>
-  <audio src="/lossy/demos/audio-6k.opus" controls preload="metadata" />
-  <figcaption>6 kbps Opus speech-only — Opus's hard floor. 124.7 min ≈ 5.6 MB.</figcaption>
-</figure>
-
-{/* END SCAFFOLD */}
-
-<hr />
+In this article I'll explore how we can compress films & TV using models to summarise films (+ normal compression) to sub-1 MB, and then re-generate the film from its compressed form. I'll be optimising for the best quality for the lowest $ cost.
 
 <aside class="aside">
 
@@ -76,8 +36,38 @@ Dialogue made by LLMs (gpt-3: text-davinci-003) and narration done by text-to-sp
 
 </aside>
 
+### How we normally compress films
 
-## Encode: make the film get really small
+Let's see a video get progressively crappier with lossy compression:
+
+<figure>
+  <video src="/lossy/demos/probe-clip.mp4" controls playsinline preload="metadata" />
+  <figcaption>Source — the opening shot of <em>Star Wars IV</em>: 12 sec, ~455 kbps H.264, 673 KB. The full film file is 632 MB.</figcaption>
+</figure>
+
+<figure>
+  <video src="/lossy/demos/clip-100k.mp4" controls playsinline preload="metadata" />
+  <figcaption>100 kbps AV1 — 244 KB for 12s. 124.7 min ≈ 147 MB.</figcaption>
+</figure>
+
+<figure>
+  <video src="/lossy/demos/clip-30k.mp4" controls playsinline preload="metadata" />
+  <figcaption>30 kbps AV1, 320×136, 12fps — 76 KB. 124.7 min ≈ 46 MB.</figcaption>
+</figure>
+
+<figure>
+  <video src="/lossy/demos/clip-10k.mp4" controls playsinline preload="metadata" />
+  <figcaption>10 kbps AV1, 160×68, 8fps — 39 KB. The codec floor. 124.7 min ≈ 23 MB. Still 23× over budget.</figcaption>
+</figure>
+
+<figure>
+  <audio src="/lossy/demos/audio-6k.opus" controls preload="metadata" />
+  <figcaption>6 kbps Opus speech-only — Opus's hard floor. 124.7 min ≈ 5 MB.</figcaption>
+</figure>
+
+{/* TODO(will): concluding beat for this section — video floor ~23 MB + audio floor ~5 MB ≈ 28 MB, ~28× over the 1 MB budget. Squeezing pixels harder can't get there; we have to change WHAT we store, not how hard we squeeze. */}
+
+## Compress: film -> sub-1 MB text file
 
 <figure class="hero">
   <img src="/lossy/hagrid-hedwig.jpg" alt="Hagrid and Hedwig the snowy owl, reconstructed by the lossy pipeline (character-identity-enriched generation)." />
@@ -86,15 +76,15 @@ Dialogue made by LLMs (gpt-3: text-davinci-003) and narration done by text-to-sp
 
 ### Shot by shot
 
-Since VLMs (video language models) generate short videos of around 5-10 seconds and shots in films tend to be a similar length, it would seem that VLMs could be used to generate a film as a sequence of shot videos. 
+Since video models generate short videos of around 5-10 seconds and shots in films tend to be a similar length, it would seem that video models could be used to generate a film as a sequence of shot videos. 
 
-It turns out there's a python library for finding shot boundaries in films! [PySceneDetect](https://www.scenedetect.com/).
+It turns out there's a Python library for finding shot boundaries in films! [PySceneDetect](https://www.scenedetect.com/).
 
-Star wars, for example has 2000 clips (to make precise) which are detected pretty well by this library. There are a few exceptions, like the full-screen laser flashes in the first scene causing a few eroneus extra shots to be detected.
+Star Wars, for example, has around 2,000 shots which are detected pretty well by this library. There are a few exceptions, like the full-screen laser flashes in the first scene causing a few erroneous extra shots to be detected.
 
 <aside class="aside note">
 
-Note: it turns out the short output length of VLMs isn't as much a constraint as I thought because of the `first_image` VLM param, more on that later.
+Note: it turns out the short output length of video models isn't as much a constraint as I thought because of the `first_image` param, more on that later.
 
 </aside>
 
@@ -102,7 +92,7 @@ Note: it turns out the short output length of VLMs isn't as much a constraint as
 
 ### Describe each shot
 
-Instead of compressing a film by reducing the pixels or sampling rates, we'll use an image LM: Google's *Gemini 3.1 Flash-Lite* to summarise each shot in the film, given a few frames sampled from the shot. This gemini flash lite model is cheap at $0.075 per million input tokens and $0.30 per million output tokens.
+Instead of compressing a film by reducing the pixels or sampling rates, we'll use a vision model: Google's *Gemini 2.5 Flash-Lite* to summarise each shot in the film, given a few frames sampled from the shot. This model is cheap at $0.10 per million input tokens and $0.40 per million output tokens — scanning a full 2-hour film costs around $0.67.
 
 Going through security, *The Matrix* (8.8 seconds)
 
@@ -133,9 +123,6 @@ Going through security, *The Matrix* (8.8 seconds)
   "sound": "A mix of intense, rhythmic electronic music, ambient room tone, and the sharp, metallic sound of guns being drawn."
 }
 ```
-
-#### Clustering on characters
-
 
 ### What about audio?
 
@@ -178,14 +165,33 @@ We can use an audio classification model like [YAMNet](https://tfhub.dev/google/
 
 <PipelineViz />
 
-## Decode: making the least crap film from the smallest amount of information for the lowest cost
-
-<figure class="hero">
-  <img src="/lossy/banner-decode.jpg" alt="A reconstructed frame from Fantasia 2000, generated by the lossy pipeline." />
-  <figcaption class="prompt-caption">Prompt fed to Wan 2.1: “a man and a woman in 1940s-style business attire, holding a small child with a red ball above their heads. the camera zooms out to reveal the couple standing in a spotlight…”</figcaption>
+<figure class="cost-table">
+  <table>
+    <thead>
+      <tr><th><em>Star Wars IV</em>, written down</th><th class="num">size</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Source film — 124.7 min, 1080p H.264</td><td class="num">632 MB</td></tr>
+      <tr><td>2,012 shot descriptions + dialogue (shots.json)</td><td class="num">3.0 MB</td></tr>
+      <tr><td>Character descriptions (characters.json)</td><td class="num">38 KB</td></tr>
+      <tr><td><strong>Compressed (xz)</strong></td><td class="num"><strong>≈320 KB</strong></td></tr>
+    </tbody>
+  </table>
+  <figcaption>The whole film in ≈320 KB — about 2,000× smaller than the source, and ~330 bits per second of film: twenty times below even the 6 kbps Opus speech floor.</figcaption>
 </figure>
 
-So now we have a set of shot descriptions, one for each shot in the movie:
+{/* TODO(will): a sentence or two of prose to land this reveal — the payoff of the whole Compress section. The 330 bps vs 6 kbps Opus floor comparison ties back to the codec section. */}
+
+## Decompress: sub-1 MB -> film
+
+> making the least crap film from the smallest amount of information for the lowest cost
+
+<figure class="hero">
+  <img src="/lossy/decode-matrix-void.jpg" alt="A reconstructed frame from The Matrix, generated by the lossy pipeline: two figures in a stark white void flanked by endless racks of weapons receding into the distance." />
+  <figcaption class="prompt-caption">Prompt fed to Wan 2.1: “a man and a woman in black trench coats standing in a stark white, infinite void… a long, narrow rack of weapons stretching into the distance, high-key shadowless lighting…”</figcaption>
+</figure>
+
+So now we have a file with a set of shot descriptions, one for each shot in the movie:
 
 <figure class="shot-prompts">
   <div class="sp-row"><span class="sp-n">001</span><span class="sp-t">0:00–0:09</span><span class="sp-p">A black coat and duffel bag; the camera pulls back to reveal two figures in dark sunglasses walking through a sterile office lobby…</span></div>
@@ -194,17 +200,17 @@ So now we have a set of shot descriptions, one for each shot in the movie:
   <div class="sp-more">⋮ &nbsp;</div>
 </figure>
 
-Reminder: each description includes `shot_type`, `camera_movement`, `subjects`, `action`, `lighting`, `color_palette`, `mood`, `setting`, `sound`, and `dialogue`.
+Reminder: each description includes `shot_type`, `camera_movement`, `subjects`, `action`, `lighting`, `color_palette`, `mood`, and `sound`, plus the shot's dialogue lines, pulled from the subtitles.
 
-Now we're ready to generate a video for each of these shots with a video language model, before stitching them together to create the movie, whole again!
+Now we're ready to generate a video for each of these shots with a video generation model, before stitching them together to create the movie, whole again!
 
 ### Selecting a video model
 
-I'm going for the lowest cost for a plausable movie output in 480p/720p.
+I'm going for the lowest cost for best quality movie in 480p+.
 
-The best model for output quality is currently ByteDance's Seedance 2 model, but it's too expensive at around $1200 for a 2 hour movie length output. It's also not open-weight so we'd have to choose from a few hosting providers.
+The best model quality VBM as of writing is ByteDance's *Seedance 2*, but it's too expensive at around $2,200 for 2 hours of output. It's also not open-weight so we'd have less control of model variants like quantised models.
 
-Alibaba's Wan 2.1 & 2.2 are older models from early/mid 2025. The quality is noticeably worse but it's dramatically cheaper to run. It's open-weight and its ~10GB (to confirm) RAM fits on an Nvidia GTX 4090 GPU which is meaningful for self-hosting.
+Alibaba's Wan 2.1 & 2.2 are older models from early/mid 2025. The quality is noticeably worse but they're much cheaper to run, and open-weight. The smaller 1.3B model can run slowly on Macbook and the 5B model can fit on rented hardware like an Nvidia RTX 4090 GPU.
 
 <figure class="model-compare">
   <div class="mc-pair">
@@ -217,7 +223,7 @@ Alibaba's Wan 2.1 & 2.2 are older models from early/mid 2025. The quality is not
       <span class="mc-label">Seedance 1.0 Pro</span>
     </div>
   </div>
-  <figcaption>Same shot, same prompt — <em>Star Wars IV</em> shot 011 (“a spacecraft moves across the frame… a red laser beam fires from the rear of the ship… deep space, orbiting a large brownish-orange planet”). Wan 2.1 (left) clutters the frame and reads as painterly; Seedance 1.0 Pro (right) holds a cleaner, more intentional composition. That quality gap is what makes the cost table below interesting.</figcaption>
+  <figcaption>Star Wars IV shot 011 <i>“a spacecraft moves across the frame… a red laser beam fires from the rear of the ship… deep space, orbiting a large brownish-orange planet”</i>. Wan 2.1 (left) clutters the frame and looks like a painting; Seedance 1.0 Pro (right) holds a cleaner, more intentional composition.</figcaption>
 </figure>
 
 <figure class="cost-table">
@@ -226,35 +232,18 @@ Alibaba's Wan 2.1 & 2.2 are older models from early/mid 2025. The quality is not
       <tr><th>Model</th><th>Where</th><th class="num">cost / sec</th><th class="num">whole film (~2 hr)</th></tr>
     </thead>
     <tbody>
-      <tr><td>Wan 2.1 T2V 1.3B</td><td>self-hosted (RunPod 4090)</td><td class="num">$0.002</td><td class="num">≈$16</td></tr>
+      <tr><td>Wan 2.1 T2V 1.3B</td><td>self-hosted (RunPod 4090)</td><td class="num">$0.002</td><td class="num">≈$15</td></tr>
       <tr><td>Wan 2.2 T2V Fast</td><td>paid API (Replicate)</td><td class="num">≈$0.01</td><td class="num">≈$74</td></tr>
-      <tr><td>Seedance 1.0 Pro</td><td>paid API (fal)</td><td class="num">$0.05</td><td class="num">≈$370</td></tr>
-      <tr><td>Seedance 2.0</td><td>paid API (list price)</td><td class="num">≈$0.15</td><td class="num">≈$1,100</td></tr>
+      <tr><td>Seedance 1.0 Pro</td><td>paid API (fal)</td><td class="num">$0.05</td><td class="num">≈$374</td></tr>
+      <tr><td>Seedance 2.0</td><td>paid API (fal, standard)</td><td class="num">$0.30</td><td class="num">≈$2,200</td></tr>
     </tbody>
   </table>
-  <figcaption>Measured from our own runs on <em>Star Wars IV</em> (124.7 min); Seedance 2.0 is published list price (≈3× Seedance 1.0), not run. Full-film figures extrapolate the per-second rate to one clip per shot — retries add to it. Note the $16-vs-$74 gap is mostly a small model on a rented GPU, not self-host-vs-API alone: the cheap Wan 2.2 API is a distilled "Fast" variant.</figcaption>
+  <figcaption>Measured from our own runs on <em>Star Wars IV</em> (124.7 min); Seedance 2.0 is fal.ai list price, not run. Retries add to the per-film cost. Note the $16-vs-$74 gap is mostly a small model on a rented GPU, not self-host-vs-API alone: the cheap Wan 2.2 API is a distilled "Fast" variant.</figcaption>
 </figure>
-
-
-### Self hosting
-
-<figure class="cost-table">
-  <table>
-    <thead>
-      <tr><th>Wan 2.2 5B — same scene (11 clips, 33.8s)</th><th>Billed by</th><th class="num">cost / sec</th><th class="num">scene total</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>fal.ai, hosted</td><td>per clip ($0.15)</td><td class="num">≈$0.05</td><td class="num">$1.65</td></tr>
-      <tr><td>RunPod A6000, self-hosted</td><td>GPU time ($0.33 / hr)</td><td class="num">≈$0.01</td><td class="num">$0.33</td></tr>
-    </tbody>
-  </table>
-  <figcaption>The <em>exact same weights</em> — Wan 2.2 5B, <code>wan2.2_ti2v_5B_fp16</code> — run both ways, so the only variable is who owns the GPU. Measured on one real <em>Star Wars</em> scene: 6 shots, 11 clips, 33.8s. fal charges a flat $0.15 per clip however short the clip; self-hosting pays only for the A6000's time (full pod uptime at $0.33/hr). ~5× cheaper here — and that's a pessimistic case for self-hosting, since a single short scene barely amortizes the pod's spin-up and model load; across a whole film the per-clip GPU cost falls further.</figcaption>
-</figure>
-
 
 <aside class="aside note">
 
-**Aside: quantising**
+**Quantising**
 
 Quantising shrinks a model by storing its weights at lower precision — fewer bits per weight, so it needs less RAM to run, for a small quality cost.
 
@@ -301,45 +290,29 @@ It wasn't central here, but it mattered when picking a model to self-host: a qua
 
 </aside>
 
-### The continuity problem: every shot, a different actor
 
-<figure>
-  <img src="/lossy/continuity-grid.jpg" alt="Four reconstructed frames of C-3PO from the same Lars homestead scene in Star Wars IV. He is a different gold droid in each — a different head and face every time." />
-  <figcaption>C-3PO across four shots of one scene (Star Wars IV, shots 279–285), all generated by the same Wan 2.1 model. He's a different gold droid in every shot — a new head, a new face — because the model only ever saw a fresh ~100-word description of the shot, never the droid it had already drawn.</figcaption>
+### Self hosting
+
+<figure class="cost-table">
+  <table>
+    <thead>
+      <tr><th>Wan 2.2 5B — same scene (11 clips, 33.8s)</th><th>Billed by</th><th class="num">cost / sec</th><th class="num">scene total</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>fal.ai, hosted</td><td>per clip ($0.15)</td><td class="num">≈$0.05</td><td class="num">$1.65</td></tr>
+      <tr><td>RunPod A6000, self-hosted</td><td>GPU time ($0.33 / hr)</td><td class="num">≈$0.01</td><td class="num">$0.33</td></tr>
+    </tbody>
+  </table>
+  <figcaption>The same weights — Wan 2.2 5B — run both ways; the only variable is who owns the GPU. fal bills a flat $0.15 per clip however short; self-hosting pays for A6000 uptime at $0.33/hr. ~5× cheaper here.</figcaption>
 </figure>
 
-Since we're stitching together clips that are generated independently, continuity becomes a major challenge in way of making something coherent.
 
-Something that suprised me about VLMs was how small the input prompt is. The sweet spot for models generally is on the order of *50 - 150 words*: 
-
-<figure class="prompt-example">
-  <div class="pe-card">
-    <span class="pe-meta">Star Wars IV · shot 011 · fed to Wan 2.1 · 109 words</span>
-    <p class="pe-text">A large, blocky spacecraft with a grid of bright glowing thrusters. The spacecraft moves steadily across the frame against the backdrop of a planet and a moon, while a red laser beam fires from the rear of the ship, dissipating as it travels through space. Extreme Wide shot, static. Deep space, orbiting a large, textured, brownish-orange planet with a smaller moon visible in the distance. High contrast space lighting; the ship is illuminated by its own thrusters and the distant light of a star, while the planet below is lit by a sun off-screen. Deep black, vibrant orange, muted grey, and bright white. Epic, cinematic, and adventurous.</p>
-  </div>
-</figure>
-
-That's the budget we have for describing a shot in our de-compressed movie. So if we want Luke Skywalker to look the same across the clips we're generating we may only have 100 words to describe Mark Hamill's face, stature, pose, costume, expression, etc. Maybe other characters are in the shot too.
-
-### Character clustering: an attempt
-
-Something I tried to mitigate the continuity problem without is clustering
-
-<figure>
-  <img src="/lossy/character-headshots.jpg" alt="A 3×2 grid of character headshots generated from the pipeline's clustered descriptions: Luke Skywalker, Gandalf, Harry Potter, Rubeus Hagrid, Larry David, and Jimmy McGill." />
-  <figcaption>One canonical portrait per character, built by clustering every shot a character appears in into a single ~60-word description and rendering it with FLUX. The idea: give the video model one fixed reference per character instead of a fresh guess each shot. The wardrobe and silhouette survive the round-trip — the specific actor's face does not.</figcaption>
-</figure>
-
-<figure>
-  <img src="/lossy/luke-portrait.jpg" alt="A character reference portrait of Luke Skywalker generated from the pipeline's clustered text description." style="max-width:340px;display:block;margin:0 auto" />
-  <figcaption class="prompt-caption">Clustered from 509 shots of <em>Star Wars IV</em>, rendered with FLUX: “A young male human with fair skin, light brown hair, and blue eyes… a bright orange Rebel Alliance flight suit over a white thermal undershirt… sitting in the cockpit of an X-wing starfighter.”</figcaption>
-</figure>
 
 ### Long shots
 
-Wan 2.1/2 models support output length of only around 3-6 seconds. Not enough for some shots like The Dude browsing for milk at the beginning of The Big Lebowski which goes on for 50 seconds or so.
+Wan 2.1/2 models support output length of ~3-6 seconds. Not enough for some shots like The Dude browsing for milk at the beginning of The Big Lebowski which goes on for 50 seconds or so.
 
-There's a good solution to this: we can use the last frame of an output clip as the first frame of the next clip with the first_image parameter, then join the clips into one shot. It works well:
+There's a good solution to this: we can use the last frame of an output clip as the first frame of the next clip with the `first_image` parameter, then join the clips into one shot:
 
 <figure class="model-compare">
   <div class="mc-pair">
@@ -352,14 +325,14 @@ There's a good solution to this: we can use the last frame of an output clip as 
       <span class="mc-label">independent clips</span>
     </div>
   </div>
-  <figcaption>A landspeeder crossing the desert — two ~5s Wan 2.2 clips joined into one ~10s shot, with the seam at the halfway point. Left: the second clip is seeded with the last frame of the first, so the speeder and the mesas behind it carry across the cut. Right: the two clips generated independently — at the seam the speeder becomes a different vehicle in a different canyon.</figcaption>
+  <figcaption>Two ~5s Wan 2.2 clips of a landspeeder crossing the desert joined into one ~10s shot, with the seam at the halfway point. Left: the second clip is seeded with the last frame of the first, so the speeder and the canyons behind it carry across the cut. Right: the two clips generated independently — at the seam the speeder becomes a different vehicle in a different canyon.</figcaption>
 </figure>
 
 ### Short shots
 
-Some movie shots are under a second — shorter than the ~2s floor that Wan will generate. Every model I tried bottoms out around there (Seedance too), so there's no way to ask for a clip that short.
+Problem: some movie shots are under a second, shorter than the ~2s floor that Wan will generate. Every model I tried bottoms out around there (Seedance too).
 
-So the stitcher squeezes the ~2s clip into the slot it needs: same frames, retimed to play faster. For a sub-second shot that's a ~3× speed-up, and the motion ends up looking like fast-forward — though at well under a second it flashes by too fast to really notice. (The other option would be to trim the clip rather than speed it up — keep the first 0.75s at natural speed and drop the rest — but I haven't bothered.)
+We can either cut the 2-second clip shorter or squeeze it to make it shorter.
 
 <figure class="model-compare">
   <div class="mc-pair">
@@ -372,25 +345,97 @@ So the stitcher squeezes the ~2s clip into the slot it needs: same frames, retim
       <span class="mc-label">squeezed to fit a 0.75s shot</span>
     </div>
   </div>
-  <figcaption>A 0.75s shot from <em>The Matrix</em> — gloved hands typing as the camera punches in. Left: the clip Wan actually returns, 33 frames at its ~2s floor, playing at natural speed. Right: the same 33 frames squeezed into the 0.75s slot — no frames dropped, just retimed to ~45fps, so the typing and zoom blur into a fast-forward.</figcaption>
+  <figcaption><em>The Matrix</em>: gloved hands typing. Left: Wan's ~2s output at natural speed. Right: the same frames squeezed into the 0.75s slot.</figcaption>
 </figure>
 
+
+### The continuity problem: every shot, a different actor
+
+<figure>
+  <img src="/lossy/continuity-grid.jpg" alt="Four reconstructed frames of C-3PO from the same Lars homestead scene in Star Wars IV. He is a different gold droid in each — a different head and face every time." />
+  <figcaption>C-3PO across four shots of one scene (Star Wars IV, shots 279–285), all generated by the same Wan 2.1 model. He's a different gold droid in every shot — a new head, a new face — because the model only ever saw a fresh ~100-word description of the shot, never the droid it had already drawn.</figcaption>
+</figure>
+
+Since we're stitching together clips that are generated independently, continuity becomes a major challenge in the way of making something coherent.
+
+Something that surprised me about video models was how small the input prompt is. The sweet spot for models generally is on the order of *50 - 150 words*: 
+
+<figure class="prompt-example">
+  <div class="pe-card">
+    <span class="pe-meta">Star Wars IV · shot 011 · fed to Wan 2.1 · 109 words</span>
+    <p class="pe-text">A large, blocky spacecraft with a grid of bright glowing thrusters. The spacecraft moves steadily across the frame against the backdrop of a planet and a moon, while a red laser beam fires from the rear of the ship, dissipating as it travels through space. Extreme Wide shot, static. Deep space, orbiting a large, textured, brownish-orange planet with a smaller moon visible in the distance. High contrast space lighting; the ship is illuminated by its own thrusters and the distant light of a star, while the planet below is lit by a sun off-screen. Deep black, vibrant orange, muted grey, and bright white. Epic, cinematic, and adventurous.</p>
+  </div>
+</figure>
+
+That's the budget we have for describing a shot in our compressed movie. So if we want Luke Skywalker to look the same across the clips we're generating we may only have 100 words to describe Mark Hamill's face, expression, pose, costume, etc. Other characters might be in the shot too.
+
+
+### Character clustering: an attempt
+
+Something I tried to mitigate the continuity problem is to include some extra in the encoded output: descriptions of characters `characters.json`.
+
+We can use `characters.json` in two ways depending on the model: 
+
+(1) Primarily: to augment shot prompts to have more + accurate details about the character. 
+
+
+<figure class="prompt-enrich">
+  <div class="pe-card pe-before">
+    <span class="pe-meta">before · raw shot description · 121 words</span>
+    <p class="pe-text">An elderly man with gray hair and a weathered face, wearing a light-colored shirt and a vest. The man slowly brings his hand up to his face, rubbing his forehead and eyes in a gesture of weariness or distress, while looking slightly off-camera. Medium close-up, slow dolly in. A dimly lit, rustic interior, likely a study or home, with a view of a dark, forested area through a window in the background. Low-key, dramatic lighting; a strong, cool-toned light source from the background creates a silhouette effect, while a soft, warm light illuminates the side of his face. Deep shadows, dark browns, and muted earth tones, contrasted with a vibrant, cool teal light coming from the window. Melancholic, weary, and somber.</p>
+  </div>
+  <div class="pe-join">blend in the canonical description from <code>characters.json</code></div>
+  <div class="pe-card pe-after">
+    <span class="pe-meta">after · enriched with the character description · 151 words</span>
+    <p class="pe-text">A medium close-up shot, with a slow dolly in, captures <mark>Gandalf, the elderly wizard</mark>, in a dimly lit, rustic interior, his <mark>long white beard and hair</mark> framing a weathered face. He wears his <mark>iconic dark, weathered cloak</mark>, the fabric hinting at countless journeys. The air is thick with a melancholic, weary, and somber mood, amplified by the low-key, dramatic lighting. A strong, cool-toned teal light spills from a window in the background, offering a glimpse of a dark, forested area and creating a striking silhouette effect. This vibrant, cool light contrasts with the soft, warm illumination on the side of Gandalf's face, highlighting the deep shadows and muted earth tones of the room. Slowly, he brings a hand, gnarled with age and wisdom, up to his forehead, rubbing his eyes in a gesture of profound weariness or distress, his gaze fixed slightly off-camera, lost in thought or burdened by unseen knowledge.</p>
+  </div>
+</figure>
+
+(2) Some models like Wan 2.1 VACE accept reference image inputs, so we can generate an image for each character
+
+<figure>
+  <img src="/lossy/character-headshots.jpg" alt="A 3×2 grid of character headshots generated from the pipeline's clustered descriptions: Luke Skywalker, Gandalf, Harry Potter, Rubeus Hagrid, Larry David, and Jimmy McGill." style="max-width:460px;display:block;margin:0 auto" />
+  <figcaption class="prompt-caption">Luke Skywalker: “A young male human with fair skin, light brown hair, and blue eyes… a bright orange Rebel Alliance flight suit over a white thermal undershirt… sitting in the cockpit of an X-wing starfighter.”</figcaption>
+</figure>
 
 ### Generating the audio
 
-For dialogue we'll just use the cheapest (dullest) Eleven labs voice to keep costs low. We can't attribute dialogue to characters from the subtitles alone anyway. It's a harder problem to infer that, for another day...
+For dialogue we'll just use the cheapest (dullest) ElevenLabs voice to keep costs low. We can't attribute dialogue to characters from the subtitles alone anyway. It's a harder problem to infer that, for another day...
 
 <figure>
   <audio src="/lossy/demos/dialogue-sample.mp3" controls preload="metadata" />
-  <figcaption>Darth Vader's “I find your lack of faith disturbing” — delivered mid Force-choke — read back by the cheapest ElevenLabs voice. James Earl Jones' menace is exactly the kind of performance the round-trip can't write down.</figcaption>
+  <figcaption><i>“I find your lack of faith disturbing”</i></figcaption>
 </figure>
 
-### Music & sound effects
+### Sound effects
+
+We use the model <b>MMAudio</b>: an audio model, to generate sound effects for the film using the sound effects part of the shot summary, e.g.:
+
+> "The ambient sounds of a bowling alley, including the low rumble of a ball rolling on wood, the distant clatter of pins, and background chatter, accompanied by classic soul or blues music."
 
 <figure>
   <video src="/lossy/demos/lebowski-sfx.mp4" controls playsinline preload="metadata" />
-  <figcaption>The bowling-alley scene from <em>The Big Lebowski</em>, reconstructed with Wan 2.1 video and an MMAudio sound track generated from the shot descriptions alone — no original audio. The ambient alley noise, the distant clatter of pins and ball returns, is entirely the model's invention.</figcaption>
+  <figcaption>The bowling-alley scene from <i>The Big Lebowski</i>, reconstructed with Wan 2.1 video and an MMAudio sound track generated from the shot descriptions alone, no original audio. The ambient alley noise, the distant clatter of pins and ball returns, is entirely the model's invention.</figcaption>
 </figure>
+
+### Music
+
+For shots where <code>music</code> is dominant (judged by YAMNet), Gemini listens to the original audio and writes a one-line description of the score. Only the vibes are preserved, not the score.
+
+On decode that sentence is fed to Meta's text-to-music 2023 model <a href="https://github.com/facebookresearch/audiocraft">MusicGen</a>, which invents a fresh score to match. 
+
+> "A slow, ethereal, and slightly ominous orchestral score begins to swell. It features sustained strings and a subtle, rising synth pad, creating a sense of anticipation and foreboding. The tempo is very slow, around ~60bpm, and the music builds tension."
+
+<figure>
+  <video src="/lossy/demos/sw-sunset-musicgen.mp4" poster="/lossy/demos/sw-sunset-musicgen-poster.jpg" controls playsinline preload="metadata" />
+  <figcaption>The <i>Star Wars</i> binary sunset, reconstructed with Seedance video and a MusicGen score. The original is the famous swelling Force theme; what survived the round-trip was Gemini hearing it as "ethereal, ominous, foreboding", so MusicGen invents a tense ambient swell instead. Right mood, wrong melody, the actual theme was never stored.</figcaption>
+</figure>
+
+{/* TODO(will): prose to land the Music beat. Alternative demo clips staged in public/lossy/demos/ — sw-cantina-musicgen.mp4 (the alien band, score misread as "dread") and sw-vader-musicgen.mp4 (Vader's corridor, clean + ominous). */}
+
+### Audio: summarised
+
+So, audio generation costs are:
 
 <figure class="cost-table">
   <table>
@@ -398,21 +443,32 @@ For dialogue we'll just use the cheapest (dullest) Eleven labs voice to keep cos
       <tr><th>Audio</th><th>Model</th><th class="num">rate</th><th class="num">whole film (~2 hr)</th></tr>
     </thead>
     <tbody>
-      <tr><td>Ambience + SFX</td><td>MMAudio, on the video pod</td><td class="num">$0 marginal</td><td class="num"><strong>$0</strong></td></tr>
-      <tr><td>Ambience + SFX</td><td>MMAudio, fal.ai hosted</td><td class="num">$0.002 / sec</td><td class="num">≈$2.60</td></tr>
-      <tr><td>Extra SFX</td><td>ElevenLabs SFX</td><td class="num">$0.001 / sec</td><td class="num">≈$0.50</td></tr>
-      <tr><td>Dialogue</td><td>ElevenLabs Speech</td><td class="num">$0.05 / 1K chars</td><td class="num">≈$2.70</td></tr>
-      <tr><td>Music / score</td><td>— not generated</td><td class="num">—</td><td class="num">$0</td></tr>
+      <tr><td rowspan="2" class="group">Ambience + SFX</td><td>MMAudio, on the video pod</td><td class="num">$0 marginal</td><td class="num"><strong>$0</strong></td></tr>
+      <tr class="alt"><td><span class="or">or</span>MMAudio, fal.ai hosted</td><td class="num">$0.002 / sec</td><td class="num">≈$2.60</td></tr>
+      <tr><td class="group">Extra SFX</td><td>ElevenLabs SFX</td><td class="num">$0.001 / sec</td><td class="num">≈$0.50</td></tr>
+      <tr><td class="group">Dialogue</td><td>ElevenLabs Speech</td><td class="num">$0.05 / 1K chars</td><td class="num">≈$2.70</td></tr>
+      <tr><td rowspan="2" class="group">Music / score</td><td>MusicGen, on the video pod</td><td class="num">$0 marginal</td><td class="num"><strong>$0</strong></td></tr>
+      <tr class="alt"><td><span class="or">or</span>MusicGen, Replicate hosted</td><td class="num">$0.002 / sec</td><td class="num">≈$5</td></tr>
+      <tr class="total total-first"><td colspan="3"><strong>Total — co-hosted (pod where possible)</strong></td><td class="num"><strong>≈$3.20</strong></td></tr>
+      <tr class="total"><td colspan="3"><strong>Total — fully hosted</strong></td><td class="num"><strong>≈$10.80</strong></td></tr>
     </tbody>
   </table>
-  <figcaption>Audio is the cheap part. Best case is <strong>$0</strong>: MMAudio generates ambience and sound effects on the <em>same</em> RunPod GPU already rented for the video, so it adds no marginal cost. Run it on a hosted API instead and it's a couple of dollars (≈$2.60 measured on <em>Star Wars IV</em>); dialogue through ElevenLabs adds another ≈$2.70 (55K characters of subtitles). Music never enters the round-trip at all — the model was never told a score existed — so the score is simply gone.</figcaption>
+  <figcaption>$0 marginal when MMAudio and MusicGen run on the same GPU already rented for video; dialogue and extra SFX are hosted-only, so they fall into both totals. Music is regenerated from Gemini's one-line description, so only the score's mood returns — the original melody was never stored.</figcaption>
 </figure>
 
-### The result: decompressed 1mb films:
+### The result: decompressed 1 MB films
+
+Shots generated from 1 MB films:
 
 <Carousel
   id="result-scenes"
   clips={[
+    {
+      src: "/lossy/demos/jp-trex-a14b.mp4",
+      poster: "/lossy/demos/jp-trex-a14b-poster.jpg",
+      label: "a dinosaur in the rain",
+      caption: "A predator emerging onto a rain-soaked road at night, generated from a written description with the larger Wan 2.2 14B model (fp8-quantised, self-hosted on a rented GPU) — the long shots chained last-frame→first-frame.",
+    },
     {
       src: "/lossy/demos/result-escape-pod.mp4",
       poster: "/lossy/demos/result-escape-pod-poster.jpg",
@@ -431,29 +487,46 @@ For dialogue we'll just use the cheapest (dullest) Eleven labs voice to keep cos
       label: "a boy, a bike & the moon",
       caption: "A bike ride into the night sky, generated from a written description with Wan 2.2 — the airborne shots chained last-frame→first-frame so the bike carries across the cut.",
     },
-    {
-      src: "/lossy/demos/jp-trex.mp4",
-      poster: "/lossy/demos/jp-trex-poster.jpg",
-      label: "a dinosaur in the rain",
-      caption: "A predator emerging onto a rain-soaked road at night, generated from a written description with Wan 2.2 — generated on a rented GPU, with the long shots chained last-frame→first-frame.",
-    },
   ]}
 />
 
 {/* TODO — add YouTube link to the full 10–20 min reconstruction once uploaded. */}
-{/* PENDING: et-moon.mp4 and jp-trex.mp4 are silent — both still need audio. */}
+{/* PENDING: et-moon.mp4 and jp-trex-a14b.mp4 are silent — both still need audio. */}
 
 
 ### Reflections
 
-What astonishing film compression! We took a 632 MB film down to under 1 MB, that's like 1000× smaller. 
+What astonishing film compression! We took a 632 MB film down to ≈320 KB, that's about 2,000× smaller. 
 
-Now we can carry 1000 films on a 1gb usb drive, and to watch one of them we'll only need to pay ~$35NZD and wait ~12 hours for processing. 
+Now we can carry 3,000 films on a 1 GB USB drive, and to watch one of them we'll only need to best-case pay ≈$18 and wait 12 hours for processing.
 
-Our decompressed films are *lossy*. But the output is indeed a full-length 480p (or up to 1080p for more $) video which retains core aspects of the film including all dialog, and a basic visual and audio reconstruction (incl. some of the music & sound effects) of every shot in the input film.
+<figure class="cost-table">
+  <table>
+    <thead>
+      <tr><th>Stage</th><th>Model / service</th><th class="num">whole film (~2 hr)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="group">Encode</td><td>Gemini 2.5 Flash-Lite</td><td class="num">$0.67</td></tr>
+      <tr><td rowspan="4" class="group">Video</td><td>Wan 2.1 1.3B — self-hosted, RunPod RTX 4090</td><td class="num">≈$15</td></tr>
+      <tr class="alt"><td><span class="or">or</span>Wan 2.2 5B — self-hosted, RunPod A6000</td><td class="num">≈$75</td></tr>
+      <tr class="alt"><td><span class="or">or</span>Seedance 1.0 Pro — fal.ai</td><td class="num">≈$374</td></tr>
+      <tr class="alt"><td><span class="or">or</span>Seedance 2.0 — fal.ai (list price)</td><td class="num">≈$2,200</td></tr>
+      <tr><td class="group">Ambience + SFX</td><td>MMAudio, co-hosted on video pod</td><td class="num">$0</td></tr>
+      <tr><td class="group">Music / score</td><td>MusicGen, co-hosted on video pod</td><td class="num">$0</td></tr>
+      <tr><td class="group">Dialogue</td><td>ElevenLabs Speech</td><td class="num">≈$2.70</td></tr>
+      <tr class="total total-first"><td colspan="2"><strong>Total — budget (Wan 2.1 + MMAudio)</strong></td><td class="num"><strong>≈$18</strong></td></tr>
+      <tr class="total"><td colspan="2"><strong>Total — quality (Wan 2.2 5B + MMAudio)</strong></td><td class="num"><strong>≈$78</strong></td></tr>
+    </tbody>
+  </table>
+  <figcaption>Figures from actual runs on <em>Star Wars IV</em> (124.7 min). Seedance 2.0 is fal.ai list price; not run. Music is regenerated by MusicGen on the same pod ($0 marginal; ≈$5 if hosted on Replicate) — only its mood survives, not the original melody.</figcaption>
+</figure>
 
-Perhaps we'd get better output from our compressed form of the film by using it to re-shoot the film with a different crew, actors, etc. We surely would. It would certainly handle the continuity aspect we struggled with. But we're on a budget and can't afford to spend any more or wait any longer to watch our 1mb films.
+Our decompressed films are *lossy*. But the output is indeed a full-length 480p (or up to 1080p for more $) video which retains core aspects of the film including all dialogue, and a basic visual and audio reconstruction (incl. some of the music & sound effects) of every shot in the input film.
 
-I hope this was educational as a tour of some of what's possible with video models, and what's necessary (not much) to use them, especially on a budget.
+For real though: the continuity issues we talked about earlier make the output film chaotic and disjointed. Every shot is from a different universe where the movie was made with a different crew, actors, etc. Most of the artistic detail of the film is lost in the compression process and made up by language models.
 
-Did we merely build a machine that turns art into slop? Judging by the output, maybe. But 
+To improve it I'd probably focus on improving the consistency/continuity between clips generated by the LM.
+
+Perhaps we'd get better output from our compressed form of the film by using it to re-shoot the film with a different crew, actors, etc. It would certainly handle the awful continuity problem we struggled with. But we're on a budget and can't afford to spend any more or wait any longer to watch our 1mb films.
+
+

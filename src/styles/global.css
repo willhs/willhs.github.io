@@ -390,6 +390,37 @@ figcaption.prompt-caption {
   color: var(--color-h2);
 }
 
+/* Grouped alternatives: the category cell spans its options; the alternative
+   row hugs the primary above it and is muted, so each "or" pair reads as one. */
+.cost-table td.group {
+  vertical-align: top;
+}
+
+.cost-table tr.alt td {
+  padding-top: 0;
+  color: var(--color-text-muted);
+}
+
+.cost-table tr.alt .num {
+  color: var(--color-text-muted);
+}
+
+.cost-table .or {
+  font-style: italic;
+  color: var(--color-text-muted);
+  margin-right: 0.4rem;
+}
+
+/* Totals: ruled off from the body, one line per cost path. */
+.cost-table tr.total-first td {
+  border-top: 2px solid var(--color-border);
+}
+
+.cost-table tr.total td {
+  padding-top: 0.55rem;
+  padding-bottom: 0.15rem;
+}
+
 .cost-table figcaption {
   margin-top: 0.6rem;
   font-size: 0.85rem;
@@ -432,6 +463,59 @@ figcaption.prompt-caption {
 }
 
 .prompt-example figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.prompt-enrich {
+  margin: 1.5rem 0;
+}
+
+.prompt-enrich .pe-card {
+  background: #0f0d0a;
+  border-radius: 6px;
+  padding: 0.85rem 1rem;
+}
+
+.prompt-enrich .pe-before {
+  opacity: 0.7;
+}
+
+.prompt-enrich .pe-meta {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--color-h2);
+  letter-spacing: 0.03em;
+  margin-bottom: 0.5rem;
+}
+
+.prompt-enrich .pe-text {
+  margin: 0;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  font-size: 0.92rem;
+}
+
+.prompt-enrich .pe-join {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  padding: 0.5rem 0;
+  letter-spacing: 0.02em;
+}
+
+.prompt-enrich .pe-after mark {
+  background: rgba(255, 140, 66, 0.18);
+  color: var(--color-text);
+  padding: 0 0.15em;
+  border-radius: 2px;
+}
+
+.prompt-enrich figcaption {
   margin-top: 0.6rem;
   font-size: 0.85rem;
   color: var(--color-text-muted);

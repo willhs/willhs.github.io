@@ -26,13 +26,13 @@ const fields = ['shot_type', 'camera_movement', 'subjects', 'action', 'lighting'
   <div class="pv-flow">
     <div class="pv-node pv-io">
       <span class="pv-title">Film</span>
-      <span class="pv-meta">~600 MB · ~2 hr · 1080p</span>
+      <span class="pv-meta">632 MB · ~2 hr · 1080p</span>
     </div>
 
     <div class="pv-step">↓ detect shot boundaries · <span class="pv-tool">PySceneDetect</span></div>
 
     <div class="pv-node pv-shots">
-      <span class="pv-title">~2,070 shots</span>
+      <span class="pv-title">~2,000 shots</span>
       <span class="pv-meta">~3.6 s each</span>
     </div>
 
@@ -49,7 +49,7 @@ const fields = ['shot_type', 'camera_movement', 'subjects', 'action', 'lighting'
       ))}
     </div>
 
-    <div class="pv-note">motion, sound &amp; speech also feed the VLM as hints</div>
+    <div class="pv-note">motion, sound &amp; speech also feed the vision model as hints</div>
 
     <div class="pv-step">↓ fuse into one entry per shot</div>
 
@@ -60,12 +60,12 @@ const fields = ['shot_type', 'camera_movement', 'subjects', 'action', 'lighting'
       </div>
     </div>
 
-    <div class="pv-step">↓ collect all ~2,070 entries + character clusters</div>
+    <div class="pv-step">↓ collect all 2,012 entries + character clusters</div>
 
     <div class="pv-node pv-shotsfile">
       <span class="pv-title">The summarised film</span>
       <span class="pv-meta">shots.json + characters.json · ~3 MB</span>
-      <span class="pv-sub">every shot entry + the dialog timeline + character clusters, as plain text — so it still has slack left to compress</span>
+      <span class="pv-sub">every shot entry + the dialogue timeline + character clusters, as plain text — so it still has slack left to compress</span>
       <span class="pv-mult">≈ 200× smaller</span>
     </div>
 
