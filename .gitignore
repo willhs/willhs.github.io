@@ -4,3 +4,6 @@ node_modules/
 .env
 .env.*
 !.env.example
+
+# Local Manager daemon state
+.manager/
