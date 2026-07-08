@@ -15,14 +15,14 @@ How could we compress a film to less than 1 MB while preserving the most quality
 
 One of the early capabilities of large language models has been to summarise text. Only a few years later we now have models which can generate video and audio from short text prompts.
 
-This 1MB movie challenge seemed like an interesting way to learn about video and audio models in a practical way to see what they're capable of.
+This 1 MB movie challenge seemed like an interesting, practical way to learn what video and audio models are capable of.
 
 Normally when we want a smaller video we do things like
 - lower the picture resolution (1080p, 480p, etc), and 
 - audio sample rate (160 kbps is Spotify's High quality), and maybe 
 - the frame rate (movies and tv are usually 24fps). 
 
-But we'll see why it's not enough for sub-1mb (5mb needed just for audio) in the next section.
+But we'll see why that's not enough for sub-1 MB (5 MB is needed just for audio) in the next section.
 
 In this article I'll explore how we can summarise and compress films & TV using models to get any film down to sub-1 MB, then re-generate the film from its compressed form. 
 
@@ -39,9 +39,9 @@ I'll be optimising for the best quality for the lowest $ cost.
 
 *Nothing, Forever* was a 2023 live stream of generated *Seinfeld* (90s sitcom) episodes. 
 
-Elements of the show like the common settings, characters, comedic style made into a new (terrible but intriguing) version of the show. 
+Elements of the show — the familiar settings, characters, comedic style — were remade into a new (terrible but intriguing) version of the show. 
 
-Dialogue made by LLMs (gpt-3: text-davinci-003) and narration done by text-to-speech voices. The characters rotate between doing the dishes, sitting on the couch, etc, reading out lines from their new scripts, accompanied by canned laughter.
+Dialogue was written by an LLM (GPT-3: text-davinci-003) and voiced by text-to-speech. The characters rotate between doing the dishes, sitting on the couch, etc, reading out lines from their new scripts, accompanied by canned laughter.
 
 </aside>
 
@@ -74,7 +74,7 @@ Let's see a video get progressively crappier with lossy compression:
   <figcaption>6 kbps Opus speech-only: Opus's hard floor. 124.7 min ≈ 5 MB.</figcaption>
 </figure>
 
-So even the smallest recognisable video and audio is still over 20x larger than 1 MB. We need a different way to store video & audio.
+So even the smallest recognisable video and audio is still over 20× larger than 1 MB. We need a different way to store video & audio.
 
 ## Compress: film -> sub-1 MB text file
 
@@ -91,13 +91,13 @@ It turns out there's a Python library for finding shot boundaries in films! [PyS
 
 Star Wars, for example, has around 2,000 shots which are detected pretty well by this library. There are a few exceptions, like the full-screen laser flashes in the first scene causing a few erroneous extra shots to be detected.
 
-`ffmpeg` is a popular toolset for working with videos. You can use it to extract individual frames, audio, and clips. We can use it split a film into shots, separate out audio, and extract key frames. 
+`ffmpeg` is a popular toolset for working with videos. You can use it to extract individual frames, audio, and clips. We can use it to split a film into shots, separate out audio, and extract key frames. 
 
 ### Describe each shot
 
 We can generate a summary of each shot in the film, given a few frames sampled from the shot. Google's *Gemini 2.5 Flash-Lite* is cheap at $0.10 per million input tokens and $0.40 per million output tokens. Scanning a full 2-hour film costs around $0.67.
 
-Going through security, *The Matrix* (8.8 seconds)
+Going through security, *The Matrix* (8.8 seconds):
 
 <figure>
   <div class="frames">
@@ -135,7 +135,7 @@ I'll cheat a bit with dialogue by directly using the subtitles for the film, whi
 
 #### Listening for sound effects
 
-We can use an audio classification model like [YAMNet](https://tfhub.dev/google/yamnet/1) to detect which of 521 everyday sound classes are present at which times
+We can use an audio classification model like [YAMNet](https://tfhub.dev/google/yamnet/1) to detect which of 521 everyday sound classes are present at which times.
 
 <figure class="yamnet-flow">
   <div class="yf-stage">
@@ -161,6 +161,13 @@ We can use an audio classification model like [YAMNet](https://tfhub.dev/google/
   <figcaption>The Matrix lobby shot (8.8s) down the audio side of the encoder. Noisy per-frame guesses: a dog, a bicycle, wash out once the 20 frames are averaged, leaving a stable bucket and labels to seed the final sound description.</figcaption>
 </figure>
 
+#### Describing the music
+
+YAMNet also tells us which shots are dominated by music. For those, Gemini listens to the shot's audio and writes a one-line description of the score:
+
+> "A slow, ethereal, and slightly ominous orchestral score begins to swell. It features sustained strings and a subtle, rising synth pad, creating a sense of anticipation and foreboding. The tempo is very slow, around ~60bpm, and the music builds tension."
+
+That sentence is all we keep of the score — the melody itself doesn't survive.
 
 ### Putting it together: the *lossy* compression encode pipeline
 
@@ -181,9 +188,10 @@ We can use an audio classification model like [YAMNet](https://tfhub.dev/google/
   <figcaption>The whole film in ≈320 KB, about 2,000× smaller than the source, and ~330 bits per second of film: twenty times below even the 6 kbps Opus speech floor.</figcaption>
 </figure>
 
-By summarising the film in english we're still able to preserve a lot of the key details, but we'll need video and audio models to re-generate the film as a video.
+By summarising the film in English we're still able to preserve a lot of the key details, but we'll need video and audio models to re-generate the film as a video.
 
-File compression tools like <code>gzip</code> or <code>xz</code> squeezes the summary another ~10×. If you run the same compressor on the original <code>.mp4</code> it shaves under 1% since H.264 video compression has already wrung mostly all of the redundancy out of the pixels.
+File compression tools like <code>gzip</code> or <code>xz</code> squeeze the summary another ~10×. If you run the same compressor on the original <code>.mp4</code> it shaves under 1%, since H.264 has already wrung almost all of the redundancy out of the pixels.
+
 ## Decompress: 1 MB file -> film
 
 > Making the least crap film from the smallest amount of information for the lowest cost.
@@ -210,9 +218,9 @@ Now we're ready to generate a video for each of these shots with a video generat
 
 I'm going for the lowest cost for best quality movie in 480p+.
 
-The best model quality VBM as of writing is ByteDance's *Seedance 2*, but it's too expensive at around $2,200 for 2 hours of output. It's also not open-weight so we'd have less control of model variants like quantised models.
+The best-quality video model as of writing is ByteDance's *Seedance 2*, but it's too expensive at around $2,200 for 2 hours of output. It's also not open-weight so we'd have less control of model variants like quantised models.
 
-Alibaba's Wan 2.1 & 2.2 are older model families from early/mid 2025. The quality is noticeably worse but they're much cheaper to run, and open-weight. The smaller 1.3B model can run slowly on Macbook and the 5B model can fit on rented hardware like an Nvidia RTX 4090 GPU.
+Alibaba's Wan 2.1 & 2.2 are older model families from early/mid 2025. The quality is noticeably worse but they're much cheaper to run, and open-weight. The smaller 1.3B model can run slowly on a MacBook and the 5B model can fit on rented hardware like an Nvidia RTX 4090 GPU.
 
 <figure class="model-compare">
   <div class="mc-pair">
@@ -297,7 +305,7 @@ It wasn't central here, but it mattered when picking a model to self-host: a qua
 
 If you run models on your own hardware, even if rented, you can sometimes save on costs relative to model service providers like fal.ai and replicate.ai. I used runpod.io to provision gpus for me, sometimes with their community hardware which is discounted for its low availability.
 
-Self-hosting models means signficant effort spent researching, building and maintaining a system to run worflows on rented hardware. 
+Self-hosting models means significant effort spent researching, building and maintaining a system to run workflows on rented hardware. 
 
 I tried to outsource this to Claude Code, which worked well once established but I did spend time and extra credits debugging and re-running failed jobs.
 
@@ -318,7 +326,7 @@ Some models like Wan 2.1 1.3B can be run on consumer hardware like a Macbook.
 
 ### Long shots
 
-Wan 2.1/2 models support output length of ~3-6 seconds. Not enough for longer shots from film and tv, e.g. the opening shot of *The Big Lebowski* where The Dude browses for milk.
+Wan 2.1/2 models support output lengths of ~3–6 seconds. Not enough for longer shots from film and tv, e.g. the opening shot of *The Big Lebowski* where The Dude browses for milk.
 
 There's a good solution to this: we can use the last frame of an output clip as the first frame of the next clip with the `first_image` parameter, then join the clips into one shot:
 
@@ -338,9 +346,9 @@ There's a good solution to this: we can use the last frame of an output clip as 
 
 ### Short shots
 
-When shots are too short: some movie shots are under a second, shorter than the ~2s floor that Wan will generate. Every model I tried bottoms out around there (Seedance too).
+Some movie shots are under a second — shorter than the ~2s floor that Wan will generate. Every model I tried bottoms out around there (Seedance too).
 
-We can either sqeeze the 2-second clip or cut the 2-second clip shorter:
+We can either squeeze the 2-second clip to fit or cut it shorter:
 
 <figure class="side-by-side">
   <img src="/lossy/demos/lotr-fastcut.gif" alt="Side-by-side of a fast-cut sequence from The Lord of the Rings: Moria, original on the left and the lossy reconstruction on the right. A normal-paced shot, then three rapid sub-second cuts, then another normal shot." />
@@ -352,10 +360,10 @@ We can either sqeeze the 2-second clip or cut the 2-second clip shorter:
 
 <figure>
   <img src="/lossy/continuity-grid.jpg" alt="Four reconstructed frames of C-3PO from the same Lars homestead scene in Star Wars IV. He is a different gold droid in each, a different head and face every time." />
-  <figcaption>C-3PO across four shots of one scene (Star Wars IV, 279–285), same Wan 2.1 model. A different gold droid every shot — new head, new face — because the model only sees a new ~100-word descriptionfor each prompt.</figcaption>
+  <figcaption>C-3PO across four shots of one scene (Star Wars IV, 279–285), same Wan 2.1 model. A different gold droid every shot — new head, new face — because the model only sees a new ~100-word description for each prompt.</figcaption>
 </figure>
 
-Since we're stitching together clips that are generated independently, continuity becomes a major challenge in the way of making something coherent.
+Since we're stitching together clips that are generated independently, continuity becomes the major challenge in making something coherent.
 
 Something that surprised me about video models was how small the input prompt is. The sweet spot for models generally is on the order of *50 - 150 words*: 
 
@@ -371,11 +379,11 @@ That's the budget we have for describing a shot in our compressed movie. So if w
 
 ### Character clustering: an attempt
 
-Something I tried to mitigate the continuity problem is to include some extra in the encoded output: descriptions of characters `characters.json`.
+Something I tried to mitigate the continuity problem is to include something extra in the encoded output: descriptions of characters, `characters.json`.
 
 We can use `characters.json` in two ways depending on the model: 
 
-(1) Primarily: to augment shot prompts to have more + accurate details about the character. 
+(1) Primarily: to enrich shot prompts with more, and more accurate, details about the character. 
 
 
 <figure class="prompt-enrich">
@@ -406,7 +414,7 @@ Here's a particularly good example of the same shot generated from each of those
   <figcaption><i>The Fellowship of the Ring</i>, shot 002, Wan 2.1. A generic old man becomes recognisably Gandalf.</figcaption>
 </figure>
 
-(2) Some models like Wan 2.1 VACE accept reference image inputs, so we can generate an image for each character
+(2) Some models like Wan 2.1 VACE accept reference image inputs, so we can generate an image for each character:
 
 <figure>
   <img src="/lossy/character-headshots.jpg" alt="A 3×2 grid of character headshots generated from the pipeline's clustered descriptions: Luke Skywalker, Gandalf, Harry Potter, C-3PO, Larry David, and Jimmy McGill." style="max-width:460px;display:block;margin:0 auto" />
@@ -431,7 +439,7 @@ For dialogue we'll just use the cheapest (dullest) ElevenLabs voice to keep cost
 
 ### Sound effects
 
-We use the model <b>MMAudio</b>: an audio model, to generate sound effects for the film using the sound effects part of the shot summary, e.g.:
+We use <b>MMAudio</b> to generate sound effects for the film from the sound part of each shot summary, e.g.:
 
 > "The ambient sounds of a bowling alley, including the low rumble of a ball rolling on wood, the distant clatter of pins, and background chatter, accompanied by classic soul or blues music."
 
@@ -444,11 +452,7 @@ MMAudio co-hosts on the video pod for next to nothing, but its output is often n
 
 ### Music
 
-For shots where <code>music</code> is dominant (judged by YAMNet), Gemini listens to the original audio and writes a one-line description of the score. Only the vibes are preserved, not the score.
-
-On decode that sentence is fed to Meta's text-to-music 2023 model <a href="https://github.com/facebookresearch/audiocraft">MusicGen</a>, which invents a fresh score to match. 
-
-> "A slow, ethereal, and slightly ominous orchestral score begins to swell. It features sustained strings and a subtle, rising synth pad, creating a sense of anticipation and foreboding. The tempo is very slow, around ~60bpm, and the music builds tension."
+The one-line score description captured during encode is fed to Meta's 2023 text-to-music model <a href="https://github.com/facebookresearch/audiocraft">MusicGen</a>, which invents a fresh score to match. Only the vibes are preserved, not the score.
 
 <figure>
   <video src="/lossy/demos/sw-sunset-musicgen.mp4" poster="/lossy/demos/sw-sunset-musicgen-poster.jpg" controls playsinline preload="metadata" />
@@ -544,7 +548,7 @@ What astonishing film compression! We took a 632 MB film down to ≈320 KB, that
   <figcaption>Figures from actual runs on <em>Star Wars IV</em> (124.7 min); Seedance 2.0 is fal.ai list price, not run. Only the score's mood survives, not the melody.</figcaption>
 </figure>
 
-Now we can carry over 1000 films on a 1 GB USB drive, and to watch one of them we'll only need to, best-case, pay ≈$30USD and wait a minimum of 12 hours for processing. People are used to paying for compression, like with [WinRAR](https://www.win-rar.com/start.html?&L=0").
+Now we can carry over 1000 films on a 1 GB USB drive, and to watch one of them we'll only need to, best-case, pay ≈$30 USD and wait a minimum of 12 hours for processing. People are used to paying for compression, like with [WinRAR](https://www.win-rar.com/start.html?&L=0").
 
 Our decompressed films are *lossy*. But the output is indeed a full-length 480p (or up to 1080p for more $) video which retains core aspects of the film including all dialogue, and a basic visual and audio reconstruction (incl. some of the music & sound effects) of every shot in the input film.
 
@@ -563,7 +567,7 @@ Our compression process is quite good already considering the 1 MB limitation. I
 
 To make our output movies better we really need to work on the consistency/continuity between shots. Our character clustering gets some of the way there but there's still a long way to go. Newer models may provide more input parameters, like the VACE Wan variant which allows input image references.
 
-Better visuals: **Generate a `first_image` with an image model**: this is technique used to improve the quality of video output, so the video starts from a solid foundatation. We could feed character images (already generated by an image model) into it for better continuity. Image models like Google's "Nano Banana" models or OpenAI's `gpt-image-x` models are high quality and relatively cheap. . This could help with character continuity. Generating ~2000 images with high-quality generated images does add up though, so it's more cost to add.
+Better visuals: **generate a `first_image` with an image model**: a known technique to improve the quality of video output, so the video starts from a solid foundation. Image models like Google's "Nano Banana" or OpenAI's `gpt-image-x` are high quality and relatively cheap, and we could feed our character images into them for better continuity. Generating ~2,000 images does add up though, so it's more cost to add.
 
 <figure class="model-compare">
   <div class="mc-pair">
@@ -579,14 +583,14 @@ Better visuals: **Generate a `first_image` with an image model**: this is techni
   <figcaption class="prompt-caption">Same prompt to both (the <em>Lord of the Rings</em> Moria shot): <i>“An extreme close-up shot, static, focuses on Gollum, a gaunt and spectral creature with large, pale, wide eyes and dark, gnarled skin, peering through what appear to be prison bars. His long, thin fingers twitch and reach out from the darkness, their gnarled texture emphasized by the harsh, directional lighting… The setting is implied to be a dark, confined cell, with the bars creating a sense of claustrophobia…”</i></figcaption>
 </figure>
 
-Dialogue: the default Elevenlabs voice gets old pretty quickly. With clever analysis of the script and visual clues from the frames we ingest we could guess which lines are said by each character, then pick voices for each of them. Harder when many characters are on-screen at once.
+Dialogue: the default ElevenLabs voice gets old pretty quickly. With clever analysis of the script and visual clues from the frames we ingest we could guess which lines are said by each character, then pick voices for each of them. Harder when many characters are on-screen at once.
 
-Sound effects: the audio generated by MMAudio with our prompts can sometimes sound pretty noisey/garbled so there's room there to explore better prompting or other models. Elevenlabs is better but expensive through an API.
+Sound effects: the audio generated by MMAudio with our prompts can sometimes sound pretty noisy/garbled, so there's room there to explore better prompting or other models. ElevenLabs is better but expensive through an API.
 
 Music is currently generated per-shot so it suffers the same continuity issues as video: music will cut off or change suddenly mid-scene, so we'd want a better way to detect music transitions, separately to shots.
 
 
 <figure>
   <img src="/lossy/hagrid-hedwig.jpg" alt="Hagrid and Hedwig the snowy owl, reconstructed by the lossy pipeline (character-identity-enriched generation)." />
-  <figcaption class="prompt-caption">Wan 2.1 (character-enriched): *“Rubeus Hagrid: A large, imposing man with a massive frame, characterized by his long, wild, unkempt dark hair and a thick, bushy beard…”*. </figcaption>
+  <figcaption class="prompt-caption">Wan 2.1 (character-enriched): <i>“Rubeus Hagrid: A large, imposing man with a massive frame, characterized by his long, wild, unkempt dark hair and a thick, bushy beard…”</i></figcaption>
 </figure>
