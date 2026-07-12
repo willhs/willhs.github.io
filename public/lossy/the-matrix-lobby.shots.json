@@ -1,0 +1,3823 @@
+{
+  "format": "v2",
+  "shots": [
+    {
+      "index": 0,
+      "start_s": 0.0,
+      "end_s": 1.627,
+      "duration_s": 1.627,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Narration, monologue"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "But you humans do not.",
+          "start_s": 0.069,
+          "end_s": 1.627
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "static",
+        "subjects": "Agent Smith, a man in a dark suit and sunglasses, sitting in an office chair.",
+        "action": "Agent Smith is sitting, looking slightly off-camera, his mouth moving as he speaks.",
+        "lighting": "Cool, even, diffuse office lighting with a bright window in the background.",
+        "color_palette": "Muted greens, greys, and blacks.",
+        "mood": "Clinical, cold, intimidating, and authoritative.",
+        "setting": "A modern, high-rise office with large windows overlooking a city skyline.",
+        "sound": "Ambient office hum, subtle electronic low-frequency drone."
+      }
+    },
+    {
+      "index": 1,
+      "start_s": 1.627,
+      "end_s": 5.797,
+      "duration_s": 4.171,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Whispering",
+          "Narration, monologue"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "But you humans do not.",
+          "start_s": 0,
+          "end_s": 0.276
+        },
+        {
+          "text": "You move to an area and you multiply...",
+          "start_s": 0.819,
+          "end_s": 4.17
+        }
+      ],
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "static",
+        "subjects": "A bald, injured man with a bloodied lip and electrodes attached to his head, sitting in a chair.",
+        "action": "The man sits in a chair, looking forward with a pained, intense expression, then slowly bows his head downward as if in exhaustion or defeat.",
+        "lighting": "Dim, clinical, and moody lighting with a cool, greenish tint, highlighting the texture of the man's skin and the wires.",
+        "color_palette": "Deep greens, dark grays, and muted skin tones.",
+        "mood": "Oppressive, tense, and somber.",
+        "setting": "A sterile, dimly lit room, possibly an interrogation room or a laboratory, with medical or technical equipment visible in the background.",
+        "sound": "Low-frequency ambient hum, faint electronic buzzing, and the sound of a sterile, quiet environment."
+      }
+    },
+    {
+      "index": 2,
+      "start_s": 5.797,
+      "end_s": 16.141,
+      "duration_s": 10.344,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Whispering",
+          "Narration, monologue",
+          "Silence",
+          "Inside, small room"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "You move to an area and you multiply...",
+          "start_s": 0,
+          "end_s": 0.193
+        },
+        {
+          "text": "...and multiply until every natural resource is consumed.",
+          "start_s": 0.444,
+          "end_s": 4.948
+        },
+        {
+          "text": "The only way you can survive...",
+          "start_s": 5.283,
+          "end_s": 7.367
+        },
+        {
+          "text": "...is to spread to another area.",
+          "start_s": 7.66,
+          "end_s": 10.344
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "static",
+        "subjects": "A man in a dark suit, white shirt, and dark tie, wearing dark sunglasses, sitting in an office chair.",
+        "action": "The man sits in a static position, speaking directly to someone off-screen, with subtle facial movements and mouth articulation as he talks.",
+        "lighting": "Cool, professional office lighting with soft, even illumination on the subject's face, contrasting with the bright, overcast daylight coming through the large windows behind him.",
+        "color_palette": "Deep greens, dark grays, stark whites, and muted office tones.",
+        "mood": "Clinical, cold, menacing, and authoritative.",
+        "setting": "A high-rise office with floor-to-ceiling windows overlooking a city skyline.",
+        "sound": "Low-frequency ambient room tone, faint hum of office ventilation, and the crisp, precise sound of the subject's voice."
+      },
+      "temporal_segments": [
+        {
+          "shot_type": "medium close-up",
+          "camera_movement": "static",
+          "subjects": "A man in a dark suit and dark sunglasses",
+          "action": "The man is speaking, with his mouth articulating words while he maintains a steady, intense gaze directed toward an off-screen individual.",
+          "lighting": "Soft, even indoor lighting illuminating the subject's face, contrasted against the bright, overcast daylight visible through the large office windows behind him.",
+          "color_palette": "Deep greens, dark grays, and stark whites.",
+          "mood": "Clinical, cold, and authoritative.",
+          "setting": "A high-rise office with a view of a city skyline through floor-to-ceiling windows.",
+          "sound": "The crisp, precise, and rhythmic sound of the subject speaking, accompanied by a low-frequency ambient room tone."
+        },
+        {
+          "shot_type": "medium close-up",
+          "camera_movement": "static",
+          "subjects": "A man in a dark suit, white shirt, and dark tie, wearing dark sunglasses, sitting in an office chair.",
+          "action": "The man continues his dialogue, his mouth moving in sync with speech, while he makes a subtle, controlled gesture with his right hand, slightly extending it toward the person off-screen.",
+          "lighting": "Cool, professional office lighting with soft, even illumination on the subject's face, contrasting with the bright, overcast daylight coming through the large windows behind him.",
+          "color_palette": "Deep greens, dark grays, stark whites, and muted office tones.",
+          "mood": "Clinical, cold, menacing, and authoritative.",
+          "setting": "A high-rise office with floor-to-ceiling windows overlooking a city skyline.",
+          "sound": "Low-frequency ambient room tone, faint hum of office ventilation, and the crisp, precise sound of the subject's voice."
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "start_s": 16.141,
+      "end_s": 19.645,
+      "duration_s": 3.503,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Silence",
+          "Speech",
+          "Inside, small room",
+          "Music",
+          "Snake"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "...is to spread to another area.",
+          "start_s": 0,
+          "end_s": 0.276
+        }
+      ],
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "static",
+        "subjects": "A bald man with a bruised and bloodied face, wearing a dark shirt, is sitting in a chair with medical leads attached to his head.",
+        "action": "The man is sitting in a chair, looking down and then slowly lifting his head to stare intensely at someone off-screen, his expression shifting from pained to defiant.",
+        "lighting": "Low-key, clinical lighting with a cool, greenish tint, casting soft shadows on the subject's face.",
+        "color_palette": "Dark greens, grays, and muted browns.",
+        "mood": "Tense, ominous, and clinical.",
+        "setting": "A sterile, dimly lit room that appears to be a medical or interrogation facility, with a computer monitor showing a brain scan in the background.",
+        "sound": "Low, ambient hum of electronic equipment and faint, unsettling mechanical or synthesized sound effects."
+      }
+    },
+    {
+      "index": 4,
+      "start_s": 19.645,
+      "end_s": 26.652,
+      "duration_s": 7.007,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Inside, small room",
+          "Animal",
+          "Silence",
+          "Crow"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "There is another organism on this planet...",
+          "start_s": 2.195,
+          "end_s": 5.072
+        },
+        {
+          "text": "...that follows the same pattern.",
+          "start_s": 5.323,
+          "end_s": 7.007
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "slow zoom in",
+        "subjects": "A man in a dark green suit, white shirt, black tie, and dark sunglasses, with a small earpiece.",
+        "action": "The man is speaking directly to someone off-camera, his mouth moving in sync with speech as the camera slowly pushes in on his face, tightening the framing.",
+        "lighting": "Cool, clinical, high-contrast lighting with soft highlights on the face and dark shadows.",
+        "color_palette": "Deep greens, blacks, whites, and muted grey tones.",
+        "mood": "Intimidating, cold, authoritative, and ominous.",
+        "setting": "An office or interrogation room with large windows overlooking a city skyline.",
+        "sound": "Low-frequency ambient hum, subtle electronic textures, and the faint sound of distant city traffic."
+      }
+    },
+    {
+      "index": 5,
+      "start_s": 26.652,
+      "end_s": 29.154,
+      "duration_s": 2.502,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Silence",
+          "Inside, small room",
+          "Narration, monologue"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "...that follows the same pattern.",
+          "start_s": 0,
+          "end_s": 0.276
+        },
+        {
+          "text": "Do you know what it is?",
+          "start_s": 0.902,
+          "end_s": 2.502
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "static",
+        "subjects": "A man with a shaved head, wearing a dark, blood-stained shirt, with an electrode attached to his temple.",
+        "action": "The man stares intensely into the camera, his expression conveying pain and exhaustion; his eyes shift slightly while his mouth remains slightly open as if catching his breath.",
+        "lighting": "Low-key, clinical lighting with a cool, greenish tint, casting soft shadows across his face.",
+        "color_palette": "Deep greens, dark grays, and muted skin tones.",
+        "mood": "Tense, grim, and claustrophobic.",
+        "setting": "A sterile, dimly lit room with tiled walls, resembling an interrogation room or a medical facility.",
+        "sound": "Low-frequency ambient hum, faint electronic buzzing, and the sound of heavy, labored breathing."
+      }
+    },
+    {
+      "index": 6,
+      "start_s": 29.154,
+      "end_s": 31.156,
+      "duration_s": 2.002,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Silence",
+          "Inside, small room",
+          "Narration, monologue",
+          "Alarm"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "Do you know what it is?",
+          "start_s": 0,
+          "end_s": 0.068
+        },
+        {
+          "text": "A virus.",
+          "start_s": 0.444,
+          "end_s": 2.002
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "static",
+        "subjects": "A man in a dark suit, white shirt, and black tie, wearing dark sunglasses.",
+        "action": "The man is speaking directly to the camera, his mouth moving in sync with his dialogue. His expression remains cold, stern, and focused throughout the shot.",
+        "lighting": "High-contrast, dramatic lighting with a cool, greenish tint. The light source is positioned to highlight his face while casting deep shadows around his eyes and jawline.",
+        "color_palette": "Deep greens, blacks, and muted whites.",
+        "mood": "Ominous, clinical, and intimidating.",
+        "setting": "An office or interrogation room with a blurred, out-of-focus background featuring window panes or architectural details.",
+        "sound": "Low-frequency, humming ambient drone with a subtle, metallic, industrial texture."
+      }
+    },
+    {
+      "index": 7,
+      "start_s": 31.156,
+      "end_s": 33.325,
+      "duration_s": 2.169,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Silence",
+          "Inside, small room",
+          "Narration, monologue"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "A virus.",
+          "start_s": 0,
+          "end_s": 0.276
+        },
+        {
+          "text": "Human beings are a disease.",
+          "start_s": 1.612,
+          "end_s": 2.169
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "static",
+        "subjects": "A man with a shaved head, wearing a dark, blood-stained shirt, with a white wire electrode attached to his temple.",
+        "action": "The man stares intensely forward, his facial expression shifting slightly as he speaks, his eyes glistening with moisture and his lips slightly parted.",
+        "lighting": "Low-key, dramatic side lighting that emphasizes the texture of his skin, sweat, and the blood on his face, casting deep shadows.",
+        "color_palette": "Muted, desaturated greens, dark grays, and deep shadows, with the red of the blood providing a stark contrast.",
+        "mood": "Intense, ominous, and unsettling.",
+        "setting": "A dimly lit, sterile, tiled room, likely an interrogation or medical facility.",
+        "sound": "Low-frequency, ambient hum of a sterile environment, faint electrical buzzing, and the subtle, wet texture of his breathing."
+      }
+    },
+    {
+      "index": 8,
+      "start_s": 33.325,
+      "end_s": 43.335,
+      "duration_s": 10.01,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Breathing",
+          "Inside, small room",
+          "Narration, monologue"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "Human beings are a disease.",
+          "start_s": 0,
+          "end_s": 2.487
+        },
+        {
+          "text": "A cancer of this planet.",
+          "start_s": 2.863,
+          "end_s": 4.405
+        },
+        {
+          "text": "You are a plague.",
+          "start_s": 4.656,
+          "end_s": 6.783
+        },
+        {
+          "text": "And we...",
+          "start_s": 7.326,
+          "end_s": 8.743
+        },
+        {
+          "text": "...are the cure.",
+          "start_s": 8.911,
+          "end_s": 10.01
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "static",
+        "subjects": "A man in a dark suit, white shirt, and black tie, wearing dark rectangular sunglasses.",
+        "action": "The man is speaking directly to the camera, his mouth moving in sync with his monologue. His expression is intense, cold, and menacing, with minimal head movement.",
+        "lighting": "High-contrast, cinematic lighting with a slight green tint, emphasizing the contours of his face and the dark lenses of his glasses.",
+        "color_palette": "Deep greens, blacks, and muted grays.",
+        "mood": "Ominous, clinical, and threatening.",
+        "setting": "An office or sterile room with large windows in the background showing a blurred, green-tinted cityscape.",
+        "sound": "Low, ambient hum of an office building, subtle electronic atmospheric texture, and the sound of steady, controlled breathing."
+      },
+      "temporal_segments": [
+        {
+          "shot_type": "medium close-up",
+          "camera_movement": "static",
+          "subjects": "A man in a dark suit, white shirt, and black tie, wearing dark rectangular sunglasses.",
+          "action": "The man is speaking directly to the camera, his mouth moving in sync with his monologue. His expression is intense, cold, and menacing, with minimal head movement.",
+          "lighting": "High-contrast, cinematic lighting with a slight green tint, emphasizing the contours of his face and the dark lenses of his glasses.",
+          "color_palette": "Deep greens, blacks, and muted grays.",
+          "mood": "Ominous, clinical, and threatening.",
+          "setting": "An office or sterile room with large windows in the background showing a blurred, green-tinted cityscape.",
+          "sound": "Low, ambient hum of an office building, subtle electronic atmospheric texture, and the sound of steady, controlled breathing."
+        },
+        {
+          "shot_type": "medium close-up",
+          "camera_movement": "static",
+          "subjects": "A man in a dark suit and sunglasses",
+          "action": "The man continues his monologue, his lips articulating words precisely while maintaining a rigid, unblinking, and intense gaze directed at the viewer.",
+          "lighting": "High-contrast, cool-toned lighting that highlights the sharp features of his face and creates reflections on his dark sunglasses.",
+          "color_palette": "Muted greens, dark grays, and blacks.",
+          "mood": "Menacing, authoritative, and cold.",
+          "setting": "A sterile, high-rise office environment with a blurred, green-tinted urban background.",
+          "sound": "The sound of a deep, calm, and rhythmic voice speaking, accompanied by a low-frequency, tense ambient drone."
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "start_s": 43.335,
+      "end_s": 45.712,
+      "duration_s": 2.377,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Clip-clop",
+          "Horse",
+          "Music",
+          "Animal"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "...are the cure.",
+          "start_s": 0,
+          "end_s": 0.276
+        },
+        {
+          "text": "Okay, so what do you need?",
+          "start_s": 1.278,
+          "end_s": 2.377
+        }
+      ],
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "static",
+        "subjects": "A man wearing a headset and a tactical vest, sitting at a computer workstation.",
+        "action": "The man sits at his desk, looking at multiple computer monitors displaying green code and data, while his hands move slightly as if typing or operating controls.",
+        "lighting": "Low-key, high-contrast lighting; the primary light source is the cool, green glow emanating from the computer screens, illuminating the side of the man's face.",
+        "color_palette": "Deep blacks, shadows, and vibrant neon green.",
+        "mood": "Technological, tense, focused, and mysterious.",
+        "setting": "A dark, cramped, industrial-style computer room or command center filled with wires and electronics.",
+        "sound": "Low-frequency electronic hum, the faint rhythmic clicking of a keyboard, and subtle ambient mechanical whirring."
+      }
+    },
+    {
+      "index": 10,
+      "start_s": 45.712,
+      "end_s": 47.506,
+      "duration_s": 1.793,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Music",
+          "Narration, monologue",
+          "Inside, small room"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "Okay, so what do you need?",
+          "start_s": 0,
+          "end_s": 0.318
+        },
+        {
+          "text": "Besides a miracle.",
+          "start_s": 0.945,
+          "end_s": 1.794
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "static",
+        "subjects": "A man with a headset microphone attached to his ear, wearing a light-colored shirt.",
+        "action": "The man looks down, then lifts his gaze to look directly at the camera with a serious, slightly tense expression, his eyes widening slightly as he reacts to something off-screen.",
+        "lighting": "Low-key, moody lighting with a cool, greenish-blue tint, creating soft shadows across his face.",
+        "color_palette": "Deep shadows, dark blues, muted greens, and skin tones.",
+        "mood": "Tense, apprehensive, and serious.",
+        "setting": "An dimly lit, industrial or sci-fi interior environment.",
+        "sound": "Low-frequency ambient hum, metallic clanking, and the subtle electronic static of a headset."
+      }
+    },
+    {
+      "index": 11,
+      "start_s": 47.506,
+      "end_s": 51.343,
+      "duration_s": 3.837,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Music"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "Besides a miracle.",
+          "start_s": 0,
+          "end_s": 0.276
+        },
+        {
+          "text": "Guns.",
+          "start_s": 0.861,
+          "end_s": 2.069
+        },
+        {
+          "text": "Lots of guns.",
+          "start_s": 2.905,
+          "end_s": 3.837
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "static",
+        "subjects": "A man with dark hair, wearing a black shirt, holding a vintage mobile phone to his ear.",
+        "action": "The man is listening intently to the person on the other end of the phone, his expression shifting from focused contemplation to a slight, subtle realization as he speaks.",
+        "lighting": "Soft, diffused, high-key lighting that creates a clean, almost clinical look with minimal shadows.",
+        "color_palette": "Cool, desaturated tones, primarily pale blue-white background with natural skin tones and dark clothing.",
+        "mood": "Serious, tense, and focused.",
+        "setting": "An abstract, bright, and minimalist environment with a featureless light-colored background.",
+        "sound": "Ambient electronic hum and faint, low-frequency atmospheric tension."
+      }
+    },
+    {
+      "index": 12,
+      "start_s": 51.343,
+      "end_s": 52.803,
+      "duration_s": 1.46,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "music",
+        "labels": [
+          "Music",
+          "Speech"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "Lots of guns.",
+          "start_s": 0,
+          "end_s": 0.276
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "static",
+        "subjects": "A young man with a small scar on his forehead, wearing a headset with a boom microphone.",
+        "action": "The man stares intensely into the camera, his expression shifting slightly as he speaks, his eyes darting to the side at the end of the shot.",
+        "lighting": "Low-key, moody lighting with a cool, greenish-blue tint, highlighting the contours of his face against a dark, indistinct background.",
+        "color_palette": "Deep blues, dark grays, and muted skin tones.",
+        "mood": "Tense, focused, and slightly ominous.",
+        "setting": "A dimly lit, industrial or technological interior.",
+        "sound": "Low-frequency ambient hum and subtle mechanical clicking from the headset."
+      }
+    },
+    {
+      "index": 13,
+      "start_s": 52.803,
+      "end_s": 54.304,
+      "duration_s": 1.501,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "music",
+        "labels": [
+          "Music",
+          "Speech",
+          "Inside, small room"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "zoom",
+        "subjects": "A young man with a headset and fingerless gloves.",
+        "action": "The camera starts on a close-up of the man's face, looking intense and focused, then zooms in rapidly to his hands as he begins typing furiously on a mechanical keyboard.",
+        "lighting": "Low-key, cool-toned lighting with a greenish tint, likely from computer screens.",
+        "color_palette": "Dark grays, deep blues, and muted teals.",
+        "mood": "Tense, urgent, and cybernetic.",
+        "setting": "A dimly lit, cramped, high-tech workspace or cockpit.",
+        "sound": "The rhythmic, clacking sound of rapid typing, low-frequency electronic hum, and tense, pulsing ambient music."
+      }
+    },
+    {
+      "index": 14,
+      "start_s": 54.304,
+      "end_s": 55.055,
+      "duration_s": 0.751,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Music",
+          "Thunk",
+          "Inside, small room",
+          "Thump, thud",
+          "Door"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "extreme close-up",
+        "camera_movement": "fast zoom in",
+        "subjects": "a person's hands wearing fingerless gloves",
+        "action": "the hands are typing rapidly on a specialized, dark-colored keyboard with unique symbols on the keys; the camera zooms in quickly from a wider view of the keyboard to an extreme close-up of the keys being pressed",
+        "lighting": "cool-toned, low-key lighting with high contrast, emphasizing the texture of the keys and the movement of the fingers",
+        "color_palette": "dark grays, deep teals, and muted blacks",
+        "mood": "tense, urgent, and technical",
+        "setting": "a dimly lit, industrial or high-tech workspace",
+        "sound": "rhythmic, mechanical clacking of keyboard keys, punctuated by deep, resonant thuds and metallic door sounds in the background"
+      }
+    },
+    {
+      "index": 15,
+      "start_s": 55.055,
+      "end_s": 60.978,
+      "duration_s": 5.923,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Vehicle",
+          "Music",
+          "Boom",
+          "Rail transport",
+          "Ocean"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "zoom",
+        "subjects": "A man and a woman in black trench coats standing in a stark white, infinite void.",
+        "action": "The camera starts in a wide shot showing the two subjects standing on opposite sides of a long, narrow rack of weapons that stretches into the distance. As the camera zooms in rapidly, the weapon racks appear to rush past the subjects, transitioning from a wide view to a medium close-up of the man's profile as he looks toward the weapons.",
+        "lighting": "High-key, flat, and shadowless lighting, creating a clinical and surreal atmosphere.",
+        "color_palette": "Stark white, deep black, and metallic gunmetal grey.",
+        "mood": "Surreal, intense, and sterile.",
+        "setting": "A digital, infinite white void containing a seemingly endless rack of firearms.",
+        "sound": "A rhythmic, mechanical whirring sound like a train or conveyor belt, layered with deep, resonant bass booms and subtle, airy ambient textures."
+      }
+    },
+    {
+      "index": 16,
+      "start_s": 60.978,
+      "end_s": 62.437,
+      "duration_s": 1.46,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "music",
+        "labels": [
+          "Music",
+          "Speech"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "Neo...",
+          "start_s": 0.527,
+          "end_s": 1.459
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "static",
+        "subjects": "Trinity, a woman with short dark hair wearing a black leather coat.",
+        "action": "Trinity turns her head from looking to her side toward the camera, then holds her gaze steady while speaking.",
+        "lighting": "Bright, even, high-key studio lighting with a slight cool tint, creating soft shadows on the face.",
+        "color_palette": "Black, grey, white, and muted metallic tones.",
+        "mood": "Serious, focused, and intense.",
+        "setting": "An armory or weapons storage room with rows of rifles and firearms mounted on racks in the background.",
+        "sound": "Ambient room tone, faint metallic clinking, and low-frequency cinematic music."
+      }
+    },
+    {
+      "index": 17,
+      "start_s": 62.437,
+      "end_s": 63.981,
+      "duration_s": 1.543,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "music",
+        "labels": [
+          "Music",
+          "Speech",
+          "Inside, small room"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "Neo...",
+          "start_s": 0,
+          "end_s": 0.277
+        }
+      ],
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "static",
+        "subjects": "Trinity and Neo standing in a room filled with racks of rifles.",
+        "action": "The shot begins with Trinity looking toward Neo, then cuts to Neo looking down at a rifle he is holding, before he looks up toward the camera/Trinity.",
+        "lighting": "Bright, clinical, even overhead lighting with no strong shadows.",
+        "color_palette": "Cool tones, dominated by black, grey, and metallic silver.",
+        "mood": "Serious, focused, and tense.",
+        "setting": "A sterile, industrial-style armory or weapons storage room.",
+        "sound": "Low-frequency ambient hum and the mechanical clatter of weapons being handled."
+      }
+    },
+    {
+      "index": 18,
+      "start_s": 63.981,
+      "end_s": 65.899,
+      "duration_s": 1.919,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Music",
+          "Narration, monologue"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "No one has ever done anything like this.",
+          "start_s": 0.485,
+          "end_s": 1.918
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "static",
+        "subjects": "A woman with short dark hair, wearing a black leather-like coat.",
+        "action": "The woman is speaking, her mouth moving in sync with her words, while she maintains a steady, focused gaze toward the camera, blinking occasionally.",
+        "lighting": "Soft, diffused, even studio lighting that highlights her face and the texture of her coat.",
+        "color_palette": "Monochromatic, dominated by black, grey, and cool white tones.",
+        "mood": "Serious, intense, and clinical.",
+        "setting": "An armory or weapons storage facility with rows of rifles mounted on racks in the background.",
+        "sound": "Ambient, low-frequency hum of a sterile environment, with a subtle, tense musical underscore."
+      }
+    },
+    {
+      "index": 19,
+      "start_s": 65.899,
+      "end_s": 70.612,
+      "duration_s": 4.713,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Music",
+          "Mechanisms"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "No one has ever done anything like this.",
+          "start_s": 0,
+          "end_s": 1.11
+        },
+        {
+          "text": "That's why it's going to work.",
+          "start_s": 2.321,
+          "end_s": 4.239
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "static",
+        "subjects": "A man with dark hair wearing a black coat, standing in front of a rack of various firearms.",
+        "action": "The man is looking down at a submachine gun he is holding, then lifts his head to look forward while speaking, maintaining a steady, focused expression.",
+        "lighting": "Bright, even, high-key studio lighting with minimal shadows, creating a clinical and sterile look.",
+        "color_palette": "Monochromatic, dominated by black, grey, and white, with muted metallic tones from the weapons.",
+        "mood": "Serious, intense, and calculated.",
+        "setting": "An armory or weapons storage facility with rows of rifles and submachine guns organized on metal shelving.",
+        "sound": "Ambient room tone, the metallic clinking of weapons being handled, and a subtle, tense musical underscore."
+      }
+    },
+    {
+      "index": 20,
+      "start_s": 70.612,
+      "end_s": 73.115,
+      "duration_s": 2.502,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Music",
+          "Typing",
+          "Computer keyboard",
+          "Inside, small room",
+          "Creak"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "static",
+        "subjects": "A person in a dark suit, seen from behind and over the shoulder, interacting with computer monitors.",
+        "action": "The person's hand moves across the screen of a computer monitor, seemingly scrolling or selecting data, while the other hand rests near the keyboard.",
+        "lighting": "Low-key, cool-toned lighting emanating primarily from the computer screens, casting a greenish glow on the subject's hand and sleeve.",
+        "color_palette": "Deep blacks, dark grays, and vibrant, glowing cyan-green.",
+        "mood": "Technical, focused, clinical, and mysterious.",
+        "setting": "A dimly lit, high-tech workspace or surveillance room.",
+        "sound": "The rhythmic, mechanical clicking of a computer keyboard, low-frequency ambient hum of electronic equipment, and subtle, sharp electronic beeps."
+      }
+    },
+    {
+      "index": 21,
+      "start_s": 73.115,
+      "end_s": 75.826,
+      "duration_s": 2.711,
+      "camera_motion_detected": "pan left",
+      "audio_detected": {
+        "bucket": "other",
+        "labels": [
+          "Speech",
+          "Patter",
+          "Rodents, rats, mice",
+          "Typing",
+          "Computer keyboard"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "Why isn't the serum working?",
+          "start_s": 1.111,
+          "end_s": 2.711
+        }
+      ],
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "slow pan left",
+        "subjects": "Two men in dark suits and sunglasses (Agents) standing in a modern office, and the back of a bald man's head in the foreground.",
+        "action": "The camera pans slowly to the left, revealing more of the office interior and the second agent sitting at a desk, while the standing agent remains in the mid-ground, looking toward the foreground subject.",
+        "lighting": "Cool, professional office lighting with soft overhead recessed lights and bright daylight streaming through large floor-to-ceiling windows.",
+        "color_palette": "Cool tones, dominated by shades of grey, dark green, black, and the pale blue-white of the daylight outside.",
+        "mood": "Tense, clinical, and intimidating.",
+        "setting": "A high-rise corporate office with a panoramic view of a city skyline.",
+        "sound": "Ambient office hum, the faint sound of typing, and a low, tense electronic drone."
+      }
+    },
+    {
+      "index": 22,
+      "start_s": 75.826,
+      "end_s": 78.787,
+      "duration_s": 2.961,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Silence",
+          "Inside, small room"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "Why isn't the serum working?",
+          "start_s": 0,
+          "end_s": 0.318
+        },
+        {
+          "text": "Perhaps we're asking the wrong questions.",
+          "start_s": 0.944,
+          "end_s": 2.961
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "static",
+        "subjects": "A man wearing a dark suit, white shirt, black tie, and dark sunglasses.",
+        "action": "The man is speaking, his head slightly tilted as he looks off-camera to the left, then shifts his gaze slightly as he continues to talk.",
+        "lighting": "Cool, clinical, and slightly dim lighting, likely from an overhead source, creating soft shadows on his face.",
+        "color_palette": "Muted tones of grey, black, and off-white.",
+        "mood": "Serious, tense, and analytical.",
+        "setting": "A sterile, modern office or laboratory with tiled walls and a minimalist lamp in the background.",
+        "sound": "Ambient room tone, slight hum of electronics, silence."
+      }
+    },
+    {
+      "index": 23,
+      "start_s": 78.787,
+      "end_s": 80.497,
+      "duration_s": 1.71,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Silence",
+          "Chime",
+          "Wind chime",
+          "Bell"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "Perhaps we're asking the wrong questions.",
+          "start_s": 0,
+          "end_s": 0.276
+        }
+      ],
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "static",
+        "subjects": "Three men in dark suits, seen from behind or profile, standing in a modern office.",
+        "action": "The men remain perfectly still, looking out of a large window at the city skyline.",
+        "lighting": "Cool, even, diffused indoor lighting with natural light coming from the large window.",
+        "color_palette": "Dominant shades of grey, muted green, and black.",
+        "mood": "Clinical, tense, and detached.",
+        "setting": "A high-rise office building with floor-to-ceiling windows overlooking a city.",
+        "sound": "Ambient room tone, faint city background noise, and a subtle, high-pitched electronic chime."
+      }
+    },
+    {
+      "index": 24,
+      "start_s": 80.497,
+      "end_s": 82.082,
+      "duration_s": 1.585,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Silence",
+          "Chime",
+          "Music",
+          "Wind chime"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "Leave me with him.",
+          "start_s": 0.653,
+          "end_s": 1.585
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "static",
+        "subjects": "A man in a dark suit and dark sunglasses, identified as an Agent, standing in an office.",
+        "action": "The Agent stands perfectly still, looking slightly off-camera with a stern, focused expression, his mouth moving as if speaking.",
+        "lighting": "Cool, clinical, and even overhead office lighting, creating soft shadows on the face.",
+        "color_palette": "Desaturated greens, grays, and blacks.",
+        "mood": "Intimidating, cold, and authoritative.",
+        "setting": "A modern, sterile corporate office with glass walls overlooking a city skyline.",
+        "sound": "Ambient low-frequency hum of an office building, near-silence."
+      }
+    },
+    {
+      "index": 25,
+      "start_s": 82.082,
+      "end_s": 82.791,
+      "duration_s": 0.709,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Music",
+          "Inside, small room",
+          "Inside, large room or hall",
+          "Sound effect"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "Leave me with him.",
+          "start_s": 0,
+          "end_s": 0.318
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "static",
+        "subjects": "A man in a dark suit, white shirt, black tie, and dark sunglasses, resembling an agent.",
+        "action": "The man, initially looking forward, turns his head sharply to his left to look at someone off-screen.",
+        "lighting": "Cool, clinical, and slightly dim office lighting with a soft key light on the subject's face.",
+        "color_palette": "Muted greens, greys, and blacks.",
+        "mood": "Authoritative, tense, and cold.",
+        "setting": "A sterile, modern office environment with paneled walls and a desk lamp visible in the background.",
+        "sound": "Low-frequency ambient hum, subtle electronic sound effects, and faint, tense musical underscore."
+      }
+    },
+    {
+      "index": 26,
+      "start_s": 82.791,
+      "end_s": 83.5,
+      "duration_s": 0.709,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "other",
+        "labels": [
+          "Inside, small room",
+          "Music",
+          "Inside, large room or hall",
+          "Speech",
+          "Television"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "static",
+        "subjects": "A man wearing a suit, tie, and dark sunglasses with an earpiece.",
+        "action": "The man maintains a stoic, motionless expression while looking slightly off-camera, then shifts his gaze to look directly into the lens.",
+        "lighting": "Cool, clinical, and slightly diffused overhead lighting with a subtle shadow on the right side of his face.",
+        "color_palette": "Muted greens, greys, and black.",
+        "mood": "Tense, professional, and ominous.",
+        "setting": "A sterile, modern office or government-style room with paneled walls.",
+        "sound": "Low-frequency ambient hum, subtle electronic tension music, and the faint sound of a distant, indistinct television broadcast."
+      }
+    },
+    {
+      "index": 27,
+      "start_s": 83.5,
+      "end_s": 85.043,
+      "duration_s": 1.543,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Music",
+          "Inside, small room",
+          "Television",
+          "Inside, large room or hall"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "Now.",
+          "start_s": 1.487,
+          "end_s": 1.543
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "static",
+        "subjects": "A man in a dark green suit, white shirt, black tie, and dark sunglasses.",
+        "action": "The man, initially looking directly at the camera, turns his head slightly to his left as if acknowledging a cue or looking at someone off-screen.",
+        "lighting": "Cool, clinical, and slightly directional lighting, creating soft shadows on the side of his face.",
+        "color_palette": "Muted greens, greys, and blacks.",
+        "mood": "Serious, authoritative, and tense.",
+        "setting": "An office or interrogation room with green-toned wall panels.",
+        "sound": "Ambient room tone with a subtle, low-frequency hum."
+      }
+    },
+    {
+      "index": 28,
+      "start_s": 85.043,
+      "end_s": 87.254,
+      "duration_s": 2.211,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Inside, small room",
+          "Whoosh, swoosh, swish",
+          "Sound effect",
+          "Music"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "Now.",
+          "start_s": 0,
+          "end_s": 1.069
+        }
+      ],
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "static",
+        "subjects": "Three men in identical dark green suits and dark sunglasses, standing in a modern office.",
+        "action": "The men remain perfectly still, positioned in a triangular formation within the office, while the camera holds a steady, unmoving shot of the scene.",
+        "lighting": "Cool, clinical, and even overhead lighting that casts soft shadows, contrasting with the bright daylight visible through the large office windows.",
+        "color_palette": "Deep greens, grays, and muted earth tones, with the bright, cool blue-white of the city skyline visible through the window.",
+        "mood": "Tense, sterile, and ominous.",
+        "setting": "A high-rise corporate office with floor-to-ceiling windows overlooking a dense city skyline.",
+        "sound": "Low-frequency ambient hum, subtle electronic whoosh sound effects, and a tense, minimalist musical underscore."
+      }
+    },
+    {
+      "index": 29,
+      "start_s": 87.254,
+      "end_s": 88.964,
+      "duration_s": 1.71,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Inside, small room",
+          "Speech",
+          "Door",
+          "Tap",
+          "Silence"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "zoom",
+        "subjects": "A man in a dark suit, white shirt, black tie, and dark rectangular sunglasses.",
+        "action": "The man sits still, looking forward, then suddenly turns his head sharply to his left as the camera zooms in on him.",
+        "lighting": "Cool, clinical, flat office lighting with a slight shadow cast on the right side of the frame.",
+        "color_palette": "Muted greens, blacks, and off-whites.",
+        "mood": "Tense, professional, ominous, and sterile.",
+        "setting": "A minimalist, sterile office environment with green-toned wall panels.",
+        "sound": "Ambient room tone, subtle mechanical hum, and the sharp sound of a head turn."
+      }
+    },
+    {
+      "index": 30,
+      "start_s": 88.964,
+      "end_s": 93.927,
+      "duration_s": 4.963,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Silence",
+          "Inside, small room",
+          "Sound effect",
+          "Music",
+          "Arrow"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "static",
+        "subjects": "A man in a dark suit and dark sunglasses (Agent Smith) in the foreground, and two other men in suits in the background.",
+        "action": "The man in the foreground remains still and focused, while the two men in the background walk through a doorway, one following the other, exiting the room.",
+        "lighting": "Cool, clinical, and slightly desaturated overhead office lighting.",
+        "color_palette": "Muted greens, greys, and blacks.",
+        "mood": "Tense, cold, and bureaucratic.",
+        "setting": "A sterile, modern office hallway or conference room with paneled walls.",
+        "sound": "Ambient room tone, the faint sound of footsteps on a hard floor, and the subtle mechanical click of a door closing."
+      }
+    },
+    {
+      "index": 31,
+      "start_s": 93.927,
+      "end_s": 96.638,
+      "duration_s": 2.711,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Silence",
+          "Inside, small room",
+          "Sliding door",
+          "Music",
+          "Mechanisms"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "static",
+        "subjects": "A man with a shaved head, wearing a dark, blood-stained shirt, with white wires attached to his temples.",
+        "action": "The man is sitting and looking down, his face contorted in pain or intense concentration. He subtly shifts his facial muscles and grimaces while remaining in a fixed, hunched position.",
+        "lighting": "Low-key, clinical, top-down lighting that emphasizes the sweat and blood on his face and the texture of his skin.",
+        "color_palette": "Muted greens, dark grays, and deep reds from the blood.",
+        "mood": "Intense, suffering, claustrophobic, and grim.",
+        "setting": "A sterile, dimly lit, industrial-looking room with green-tiled walls.",
+        "sound": "A mix of low-frequency mechanical hums, the subtle sound of sliding metal, and a tense, atmospheric musical score."
+      }
+    },
+    {
+      "index": 32,
+      "start_s": 96.638,
+      "end_s": 98.64,
+      "duration_s": 2.002,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Music",
+          "Sliding door",
+          "Mechanisms",
+          "Door"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "Hold on, Morpheus.",
+          "start_s": 0.694,
+          "end_s": 2.002
+        }
+      ],
+      "description": {
+        "shot_type": "close-up",
+        "camera_movement": "static",
+        "subjects": "A person lying down with their eyes closed, and a hand holding a cloth to their forehead.",
+        "action": "A hand gently presses a cloth against the forehead of the reclining person, then pulls it away slightly, then presses it back down.",
+        "lighting": "Low-key, dramatic, cool-toned lighting with shadows emphasizing the texture of the skin.",
+        "color_palette": "Deep blues, dark grays, and muted skin tones.",
+        "mood": "Somber, tense, and intimate.",
+        "setting": "A dark, industrial-looking interior, likely a ship or medical bay.",
+        "sound": "Low-frequency ambient hum, metallic sliding door mechanisms, and subtle, tense musical underscore."
+      }
+    },
+    {
+      "index": 33,
+      "start_s": 98.64,
+      "end_s": 101.601,
+      "duration_s": 2.961,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Music",
+          "Inside, small room",
+          "Silence"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "Hold on, Morpheus.",
+          "start_s": 0,
+          "end_s": 0.276
+        },
+        {
+          "text": "They're coming for you. They're coming.",
+          "start_s": 0.528,
+          "end_s": 2.961
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "static",
+        "subjects": "A young man with short dark hair and a worn, light-colored tank top.",
+        "action": "The man looks downward with a focused, intense expression, his mouth moving slightly as he speaks, his eyes shifting subtly while he maintains a tense, serious demeanor.",
+        "lighting": "Low-key, dramatic lighting with cool blue and teal highlights on the side of his face, creating deep shadows that emphasize his features.",
+        "color_palette": "Dark shadows, muted grays, and cool teal-blue tones.",
+        "mood": "Tense, urgent, and somber.",
+        "setting": "A dimly lit, industrial-looking interior, possibly the interior of a ship or a mechanical space.",
+        "sound": "Low-frequency ambient hum, metallic clanking in the distance, and faint electronic pulses."
+      }
+    },
+    {
+      "index": 34,
+      "start_s": 101.601,
+      "end_s": 103.395,
+      "duration_s": 1.793,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Silence",
+          "Inside, small room",
+          "Snort",
+          "Speech",
+          "Breathing"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "They're coming for you. They're coming.",
+          "start_s": 0,
+          "end_s": 0.277
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "slow zoom in",
+        "subjects": "A man in a suit and dark sunglasses, identified as Agent Smith.",
+        "action": "The camera slowly zooms in on the man's face as he maintains a stoic, intense expression, looking slightly downward and then shifting his gaze forward.",
+        "lighting": "Cool, clinical office lighting with a soft key light illuminating the subject's face from the side, creating subtle shadows.",
+        "color_palette": "Muted greens, greys, and blacks.",
+        "mood": "Tense, ominous, and cold.",
+        "setting": "An office interior with a large window overlooking a city skyline in the background.",
+        "sound": "Ambient room tone, subtle mechanical hum, and faint city background noise."
+      }
+    },
+    {
+      "index": 35,
+      "start_s": 103.395,
+      "end_s": 106.148,
+      "duration_s": 2.753,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Silence",
+          "Inside, small room",
+          "Narration, monologue",
+          "Writing"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "Can you hear me, Morpheus?",
+          "start_s": 0.861,
+          "end_s": 2.753
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "static",
+        "subjects": "A bald man with electrodes attached to his temples, wearing a dark, sweat-stained shirt.",
+        "action": "The man sits with his head bowed, his face glistening with sweat, his expression one of intense concentration or physical strain. He remains largely still, his eyes slightly twitching as if processing something.",
+        "lighting": "Low-key, dramatic side lighting that emphasizes the texture of his skin and the sweat on his face, leaving the background in deep shadow.",
+        "color_palette": "Deep greens, dark grays, and black.",
+        "mood": "Tense, claustrophobic, and somber.",
+        "setting": "A dark, industrial-looking room or containment chamber.",
+        "sound": "Low-frequency ambient hum, faint metallic creaks, and the sound of heavy, rhythmic breathing."
+      }
+    },
+    {
+      "index": 36,
+      "start_s": 106.148,
+      "end_s": 113.113,
+      "duration_s": 6.965,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Silence",
+          "Inside, small room",
+          "Scissors",
+          "Chewing, mastication"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "Can you hear me, Morpheus?",
+          "start_s": 0,
+          "end_s": 0.234
+        },
+        {
+          "text": "I'm going to be honest...",
+          "start_s": 0.485,
+          "end_s": 3.154
+        },
+        {
+          "text": "...with you.",
+          "start_s": 3.53,
+          "end_s": 4.739
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "slow zoom in",
+        "subjects": "A man in a suit and dark sunglasses, resembling an agent.",
+        "action": "The man slowly removes his dark sunglasses with his left hand, then reaches up with his right hand to adjust a clear earpiece in his ear.",
+        "lighting": "Cool, professional office lighting with soft shadows on the face, likely from a large window off-camera.",
+        "color_palette": "Muted greens, greys, and blacks, with a stark white shirt.",
+        "mood": "Intimidating, cold, and calculated.",
+        "setting": "A high-rise office building with large windows overlooking a city skyline.",
+        "sound": "Ambient room tone, the faint mechanical sound of the earpiece being adjusted, and a subtle, low-frequency hum."
+      }
+    },
+    {
+      "index": 37,
+      "start_s": 113.113,
+      "end_s": 114.823,
+      "duration_s": 1.71,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "silence",
+        "labels": [
+          "Silence",
+          "Speech",
+          "Inside, small room",
+          "Writing"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "static",
+        "subjects": "A bald, sweaty man with medical electrodes attached to his temples.",
+        "action": "The man remains seated and still, his head slightly bowed, appearing to be in a state of intense concentration, exhaustion, or pain.",
+        "lighting": "Low-key, dramatic lighting with a strong key light highlighting the texture of the man's skin and the sweat on his face, leaving the background in deep shadow.",
+        "color_palette": "Muted, desaturated tones of dark grey, olive green, and skin tones.",
+        "mood": "Tense, somber, and clinical.",
+        "setting": "An dimly lit, enclosed interior space, possibly a medical or interrogation room.",
+        "sound": "Silence, with subtle ambient room tone."
+      }
+    },
+    {
+      "index": 38,
+      "start_s": 114.823,
+      "end_s": 128.045,
+      "duration_s": 13.222,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Silence",
+          "Inside, small room",
+          "Narration, monologue",
+          "Breathing"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "I...",
+          "start_s": 0.444,
+          "end_s": 1.861
+        },
+        {
+          "text": "...hate...",
+          "start_s": 2.738,
+          "end_s": 3.863
+        },
+        {
+          "text": "...this place...",
+          "start_s": 4.114,
+          "end_s": 6.074
+        },
+        {
+          "text": "...this zoo...",
+          "start_s": 6.408,
+          "end_s": 8.701
+        },
+        {
+          "text": "...this prison...",
+          "start_s": 8.953,
+          "end_s": 10.078
+        },
+        {
+          "text": "...this reality, whatever you want to call it.",
+          "start_s": 10.329,
+          "end_s": 13.222
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "slow zoom in",
+        "subjects": "A man in a dark suit and tie, seen in profile, speaking intensely to someone whose back is to the camera.",
+        "action": "The man speaks with increasing intensity and aggression, his facial expressions tightening and his mouth opening wider as he delivers his monologue. The camera slowly zooms in on his face, emphasizing his frustration.",
+        "lighting": "High-contrast, dramatic lighting with a cool, greenish tint, highlighting the contours of the man's face while leaving parts of the background in shadow.",
+        "color_palette": "Deep greens, dark grays, and muted off-whites.",
+        "mood": "Tense, aggressive, claustrophobic, and cynical.",
+        "setting": "An office interior with large windows overlooking a city skyline, visible as blurred vertical lines in the background.",
+        "sound": "Low-frequency ambient hum, subtle mechanical room tone, and the sharp, rhythmic sound of the man's breathing between words."
+      },
+      "temporal_segments": [
+        {
+          "shot_type": "medium close-up",
+          "camera_movement": "slow zoom in",
+          "subjects": "A man in a dark suit and tie, seen in profile, speaking intensely to someone whose back is to the camera.",
+          "action": "The man continues his intense monologue, his jaw tightening and his mouth opening wider as he emphasizes his words, his gaze fixed on the person in front of him.",
+          "lighting": "High-contrast, dramatic lighting with a cool, greenish tint, highlighting the contours of the man's face while leaving parts of the background in shadow.",
+          "color_palette": "Deep greens, dark grays, and muted off-whites.",
+          "mood": "Tense, aggressive, claustrophobic, and cynical.",
+          "setting": "An office interior with large windows overlooking a city skyline, visible as blurred vertical lines in the background.",
+          "sound": "Low-frequency ambient hum, subtle mechanical room tone, and the sharp, rhythmic sound of the man's breathing between words."
+        },
+        {
+          "shot_type": "medium close-up",
+          "camera_movement": "slow zoom in",
+          "subjects": "A man in a dark suit and tie, seen in profile, speaking intensely to someone whose back is to the camera.",
+          "action": "The man's expression shifts from focused intensity to a sudden, aggressive outburst, his jaw tightening and his mouth opening wide as he delivers a forceful, shouting line of dialogue.",
+          "lighting": "High-contrast, dramatic lighting with a cool, greenish tint, emphasizing the sharp contours of the man's face and the tension in his neck.",
+          "color_palette": "Deep greens, dark grays, and muted off-whites.",
+          "mood": "Tense, aggressive, claustrophobic, and cynical.",
+          "setting": "An office interior with large windows overlooking a city skyline, visible as blurred vertical lines in the background.",
+          "sound": "Low-frequency ambient hum, subtle mechanical room tone, and the sharp, rhythmic sound of the man's breathing between words."
+        }
+      ]
+    },
+    {
+      "index": 39,
+      "start_s": 128.045,
+      "end_s": 130.547,
+      "duration_s": 2.502,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Whispering",
+          "Inside, small room",
+          "Narration, monologue"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "...this reality, whatever you want to call it.",
+          "start_s": 0,
+          "end_s": 0.276
+        },
+        {
+          "text": "I can't stand it any longer.",
+          "start_s": 0.527,
+          "end_s": 2.502
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "static",
+        "subjects": "A bald man with a medical electrode attached to his temple, looking down in distress.",
+        "action": "The man remains in a static, slumped position, his head bowed, appearing to be in a state of deep contemplation or suffering.",
+        "lighting": "Low-key, dramatic side lighting that highlights the sweat on his skin and creates deep shadows, emphasizing the contours of his face.",
+        "color_palette": "Muted, desaturated tones of dark green, charcoal gray, and skin tones.",
+        "mood": "Oppressive, somber, and psychologically heavy.",
+        "setting": "An dimly lit, claustrophobic interior space, possibly a medical or interrogation room.",
+        "sound": "Low, ambient hum and faint, unsettling electronic textures."
+      }
+    },
+    {
+      "index": 40,
+      "start_s": 130.547,
+      "end_s": 143.977,
+      "duration_s": 13.43,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Silence",
+          "Inside, small room",
+          "Narration, monologue"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "I can't stand it any longer.",
+          "start_s": 0,
+          "end_s": 0.318
+        },
+        {
+          "text": "It's the smell.",
+          "start_s": 1.07,
+          "end_s": 2.946
+        },
+        {
+          "text": "If there is such a thing.",
+          "start_s": 4.323,
+          "end_s": 6.199
+        },
+        {
+          "text": "I feel saturated by it.",
+          "start_s": 6.533,
+          "end_s": 9.827
+        },
+        {
+          "text": "I can...",
+          "start_s": 11.33,
+          "end_s": 12.622
+        },
+        {
+          "text": "...taste...",
+          "start_s": 12.873,
+          "end_s": 13.43
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "slow zoom in",
+        "subjects": "A man in a suit (Agent Smith) leaning in aggressively toward a bald man (Morpheus) whose back is to the camera.",
+        "action": "The man in the suit leans closer to the other subject, his facial expressions shifting from intense focus to a sneer as he speaks, while the camera slowly zooms in on his face.",
+        "lighting": "High-contrast, cool-toned interior lighting with a strong key light highlighting the man's face and forehead.",
+        "color_palette": "Desaturated greens, grays, and blacks.",
+        "mood": "Tense, menacing, and claustrophobic.",
+        "setting": "An office or interrogation room with a large window in the background showing a blurred city skyline.",
+        "sound": "Low-frequency ambient hum and the subtle sound of city traffic muffled from outside."
+      },
+      "temporal_segments": [
+        {
+          "shot_type": "medium close-up",
+          "camera_movement": "slow zoom in",
+          "subjects": "Agent Smith and the back of Morpheus's head",
+          "action": "Agent Smith maintains intense eye contact with Morpheus, his facial muscles tightening as he delivers a menacing monologue, his lips moving in synchronization with his speech.",
+          "lighting": "High-contrast, cool-toned interior lighting with a strong key light emphasizing the texture of Agent Smith's skin and the contours of his face.",
+          "color_palette": "Desaturated greens, grays, and deep blacks.",
+          "mood": "Tense, menacing, and claustrophobic.",
+          "setting": "An office or interrogation room with a blurred city skyline visible through a large window in the background.",
+          "sound": "Low-frequency ambient hum and the crisp, clear sound of Agent Smith's voice speaking."
+        },
+        {
+          "shot_type": "medium close-up",
+          "camera_movement": "slow zoom in",
+          "subjects": "Agent Smith, a man in a suit, and the back of Morpheus's head.",
+          "action": "Agent Smith continues his aggressive interrogation, his face contorting as he sneers and bares his teeth while speaking, maintaining intense eye contact with the subject in front of him.",
+          "lighting": "High-contrast, cool-toned interior lighting with a sharp key light emphasizing the textures of his skin and the intensity of his expression.",
+          "color_palette": "Desaturated greens, grays, and deep blacks.",
+          "mood": "Menacing, hostile, and claustrophobic.",
+          "setting": "An office or interrogation room with a blurred city skyline visible through a window in the background.",
+          "sound": "Low-frequency ambient hum and the muffled, rhythmic sound of speech."
+        }
+      ]
+    },
+    {
+      "index": 41,
+      "start_s": 143.977,
+      "end_s": 146.897,
+      "duration_s": 2.92,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Inside, small room",
+          "Music"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "...taste...",
+          "start_s": 0,
+          "end_s": 0.985
+        },
+        {
+          "text": "...your stink.",
+          "start_s": 1.153,
+          "end_s": 2.92
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "slow zoom in",
+        "subjects": "A man in a dark suit, whose face is partially obscured by shadows, and a bald, sweaty man who is being touched on the head and face.",
+        "action": "The man in the suit slowly moves his hand across the bald man's head and down to his face, tilting the bald man's head upward to look at him.",
+        "lighting": "Low-key, dramatic chiaroscuro lighting with a strong light source from the side highlighting the sweat on the bald man's head.",
+        "color_palette": "Deep blacks, dark greens, and muted skin tones.",
+        "mood": "Intimidating, tense, and menacing.",
+        "setting": "A dark, enclosed, and claustrophobic space.",
+        "sound": "Low, ominous ambient drone and subtle, tense musical underscore."
+      }
+    },
+    {
+      "index": 42,
+      "start_s": 146.897,
+      "end_s": 151.902,
+      "duration_s": 5.005,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Inside, small room",
+          "Music"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "...your stink.",
+          "start_s": 0,
+          "end_s": 0.276
+        },
+        {
+          "text": "And every time I do, I fear that I have somehow been infected by it.",
+          "start_s": 0.527,
+          "end_s": 4.155
+        },
+        {
+          "text": "It's repulsive.",
+          "start_s": 4.323,
+          "end_s": 5.005
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "slow zoom in",
+        "subjects": "Agent Smith and Morpheus",
+        "action": "Agent Smith leans in closer to Morpheus, his expression intense and disgusted as he speaks, while Morpheus remains mostly still in the foreground.",
+        "lighting": "High-contrast, dramatic side lighting that emphasizes the textures of the skin and the intensity of the facial expressions.",
+        "color_palette": "Deep greens, dark grays, and muted, sickly skin tones.",
+        "mood": "Tense, menacing, and claustrophobic.",
+        "setting": "An interrogation room with a window overlooking a dark, urban cityscape.",
+        "sound": "Low, ominous ambient drone with a subtle, rhythmic musical pulse."
+      }
+    },
+    {
+      "index": 43,
+      "start_s": 151.902,
+      "end_s": 154.696,
+      "duration_s": 2.794,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Inside, small room",
+          "Mechanisms",
+          "Printer",
+          "Music"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "It's repulsive.",
+          "start_s": 0,
+          "end_s": 0.318
+        },
+        {
+          "text": "Isn't it?",
+          "start_s": 1.32,
+          "end_s": 2.695
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "slow zoom in",
+        "subjects": "A man in a dark suit (Morpheus) with electrodes on his face and a man in a green suit (Agent Smith) positioned in the foreground.",
+        "action": "The man in the green suit pulls his hand away from the face of the man in the dark suit, revealing a small, dark, bug-like device he has just extracted from the other man's mouth.",
+        "lighting": "Low-key, clinical, and moody lighting with a greenish tint, emphasizing the textures of the skin.",
+        "color_palette": "Deep greens, shadows, and muted skin tones.",
+        "mood": "Ominous, tense, and unsettling.",
+        "setting": "A dimly lit, sterile, and claustrophobic interrogation room.",
+        "sound": "Low-frequency mechanical hum, subtle electronic chirping, and the faint, rhythmic sound of a printer in the background."
+      }
+    },
+    {
+      "index": 44,
+      "start_s": 154.696,
+      "end_s": 164.539,
+      "duration_s": 9.843,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Inside, small room",
+          "Mechanisms",
+          "Printer",
+          "Inside, large room or hall"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "I must get out of here.",
+          "start_s": 2.071,
+          "end_s": 4.364
+        },
+        {
+          "text": "I must get free.",
+          "start_s": 4.782,
+          "end_s": 6.991
+        },
+        {
+          "text": "And in this mind is the key.",
+          "start_s": 7.243,
+          "end_s": 9.843
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "slow zoom in",
+        "subjects": "A man in a dark suit and tie, seen from the side, intensely staring at another person whose face is partially obscured in the foreground.",
+        "action": "The man in the suit speaks with increasing intensity and aggression, his facial muscles tightening and his eyes widening as the camera slowly zooms in on his face.",
+        "lighting": "High-contrast, dramatic lighting with a cool, greenish tint, emphasizing the texture of the man's skin and the intensity of his gaze.",
+        "color_palette": "Deep greens, dark grays, and muted skin tones.",
+        "mood": "Tense, claustrophobic, and menacing.",
+        "setting": "An dimly lit, industrial-looking office or interrogation room with vertical blinds in the background.",
+        "sound": "Low-frequency mechanical hum, subtle electronic buzzing, and the rhythmic, muffled clatter of a printer in the distance."
+      },
+      "temporal_segments": [
+        {
+          "shot_type": "medium close-up",
+          "camera_movement": "slow zoom in",
+          "subjects": "A man in a dark suit and tie, seen from the side, intensely staring at another person whose face is partially obscured in the foreground.",
+          "action": "The man in the suit speaks with increasing intensity and aggression, his facial muscles tightening and his eyes widening as the camera slowly zooms in on his face.",
+          "lighting": "High-contrast, dramatic lighting with a cool, greenish tint, emphasizing the texture of the man's skin and the intensity of his gaze.",
+          "color_palette": "Deep greens, dark grays, and muted skin tones.",
+          "mood": "Tense, claustrophobic, and menacing.",
+          "setting": "An dimly lit, industrial-looking office or interrogation room with vertical blinds in the background.",
+          "sound": "Low-frequency mechanical hum, subtle electronic buzzing, and the rhythmic, muffled clatter of a printer in the distance."
+        },
+        {
+          "shot_type": "medium close-up",
+          "camera_movement": "slow zoom in",
+          "subjects": "A man in a dark suit and tie, intensely staring at a person whose face is partially obscured in the foreground.",
+          "action": "The man in the suit continues his aggressive monologue, his jaw muscles clenching and unclenching as he speaks with heightened intensity, his eyes wide and fixed on the person in front of him.",
+          "lighting": "High-contrast, dramatic lighting with a cool, greenish tint, emphasizing the intense expression and skin texture.",
+          "color_palette": "Deep greens, dark grays, and muted skin tones.",
+          "mood": "Tense, claustrophobic, and menacing.",
+          "setting": "A dimly lit, industrial-looking office or interrogation room with vertical blinds in the background.",
+          "sound": "Low-frequency mechanical hum, subtle electronic buzzing, and the rhythmic, muffled clatter of a printer in the distance."
+        }
+      ]
+    },
+    {
+      "index": 45,
+      "start_s": 164.539,
+      "end_s": 166.416,
+      "duration_s": 1.877,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Inside, small room",
+          "Narration, monologue"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "And in this mind is the key.",
+          "start_s": 0,
+          "end_s": 0.277
+        },
+        {
+          "text": "My key.",
+          "start_s": 0.528,
+          "end_s": 1.877
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "slow zoom in",
+        "subjects": "A man with a shaved head, bruised face, and an electrode attached to his temple is being held by another person whose back is to the camera.",
+        "action": "The camera slowly zooms in on the face of the man with the electrode, who has his eyes rolled back, while the person holding his head remains still.",
+        "lighting": "Low-key, dramatic side lighting that emphasizes the textures of the man's face and the shadows around his eyes.",
+        "color_palette": "Muted greens, deep shadows, and skin tones.",
+        "mood": "Intense, ominous, and clinical.",
+        "setting": "A dimly lit, sterile room, possibly a laboratory or interrogation space.",
+        "sound": "Low-frequency ambient hum and faint electronic buzzing."
+      }
+    },
+    {
+      "index": 46,
+      "start_s": 166.416,
+      "end_s": 171.546,
+      "duration_s": 5.13,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Inside, small room"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "My key.",
+          "start_s": 0,
+          "end_s": 0.318
+        },
+        {
+          "text": "Once Zion is destroyed, there is no need for me to be here.",
+          "start_s": 0.569,
+          "end_s": 3.446
+        },
+        {
+          "text": "Do you understand?",
+          "start_s": 3.697,
+          "end_s": 5.13
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "slow zoom in",
+        "subjects": "A man in a dark suit with intense, wide eyes and a pale, gaunt face is holding the head of a bald, injured man who has a bloody nose and an electrode attached to his temple.",
+        "action": "The man in the suit leans in closer to the injured man, speaking intensely while gripping his face, while the injured man remains mostly still, looking back with a weary, pained expression.",
+        "lighting": "High-contrast, moody lighting with a cool, greenish tint, highlighting the texture of the skin and the intensity of the man's eyes.",
+        "color_palette": "Deep greens, shadows, muted skin tones, and subtle blood red.",
+        "mood": "Tense, menacing, and claustrophobic.",
+        "setting": "A dimly lit, sterile, or industrial-looking room.",
+        "sound": "Low-frequency hum, faint metallic ambient noise, and the sound of breathing."
+      }
+    },
+    {
+      "index": 47,
+      "start_s": 171.546,
+      "end_s": 178.553,
+      "duration_s": 7.007,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Inside, small room"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "Do you understand?",
+          "start_s": 0,
+          "end_s": 0.193
+        },
+        {
+          "text": "I need the codes.",
+          "start_s": 0.486,
+          "end_s": 1.861
+        },
+        {
+          "text": "I have to get inside Zion...",
+          "start_s": 2.113,
+          "end_s": 4.447
+        },
+        {
+          "text": "...and you have to tell me how.",
+          "start_s": 4.782,
+          "end_s": 7.007
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "slow zoom in",
+        "subjects": "A man in a dark suit and tie, looking intense and menacing, is leaning in close to another person whose face is partially obscured in the foreground.",
+        "action": "The man in the suit stares intensely at the other person, his face muscles tensed as he speaks with aggression and urgency, while the camera slowly zooms in on his face.",
+        "lighting": "High-contrast, dramatic lighting with deep shadows, emphasizing the man's facial features and intense expression.",
+        "color_palette": "Muted, desaturated tones, with dark greens and grays dominating the background and the man's suit.",
+        "mood": "Tense, threatening, and urgent.",
+        "setting": "An interior, dimly lit, sterile-looking room or office.",
+        "sound": "Low, ominous ambient hum with sharp, rhythmic mechanical clicking sounds."
+      }
+    },
+    {
+      "index": 48,
+      "start_s": 178.553,
+      "end_s": 180.847,
+      "duration_s": 2.294,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Inside, small room",
+          "Whispering",
+          "Breathing"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "...and you have to tell me how.",
+          "start_s": 0,
+          "end_s": 0.277
+        },
+        {
+          "text": "You're going to tell me...",
+          "start_s": 0.695,
+          "end_s": 2.294
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "static",
+        "subjects": "A bruised and bloodied man with an electrode on his temple is being held by the head by an unseen person.",
+        "action": "The man with the electrode looks dazed and weary, his eyes slightly unfocused, while the hands holding his face remain steady and firm, suggesting an interrogation or intense confrontation.",
+        "lighting": "Low-key, dramatic lighting with a cool green tint, highlighting the texture of the man's skin and the blood on his face.",
+        "color_palette": "Deep greens, muted shadows, and skin tones.",
+        "mood": "Tense, oppressive, and somber.",
+        "setting": "A dimly lit, sterile, or industrial-looking room.",
+        "sound": "Heavy, labored breathing and the subtle, low-frequency hum of electronic equipment."
+      }
+    },
+    {
+      "index": 49,
+      "start_s": 180.847,
+      "end_s": 185.018,
+      "duration_s": 4.171,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Breathing",
+          "Snort",
+          "Bleat",
+          "Sheep"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "You're going to tell me...",
+          "start_s": 0,
+          "end_s": 0.276
+        },
+        {
+          "text": "...or you're going to die.",
+          "start_s": 0.528,
+          "end_s": 2.696
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "static",
+        "subjects": "A man in a dark suit and tie, looking intense and menacing, leans in close to another person whose head is partially visible in the foreground.",
+        "action": "The man in the suit maintains a steady, intimidating gaze while speaking, his facial muscles tense and his eyes wide and focused on the person he is confronting.",
+        "lighting": "High-contrast, dramatic lighting with a strong key light illuminating the man's face, casting deep shadows that emphasize his features and intense expression.",
+        "color_palette": "Desaturated, muted tones, dominated by dark grays, blacks, and subtle greenish-browns.",
+        "mood": "Tense, threatening, and ominous.",
+        "setting": "An interior, dimly lit office or interrogation room.",
+        "sound": "Low-frequency, ambient hum with subtle, sharp mechanical or electronic sound effects."
+      }
+    },
+    {
+      "index": 50,
+      "start_s": 185.018,
+      "end_s": 191.566,
+      "duration_s": 6.548,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Rail transport",
+          "Train",
+          "Vehicle",
+          "Speech",
+          "Railroad car, train wagon"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "extreme close-up",
+        "camera_movement": "slow zoom in",
+        "subjects": "a person wearing black heavy-duty boots and a long dark coat",
+        "action": "the person stands still on a green marble floor, then shifts their weight slightly as the camera slowly zooms in on their feet",
+        "lighting": "dim, low-key lighting with high contrast, creating deep shadows around the feet",
+        "color_palette": "black, dark green, grey",
+        "mood": "tense, mysterious, ominous",
+        "setting": "a dark, possibly industrial or high-end interior space with marble flooring",
+        "sound": "the rhythmic, heavy clanking and mechanical rumbling of a moving train"
+      }
+    },
+    {
+      "index": 51,
+      "start_s": 191.566,
+      "end_s": 198.407,
+      "duration_s": 6.84,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Music",
+          "Vehicle",
+          "Sliding door",
+          "Inside, small room",
+          "Door"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "slow zoom in",
+        "subjects": "a man in a dark coat standing before an airport security X-ray machine, with three security guards watching him",
+        "action": "the camera slowly zooms in from a medium shot of the man's back and the guards to a tighter focus on the black duffel bag sitting on the X-ray conveyor belt as it moves into the machine",
+        "lighting": "dim, artificial, high-contrast green-tinted lighting typical of a security checkpoint",
+        "color_palette": "deep greens, blacks, and muted whites",
+        "mood": "tense, clinical, ominous",
+        "setting": "an airport security checkpoint with dark, industrial architecture",
+        "sound": "low-frequency ambient hum, the mechanical whirring of the conveyor belt, and the sharp, metallic sound of the bag sliding onto the belt"
+      }
+    },
+    {
+      "index": 52,
+      "start_s": 198.407,
+      "end_s": 201.827,
+      "duration_s": 3.42,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Vehicle",
+          "Train",
+          "Rail transport",
+          "Mechanisms",
+          "Mechanical fan"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "zoom",
+        "subjects": "A man wearing dark sunglasses walking through a metal detector.",
+        "action": "The camera starts on a close-up of the metal detector's red alarm light and LED indicator bar, then zooms out and tilts down to reveal the man walking through the frame, his face coming into focus as he passes through the detector.",
+        "lighting": "Cool, greenish-tinted ambient light with high-contrast highlights from the background windows.",
+        "color_palette": "Deep greens, blacks, and bright, warning-sign red.",
+        "mood": "Tense, clinical, and ominous.",
+        "setting": "A sterile, industrial-looking building entrance or security checkpoint.",
+        "sound": "The mechanical, rhythmic hum of a security scanner, accompanied by the sharp, electronic beeping of an alarm, layered with subtle industrial ambient noise."
+      }
+    },
+    {
+      "index": 53,
+      "start_s": 201.827,
+      "end_s": 207.499,
+      "duration_s": 5.672,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Keys jangling",
+          "Music",
+          "Mechanisms",
+          "Burst, pop"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "Please remove any metallic items you're carrying. Keys, loose change.",
+          "start_s": 1.903,
+          "end_s": 5.031
+        }
+      ],
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "slow zoom in",
+        "subjects": "A man in a black trench coat and sunglasses standing before a security checkpoint, facing a security guard in a white uniform.",
+        "action": "The security guard, holding a metal detector wand, gestures for the man to remove metallic items. The man stands still, listening, while another guard in the background remains seated and a third guard stands further back in the dimly lit hallway.",
+        "lighting": "Low-key, high-contrast lighting with a cool, greenish tint. The scene is illuminated by overhead fluorescent lights, creating deep shadows in the corners of the office lobby.",
+        "color_palette": "Deep greens, blacks, grays, and stark whites from the guard's uniform.",
+        "mood": "Tense, clinical, and ominous.",
+        "setting": "A sterile, dimly lit corporate security checkpoint or lobby with marble-like walls and industrial equipment.",
+        "sound": "The sound of keys jangling, the mechanical hum of security equipment, and a subtle, low-frequency atmospheric musical score."
+      }
+    },
+    {
+      "index": 54,
+      "start_s": 207.499,
+      "end_s": 210.001,
+      "duration_s": 2.502,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Silence",
+          "Music",
+          "Arrow",
+          "Whoosh, swoosh, swish"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "zoom",
+        "subjects": "a person wearing a tactical harness and a black coat",
+        "action": "the subject pulls back the sides of their black coat to reveal a tactical belt equipped with multiple handguns, then the camera zooms in slightly on the weapons",
+        "lighting": "low-key, dramatic lighting with high contrast, emphasizing the metallic sheen of the weapons against the dark clothing",
+        "color_palette": "black, dark grey, metallic silver",
+        "mood": "tense, prepared, tactical, ominous",
+        "setting": "an interior, dimly lit environment",
+        "sound": "the sharp, rhythmic sound of fabric rustling followed by the metallic click and clatter of holstered firearms"
+      }
+    },
+    {
+      "index": 55,
+      "start_s": 210.001,
+      "end_s": 211.545,
+      "duration_s": 1.543,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Silence",
+          "Speech",
+          "Inside, small room",
+          "Child speech, kid speaking"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "Holy shit!",
+          "start_s": 0.778,
+          "end_s": 1.544
+        }
+      ],
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "static",
+        "subjects": "A security guard in a white uniform and black cap, and Neo (partially visible in the foreground) wearing black sunglasses and a black coat.",
+        "action": "The security guard looks down and reacts with shock, his face contorting as he exclaims, while Neo remains stoic and still in the foreground.",
+        "lighting": "Cool, clinical, and slightly dim interior lighting with a greenish tint, casting soft shadows on the guard's face.",
+        "color_palette": "Muted greens, greys, black, and stark white.",
+        "mood": "Tense, ominous, and unsettling.",
+        "setting": "A sterile, modern office building corridor with stone pillars and metallic accents.",
+        "sound": "Ambient room tone, the sound of a sharp, sudden exclamation, and a low, humming electronic atmosphere."
+      }
+    },
+    {
+      "index": 56,
+      "start_s": 211.545,
+      "end_s": 212.337,
+      "duration_s": 0.792,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Slam",
+          "Inside, small room",
+          "Child speech, kid speaking",
+          "Inside, large room or hall"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "Holy shit!",
+          "start_s": 0,
+          "end_s": 0.276
+        }
+      ],
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "slow zoom in",
+        "subjects": "A man in a black coat and sunglasses (Neo) and a security guard in a white uniform.",
+        "action": "The camera zooms in as the man in the black coat aggressively grabs the security guard by his shirt, pulling him forward while the guard looks shocked.",
+        "lighting": "Cool-toned, slightly dim indoor lighting with soft shadows, typical of an office building hallway.",
+        "color_palette": "Greens, blacks, and whites.",
+        "mood": "Tense, confrontational, and urgent.",
+        "setting": "An office building corridor with stone walls.",
+        "sound": "Ambient room tone, the sound of fabric rustling, and a sharp, sudden impact sound."
+      }
+    },
+    {
+      "index": 57,
+      "start_s": 212.337,
+      "end_s": 213.547,
+      "duration_s": 1.21,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Slam",
+          "Inside, large room or hall",
+          "Inside, small room",
+          "Door"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "static",
+        "subjects": "A security guard in a white shirt and a man in a black coat.",
+        "action": "The man in the black coat holds his hand up in a stop gesture, while the security guard stands with his back to the camera, holding a radio to his ear.",
+        "lighting": "Cool, clinical, high-contrast interior lighting with a greenish tint.",
+        "color_palette": "Green, grey, white, black.",
+        "mood": "Tense, professional, mysterious.",
+        "setting": "A sterile, modern office building hallway with glass partitions and stone walls.",
+        "sound": "Ambient room tone, the sound of a radio transmission, and the metallic click of a door or equipment."
+      }
+    },
+    {
+      "index": 58,
+      "start_s": 213.547,
+      "end_s": 214.214,
+      "duration_s": 0.667,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Speech",
+          "Vehicle",
+          "Motor vehicle (road)",
+          "Car",
+          "Outside, urban or manmade"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "static",
+        "subjects": "Three security guards in white shirts and black ties.",
+        "action": "The camera starts behind one guard who is walking away, then cuts to a frontal view of two other guards standing in a lobby, one holding a cup and looking towards the camera, the other standing alert in the background.",
+        "lighting": "Cool, clinical, overhead fluorescent lighting typical of an office or lobby environment.",
+        "color_palette": "Muted greens, greys, and stark white.",
+        "mood": "Professional, tense, and watchful.",
+        "setting": "A sterile, modern office building lobby with dark stone walls and glass partitions.",
+        "sound": "Ambient office sounds, the faint hum of ventilation, and distant street noise."
+      }
+    },
+    {
+      "index": 59,
+      "start_s": 214.214,
+      "end_s": 215.841,
+      "duration_s": 1.627,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Vehicle",
+          "Motor vehicle (road)",
+          "Car",
+          "Outside, urban or manmade",
+          "Explosion"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "zoom",
+        "subjects": "a security guard in a white uniform and cap",
+        "action": "The security guard stands against a dark marble wall reading a newspaper. Suddenly, the camera zooms in rapidly and violently as the guard is thrown or pulled off-screen to the left, suggesting a sudden impact or explosion.",
+        "lighting": "cool, artificial, slightly greenish office lighting",
+        "color_palette": "dark green, white, black",
+        "mood": "tense, sudden, chaotic",
+        "setting": "an office building lobby or hallway with dark marble walls",
+        "sound": "the sound of a loud, sudden explosion followed by the screech of tires and urban traffic noise"
+      }
+    },
+    {
+      "index": 60,
+      "start_s": 215.841,
+      "end_s": 216.925,
+      "duration_s": 1.084,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Explosion",
+          "Gunshot, gunfire",
+          "Machine gun",
+          "Fireworks",
+          "Vehicle"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "zoom",
+        "subjects": "A man in a black coat (Neo) firing submachine guns, and a security guard in a white uniform holding a newspaper.",
+        "action": "The shot begins with Neo firing dual submachine guns; the camera then zooms in on the security guard as he is struck by multiple bullets, causing his newspaper to shred and his body to react to the impact.",
+        "lighting": "High-contrast, cool-toned artificial lighting typical of an office building interior.",
+        "color_palette": "Deep greens, blacks, and stark whites.",
+        "mood": "Violent, intense, and clinical.",
+        "setting": "A sterile, modern office building lobby with dark stone walls.",
+        "sound": "Rapid, rhythmic, and percussive gunfire, accompanied by the sound of bullets impacting paper and flesh, and debris scattering."
+      }
+    },
+    {
+      "index": 61,
+      "start_s": 216.925,
+      "end_s": 217.676,
+      "duration_s": 0.751,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Explosion",
+          "Gunshot, gunfire",
+          "Machine gun",
+          "Fireworks",
+          "Fusillade"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "static",
+        "subjects": "A security guard in a white shirt and dark cap, and a man in a black trench coat holding a submachine gun.",
+        "action": "The security guard is struck by gunfire, causing his body to jerk backward and debris to fly around him, while the man in the trench coat stands in the foreground firing his weapon.",
+        "lighting": "High-contrast, cool-toned cinematic lighting with deep shadows and sharp highlights on the subjects.",
+        "color_palette": "Deep greens, blacks, and stark whites, with a subtle blue tint.",
+        "mood": "Violent, intense, and chaotic.",
+        "setting": "A dimly lit, sterile office building lobby with marble walls.",
+        "sound": "A rapid, intense burst of automatic gunfire, sharp metallic clangs, and the sound of debris shattering."
+      }
+    },
+    {
+      "index": 62,
+      "start_s": 217.676,
+      "end_s": 218.468,
+      "duration_s": 0.792,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Gunshot, gunfire",
+          "Explosion",
+          "Machine gun",
+          "Fusillade",
+          "Fireworks"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "zoom",
+        "subjects": "A man in a black trench coat and sunglasses firing submachine guns at security guards in a lobby.",
+        "action": "The camera zooms in rapidly on the man as he fires his weapons, causing the security guards to react and fall back under the gunfire.",
+        "lighting": "High-contrast, cool-toned artificial lighting with strong shadows, typical of a modern office lobby.",
+        "color_palette": "Deep greens, blacks, and stark whites from the guards' uniforms.",
+        "mood": "Intense, violent, and chaotic.",
+        "setting": "A sterile, modern office building lobby with stone walls and metallic accents.",
+        "sound": "Rapid, deafening automatic gunfire, muzzle flashes, and the sound of bullets impacting surfaces."
+      }
+    },
+    {
+      "index": 63,
+      "start_s": 218.468,
+      "end_s": 220.72,
+      "duration_s": 2.252,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Machine gun",
+          "Gunshot, gunfire",
+          "Explosion",
+          "Fusillade",
+          "Fireworks"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "slow zoom in",
+        "subjects": "A man in a long black coat holding a submachine gun in the foreground, and a security guard in a white shirt and dark trousers in the background.",
+        "action": "The man in the black coat is firing his weapon at the security guard, who is moving backward while reacting to the gunfire. Smoke from the weapon discharge fills the air between them.",
+        "lighting": "Low-key, high-contrast lighting with a strong, cool-toned overhead light source in the background creating a silhouette effect for the foreground subject.",
+        "color_palette": "Deep shadows, dark grays, muted blacks, and a stark white light source.",
+        "mood": "Tense, violent, and urgent.",
+        "setting": "A dimly lit, sterile office building lobby or security checkpoint with stone walls and industrial equipment.",
+        "sound": "Intense, rapid-fire machine gun bursts, echoing gunfire, and the sharp, percussive sounds of bullets impacting surfaces."
+      }
+    },
+    {
+      "index": 64,
+      "start_s": 220.72,
+      "end_s": 221.471,
+      "duration_s": 0.751,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Explosion",
+          "Gunshot, gunfire",
+          "Machine gun",
+          "Fireworks",
+          "Helicopter"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "zoom",
+        "subjects": "A man in a black coat seen from behind, and two security guards in white shirts and dark ties.",
+        "action": "The man in the black coat fires a weapon, causing the two security guards to be violently thrown backward through the air as if hit by an explosive force, while the camera zooms in rapidly on the guards.",
+        "lighting": "High-contrast, cool-toned cinematic lighting with a green tint, emphasizing the silhouette of the shooter and the bright shirts of the guards.",
+        "color_palette": "Deep blacks, dark grays, and a sickly, desaturated green hue.",
+        "mood": "Intense, chaotic, and violent.",
+        "setting": "A dimly lit, modern industrial or office building lobby with stone walls.",
+        "sound": "Loud, sharp, and percussive gunfire and explosive sound effects."
+      }
+    },
+    {
+      "index": 65,
+      "start_s": 221.471,
+      "end_s": 223.056,
+      "duration_s": 1.585,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Explosion",
+          "Gunshot, gunfire",
+          "Fusillade",
+          "Speech",
+          "Fireworks"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "static",
+        "subjects": "A man in a black coat (Neo) stands in the foreground holding two submachine guns; a security guard in a white shirt and tie is falling backward in the background.",
+        "action": "The man in the black coat fires his weapons, causing the security guard in the background to be thrown backward by the force of the impact amidst a cloud of debris and dust.",
+        "lighting": "High-contrast, cool-toned artificial lighting with a greenish tint, emphasizing the dark silhouette of the shooter against the brightly lit, dusty background.",
+        "color_palette": "Deep blacks, dark grays, and a pervasive, sickly greenish-teal tint.",
+        "mood": "Intense, violent, and clinical.",
+        "setting": "A sterile, modern office building lobby or security checkpoint.",
+        "sound": "Loud, rapid-fire automatic gunfire, the sound of glass shattering, and the heavy thud of a body hitting the floor."
+      }
+    },
+    {
+      "index": 66,
+      "start_s": 223.056,
+      "end_s": 226.393,
+      "duration_s": 3.337,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "speech",
+        "labels": [
+          "Speech",
+          "Inside, small room",
+          "Gunshot, gunfire",
+          "Fusillade",
+          "Explosion"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "Backup. Send backup.",
+          "start_s": 0.861,
+          "end_s": 3.337
+        }
+      ],
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "slow zoom in",
+        "subjects": "a security guard in a white uniform and black tie, crouching behind a marble pillar, holding a radio to his ear and a handgun in his other hand; a deceased person lying on the floor in the background.",
+        "action": "the security guard is crouching behind a pillar, speaking urgently into his radio while keeping his handgun pointed forward, scanning the area; the camera slowly zooms in on him as smoke drifts from bullet holes in the wall beside him.",
+        "lighting": "dim, cool-toned ambient lighting with a slight green tint, creating a stark, clinical atmosphere.",
+        "color_palette": "muted greens, grays, whites, and blacks.",
+        "mood": "tense, desperate, and grim.",
+        "setting": "a sterile, modern office or building interior with polished green marble walls and floor, showing signs of a recent violent confrontation.",
+        "sound": "intense ambient noise of a chaotic environment, including distant gunfire, echoes of a recent explosion, and the sharp, urgent sound of a radio transmission."
+      }
+    },
+    {
+      "index": 67,
+      "start_s": 226.393,
+      "end_s": 227.31,
+      "duration_s": 0.918,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Speech",
+          "Inside, small room",
+          "Cap gun",
+          "Shuffling cards",
+          "Gunshot, gunfire"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "Backup. Send backup.",
+          "start_s": 0,
+          "end_s": 0.234
+        }
+      ],
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "fast zoom in",
+        "subjects": "A security guard in a white uniform holding a radio and a handgun, and a woman in a black leather outfit and sunglasses standing in a dark office.",
+        "action": "The camera rapidly zooms in from a medium shot of the security guard peeking around a corner to a tighter shot of the woman in black standing in the doorway, transitioning from the guard's perspective to the woman's presence.",
+        "lighting": "High-contrast, moody, low-key lighting with deep shadows and cool, greenish-blue tones.",
+        "color_palette": "Black, dark grey, muted green, and white.",
+        "mood": "Tense, suspenseful, and action-oriented.",
+        "setting": "A dimly lit, modern office or lobby with stone walls and computer equipment.",
+        "sound": "The sharp, echoing sound of a gunshot followed by the ambient, hollow atmosphere of a large, quiet building."
+      }
+    },
+    {
+      "index": 68,
+      "start_s": 227.31,
+      "end_s": 228.77,
+      "duration_s": 1.46,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Gunshot, gunfire",
+          "Explosion",
+          "Machine gun",
+          "Cap gun",
+          "Inside, small room"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "zoom",
+        "subjects": "A woman in a black leather trench coat and sunglasses, and a security guard in a white uniform.",
+        "action": "The camera zooms in on the woman in black as she fires a handgun. The shot cuts briefly to the security guard reacting to the gunfire, then cuts back to the woman as she continues to aim and fire her weapon.",
+        "lighting": "High-contrast, moody, low-key lighting with deep shadows and cool, clinical tones.",
+        "color_palette": "Black, dark grey, muted white, and hints of cool blue.",
+        "mood": "Tense, action-oriented, and cold.",
+        "setting": "A dimly lit, modern office building hallway with stone walls.",
+        "sound": "Loud, sharp gunshots, mechanical clicking of a weapon, and the echoing reverberation of gunfire in an enclosed space."
+      }
+    },
+    {
+      "index": 69,
+      "start_s": 228.77,
+      "end_s": 229.479,
+      "duration_s": 0.709,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Machine gun",
+          "Gunshot, gunfire",
+          "Explosion",
+          "Vehicle",
+          "Crack"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "zoom",
+        "subjects": "A woman in a black leather coat and sunglasses firing a handgun, and a security guard in a white shirt being hit by gunfire.",
+        "action": "The camera zooms in rapidly as the woman fires her weapon, cutting to the security guard recoiling and falling against a wall after being struck by bullets, with debris and smoke filling the air.",
+        "lighting": "High-contrast, cool-toned cinematic lighting with sharp highlights on the woman's leather coat and the guard's shirt.",
+        "color_palette": "Deep greens, blacks, and stark whites.",
+        "mood": "Intense, violent, and high-stakes action.",
+        "setting": "A sterile, modern office building lobby with dark stone walls.",
+        "sound": "Loud, sharp gunshots, the sound of bullets impacting, and the mechanical clatter of shell casings hitting the floor."
+      }
+    },
+    {
+      "index": 70,
+      "start_s": 229.479,
+      "end_s": 230.021,
+      "duration_s": 0.542,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Gunshot, gunfire",
+          "Explosion",
+          "Machine gun",
+          "Fusillade",
+          "Crack"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "static",
+        "subjects": "A woman in a black leather coat and sunglasses holding a handgun, and a man in a white shirt collapsing against a wall.",
+        "action": "The shot begins with a man in a white shirt being struck by gunfire and falling against a dark wall amidst debris, then cuts to a woman in black leather standing still, aiming a handgun directly at the camera.",
+        "lighting": "High-contrast, cool-toned industrial lighting with harsh shadows and bright highlights on the woman's coat.",
+        "color_palette": "Deep greens, blacks, grays, and stark white.",
+        "mood": "Intense, cold, and action-oriented.",
+        "setting": "A sterile, modern office or lobby interior with dark stone walls.",
+        "sound": "Loud, sharp sounds of gunfire, mechanical clatter, and the explosive impact of bullets hitting stone."
+      }
+    },
+    {
+      "index": 71,
+      "start_s": 230.021,
+      "end_s": 232.399,
+      "duration_s": 2.377,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Music",
+          "Gunshot, gunfire",
+          "Explosion",
+          "Arrow",
+          "Fusillade"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "wide",
+        "camera_movement": "static",
+        "subjects": "A lone figure in a black trench coat walking through a room filled with bodies of security guards in white shirts and dark trousers.",
+        "action": "The figure in black walks slowly from the bottom of the frame towards the center of the room, passing the deceased guards who are scattered on the floor.",
+        "lighting": "Cool, high-contrast, clinical overhead lighting with deep shadows.",
+        "color_palette": "Deep greens, blacks, whites, and splashes of red from blood.",
+        "mood": "Somber, cold, lethal, and detached.",
+        "setting": "A modern, sterile office or lobby with polished green marble floors and dark architectural columns.",
+        "sound": "Intense, rhythmic, driving electronic music mixed with the lingering echoes of gunfire and heavy, rhythmic footsteps."
+      }
+    },
+    {
+      "index": 72,
+      "start_s": 232.399,
+      "end_s": 241.241,
+      "duration_s": 8.842,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Music",
+          "Inside, small room",
+          "Typing",
+          "Explosion",
+          "Gunshot, gunfire"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "slow zoom out",
+        "subjects": "A woman in a black vinyl coat and a man in a black trench coat, both wearing dark sunglasses.",
+        "action": "The two characters walk forward together through a lobby. The man draws two handguns from his coat holsters simultaneously as they continue walking.",
+        "lighting": "High-contrast, cool-toned interior lighting with bright highlights reflecting off the vinyl fabric.",
+        "color_palette": "Black, dark grey, muted green, and white.",
+        "mood": "Intense, cool, determined, and action-oriented.",
+        "setting": "A modern, sterile office building lobby with stone walls and a green 'EXIT' sign in the background.",
+        "sound": "A mix of intense, rhythmic electronic music, ambient room tone, and the sharp, metallic sound of guns being drawn."
+      },
+      "temporal_segments": [
+        {
+          "shot_type": "medium shot",
+          "camera_movement": "slow zoom out",
+          "subjects": "A woman in a black vinyl coat and a man in a black trench coat, both wearing dark sunglasses.",
+          "action": "The two characters walk forward together through a lobby. The man draws two handguns from his coat holsters simultaneously as they continue walking.",
+          "lighting": "High-contrast, cool-toned interior lighting with bright highlights reflecting off the vinyl fabric.",
+          "color_palette": "Black, dark grey, muted green, and white.",
+          "mood": "Intense, cool, determined, and action-oriented.",
+          "setting": "A modern, sterile office building lobby with stone walls and a green 'EXIT' sign in the background.",
+          "sound": "A mix of intense, rhythmic electronic music, ambient room tone, and the sharp, metallic sound of guns being drawn."
+        },
+        {
+          "shot_type": "medium",
+          "camera_movement": "slow zoom out",
+          "subjects": "A woman in a black vinyl coat and a man in a black trench coat, both wearing dark sunglasses.",
+          "action": "The man completes the motion of drawing two handguns from his shoulder holsters, bringing them forward into a ready position while walking in sync with the woman.",
+          "lighting": "High-contrast, cool-toned interior lighting with bright highlights reflecting off the vinyl fabric.",
+          "color_palette": "Black, dark grey, muted green, and white.",
+          "mood": "Intense, cool, determined, and action-oriented.",
+          "setting": "A modern, sterile office building lobby with stone walls and a green 'EXIT' sign in the background.",
+          "sound": "A mix of intense, rhythmic electronic music, ambient room tone, and the sharp, metallic sound of guns being drawn."
+        }
+      ]
+    },
+    {
+      "index": 73,
+      "start_s": 241.241,
+      "end_s": 251.251,
+      "duration_s": 10.01,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Keys jangling",
+          "Speech",
+          "Explosion",
+          "Vehicle",
+          "Fire"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "Freeze!",
+          "start_s": 9.203,
+          "end_s": 10.01
+        }
+      ],
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "zoom",
+        "subjects": "a group of tactical soldiers in black uniforms and helmets",
+        "action": "the camera starts low, focusing on the soldiers' boots as they run through a corridor, then zooms in and pans to reveal the soldiers taking cover behind large stone pillars, aiming their rifles forward in a tactical formation",
+        "lighting": "dim, cool-toned ambient light with sharp shadows cast by the pillars",
+        "color_palette": "dark greens, blacks, and cool greys",
+        "mood": "tense, urgent, and militaristic",
+        "setting": "a modern, sterile office building lobby or corridor with polished marble floors and large stone columns",
+        "sound": "heavy, rhythmic footsteps on hard floor, the metallic clatter of gear, and intense, sharp mechanical sounds of weapons being readied"
+      },
+      "temporal_segments": [
+        {
+          "shot_type": "low-angle tracking shot",
+          "camera_movement": "fast-paced tracking movement following the feet of the soldiers, transitioning to a quick pan",
+          "subjects": "a group of tactical soldiers in black uniforms and combat boots",
+          "action": "the camera focuses on the soldiers' feet as they sprint across a polished marble floor, then quickly pans up to reveal the soldiers moving into a tactical formation and taking cover behind large stone pillars with rifles raised",
+          "lighting": "dim, cool-toned ambient light with sharp shadows",
+          "color_palette": "dark greens, blacks, and cool greys",
+          "mood": "tense, urgent, and militaristic",
+          "setting": "a modern, sterile office building lobby with polished marble floors and large stone columns",
+          "sound": "heavy, rhythmic footsteps on hard floor, the metallic clatter of gear, and intense, sharp mechanical sounds of weapons being readied"
+        },
+        {
+          "shot_type": "medium close-up",
+          "camera_movement": "static",
+          "subjects": "a tactical soldier in a black uniform and helmet",
+          "action": "the soldier is positioned behind a large stone pillar, peering around the edge with a rifle aimed forward, maintaining a vigilant and ready stance",
+          "lighting": "dim, cool-toned ambient light with deep shadows obscuring parts of the soldier's face",
+          "color_palette": "dark greens, blacks, and cool greys",
+          "mood": "tense, focused, and alert",
+          "setting": "a modern, sterile office building lobby or corridor with polished marble floors and large stone columns",
+          "sound": "the faint, sharp mechanical clicks of a weapon being held in a ready position, accompanied by a low, ominous ambient hum"
+        }
+      ]
+    },
+    {
+      "index": 74,
+      "start_s": 251.251,
+      "end_s": 253.962,
+      "duration_s": 2.711,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Silence",
+          "Speech",
+          "Explosion",
+          "Gunshot, gunfire",
+          "Fusillade"
+        ]
+      },
+      "dialogue": [
+        {
+          "text": "Freeze!",
+          "start_s": 0,
+          "end_s": 0.318
+        }
+      ],
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "static",
+        "subjects": "Trinity and Neo, both dressed in black tactical gear and wearing dark sunglasses, standing side-by-side in a lobby.",
+        "action": "The two characters stand perfectly still, facing forward with a stoic expression, while a fallen guard lies on the floor in the background to the left.",
+        "lighting": "High-contrast, cool-toned cinematic lighting with a slight green tint, emphasizing the textures of their leather and fabric clothing.",
+        "color_palette": "Deep blacks, dark grays, and a pervasive, sickly green tint characteristic of the digital environment.",
+        "mood": "Tense, cold, and professional.",
+        "setting": "A sterile, modern office building lobby with stone pillars and a polished floor.",
+        "sound": "The ambient hum of a digital space, punctuated by the sharp, echoing sounds of gunfire and the metallic clatter of shell casings hitting the floor."
+      }
+    },
+    {
+      "index": 75,
+      "start_s": 253.962,
+      "end_s": 254.754,
+      "duration_s": 0.792,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Gunshot, gunfire",
+          "Explosion",
+          "Machine gun",
+          "Fusillade",
+          "Sound effect"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "wide",
+        "camera_movement": "static",
+        "subjects": "A man and a woman in black tactical gear, and a security guard in a dark uniform.",
+        "action": "The man and woman are actively engaged in a firefight, moving through a lobby while firing handguns, while a security guard behind a pillar fires an assault rifle at them.",
+        "lighting": "High-contrast, cool-toned ambient light with bright highlights from the windows in the background.",
+        "color_palette": "Deep greens, blacks, and cool greys with white highlights.",
+        "mood": "Intense, chaotic, and high-stakes action.",
+        "setting": "A sleek, modern corporate lobby with polished green marble floors and large stone pillars.",
+        "sound": "Intense, rapid-fire automatic gunfire, sharp pistol reports, and the echoes of bullets ricocheting off stone surfaces."
+      }
+    },
+    {
+      "index": 76,
+      "start_s": 254.754,
+      "end_s": 255.63,
+      "duration_s": 0.876,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Gunshot, gunfire",
+          "Explosion",
+          "Machine gun",
+          "Fusillade",
+          "Sound effect"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "static",
+        "subjects": "A security guard in tactical gear firing an assault rifle from behind a pillar, and Neo in a long black coat firing pistols while moving through the lobby.",
+        "action": "The shot captures a high-intensity gunfight. The security guard fires a burst from his rifle, causing debris to fly, while Neo returns fire, causing massive stone fragments to explode off the pillar as he moves across the frame.",
+        "lighting": "Bright, high-key natural light streaming through large windows, creating sharp contrasts and highlighting the dust and debris in the air.",
+        "color_palette": "Cool tones, dominated by shades of green, grey, and black.",
+        "mood": "Chaotic, intense, and action-oriented.",
+        "setting": "A modern, sterile lobby with polished green marble floors and large stone pillars.",
+        "sound": "Deafening, rapid-fire automatic gunfire, the sharp cracks of pistol shots, and the heavy thud and crunch of stone debris shattering upon impact."
+      }
+    },
+    {
+      "index": 77,
+      "start_s": 255.63,
+      "end_s": 256.631,
+      "duration_s": 1.001,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Explosion",
+          "Gunshot, gunfire",
+          "Fusillade",
+          "Machine gun",
+          "Rain"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium wide",
+        "camera_movement": "static",
+        "subjects": "A group of tactical security guards in black uniforms and helmets, positioned behind large marble pillars.",
+        "action": "The guards are in a defensive formation, firing their rifles in a coordinated volley toward the left side of the frame, with bright muzzle flashes erupting from their weapons.",
+        "lighting": "Cool, high-contrast, artificial indoor lighting with deep shadows and bright highlights from the muzzle flashes.",
+        "color_palette": "Deep greens, grays, blacks, and bright white/yellow muzzle flashes.",
+        "mood": "Intense, chaotic, and aggressive.",
+        "setting": "A sleek, modern corporate lobby with polished green marble floors and large stone columns.",
+        "sound": "A cacophony of rapid-fire automatic gunfire, the sharp cracks of bullets hitting stone, and the low, ambient hum of a large interior space."
+      }
+    },
+    {
+      "index": 78,
+      "start_s": 256.631,
+      "end_s": 257.757,
+      "duration_s": 1.126,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Explosion",
+          "Gunshot, gunfire",
+          "Fusillade",
+          "Machine gun",
+          "Wild animals"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "slow zoom in",
+        "subjects": "A man in a long black coat and sunglasses (Neo) is firing two handguns while leaning against a large marble pillar.",
+        "action": "The man fires his weapons, causing debris and dust to scatter through the air as he maintains his position behind cover during a firefight.",
+        "lighting": "Cool, high-contrast, clinical office lighting with a slight green tint.",
+        "color_palette": "Deep blacks, cool grays, muted greens, and bright white highlights from muzzle flashes and debris.",
+        "mood": "Intense, chaotic, and high-stakes action.",
+        "setting": "The sterile, modern lobby of a corporate building with marble pillars and glass partitions.",
+        "sound": "Deafening, rapid-fire gunshots, the sound of bullets impacting stone and glass, and the high-pitched whine of ricochets."
+      }
+    },
+    {
+      "index": 79,
+      "start_s": 257.757,
+      "end_s": 260.343,
+      "duration_s": 2.586,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Gunshot, gunfire",
+          "Fusillade",
+          "Explosion",
+          "Wild animals",
+          "Animal"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "slow zoom in",
+        "subjects": "A man in a long black coat and dark sunglasses, holding two handguns.",
+        "action": "The man steps out from behind a stone pillar while firing his weapons, as debris and dust from bullet impacts explode around him in the air.",
+        "lighting": "Cool, moody, high-contrast artificial lighting with a greenish tint, emphasizing the texture of the stone and the flying debris.",
+        "color_palette": "Deep shades of charcoal, slate gray, and muted teal.",
+        "mood": "Intense, chaotic, and action-oriented.",
+        "setting": "A sterile, industrial-looking hallway or lobby with large stone pillars.",
+        "sound": "Loud, rapid-fire gunshots, the sound of stone shattering and debris hitting the floor, and a low-frequency ambient hum."
+      }
+    },
+    {
+      "index": 80,
+      "start_s": 260.343,
+      "end_s": 264.181,
+      "duration_s": 3.837,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Fusillade",
+          "Gunshot, gunfire",
+          "Explosion",
+          "Machine gun",
+          "Boom"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "static",
+        "subjects": "Neo in a black trench coat and sunglasses, and multiple SWAT team members in tactical gear and helmets.",
+        "action": "The shot alternates between Neo firing dual pistols while dodging through a cloud of debris and dust, and SWAT team members firing rifles from behind stone pillars. The environment is being shredded by gunfire, with stone fragments and dust filling the air.",
+        "lighting": "High-contrast, cool-toned artificial lighting with a distinct green tint, punctuated by bright muzzle flashes.",
+        "color_palette": "Dominant shades of desaturated green, slate grey, and black, with bright white highlights from muzzle flashes.",
+        "mood": "Intense, chaotic, and high-stakes action.",
+        "setting": "A sterile, modern stone-walled corridor or lobby, heavily damaged by combat.",
+        "sound": "A cacophony of rapid-fire gunshots, heavy machine gun fire, the sound of stone shattering, and explosive impacts."
+      }
+    },
+    {
+      "index": 81,
+      "start_s": 264.181,
+      "end_s": 267.392,
+      "duration_s": 3.212,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Vehicle",
+          "Boom",
+          "Mechanisms",
+          "Motor vehicle (road)",
+          "Sewing machine"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "zoom",
+        "subjects": "A man in a black coat and sunglasses (Neo) holding two handguns.",
+        "action": "The camera zooms in on the man as he stands against a damaged, textured wall. He is initially facing forward with both guns raised, then shifts his stance to the side, lowering his weapons slightly while maintaining a vigilant, focused expression.",
+        "lighting": "Cool, greenish-tinted artificial lighting, creating a high-contrast, moody atmosphere.",
+        "color_palette": "Dominant shades of dark green, black, and grey.",
+        "mood": "Tense, action-oriented, and gritty.",
+        "setting": "An interior hallway or corridor with a damaged, industrial-looking wall.",
+        "sound": "A mix of mechanical sounds, including rhythmic clicking and whirring, layered with heavy, percussive thuds and ambient industrial noise."
+      }
+    },
+    {
+      "index": 82,
+      "start_s": 267.392,
+      "end_s": 271.813,
+      "duration_s": 4.421,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Music",
+          "Fusillade",
+          "Explosion",
+          "Gunshot, gunfire",
+          "Thump, thud"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "zoom",
+        "subjects": "A woman in a black trench coat and sunglasses, and several armed soldiers in black tactical gear.",
+        "action": "The camera zooms in as the woman performs a gravity-defying wall-run maneuver, kicking off a marble wall while dodging gunfire from soldiers who are firing their weapons, causing debris to fly from the wall.",
+        "lighting": "High-contrast, cool-toned cinematic lighting with a greenish tint, emphasizing the texture of the marble and the muzzle flashes.",
+        "color_palette": "Deep greens, blacks, grays, and bright white muzzle flashes.",
+        "mood": "Intense, action-packed, and stylized.",
+        "setting": "A sterile, modern lobby or corridor with polished marble walls and pillars.",
+        "sound": "Intense, rhythmic electronic music, rapid-fire gunshots, the sound of bullets impacting stone, and debris shattering."
+      }
+    },
+    {
+      "index": 83,
+      "start_s": 271.813,
+      "end_s": 273.815,
+      "duration_s": 2.002,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Music",
+          "Explosion",
+          "Boom",
+          "Vehicle",
+          "Outside, urban or manmade"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "slow zoom in",
+        "subjects": "A person wearing a long, black, glossy trench coat and glasses, seen from behind and slightly above, performing an acrobatic move in mid-air.",
+        "action": "The subject is suspended in a gravity-defying pose, rotating or falling through the air while debris floats around them. In the background, out-of-focus figures in tactical gear are visible, with muzzle flashes appearing as the camera slowly zooms in on the central subject.",
+        "lighting": "Cool, high-contrast, cinematic lighting with a greenish tint; sharp highlights on the glossy coat and subtle rim lighting.",
+        "color_palette": "Deep blacks, muted teals, and desaturated grays.",
+        "mood": "Intense, stylized, suspenseful, and action-oriented.",
+        "setting": "A sterile, industrial-looking hallway or lobby with stone walls, filled with floating debris from an explosion.",
+        "sound": "A low-frequency, bass-heavy cinematic boom, the sharp crack of gunfire, and the sound of shattering glass and debris falling."
+      }
+    },
+    {
+      "index": 84,
+      "start_s": 273.815,
+      "end_s": 274.983,
+      "duration_s": 1.168,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Explosion",
+          "Music",
+          "Boom",
+          "Vehicle",
+          "Gunshot, gunfire"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "zoom",
+        "subjects": "A protagonist in a black trench coat fighting against multiple armed soldiers in a sterile, modern hallway.",
+        "action": "The protagonist performs a high kick against a pillar, then lands and engages in a firefight with soldiers who are firing back, with muzzle flashes visible in the background.",
+        "lighting": "Cool-toned, high-contrast artificial lighting with a greenish tint, creating a clinical and tense atmosphere.",
+        "color_palette": "Dominant shades of teal, slate gray, and black.",
+        "mood": "High-octane, intense, and action-oriented.",
+        "setting": "A sleek, modern corridor with polished stone pillars and walls, possibly a government building or high-security facility.",
+        "sound": "Intense, rhythmic action music, sharp gunshots, the sound of debris hitting the floor, and the mechanical whir of the camera zoom."
+      }
+    },
+    {
+      "index": 85,
+      "start_s": 274.983,
+      "end_s": 278.195,
+      "duration_s": 3.212,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Music",
+          "Fusillade",
+          "Explosion",
+          "Gunshot, gunfire",
+          "Boom"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "zoom",
+        "subjects": "A woman in a black leather coat and sunglasses, and a tactical soldier in a black uniform and helmet.",
+        "action": "The shot begins with the woman adjusting her sunglasses while leaning against a dark, textured pillar. The camera then zooms in as the scene cuts to a tactical soldier in the same environment, who is firing an assault rifle, with debris and dust flying around him.",
+        "lighting": "Cool, high-contrast, cinematic lighting with a greenish tint, emphasizing the texture of the stone wall and the metallic sheen of the clothing.",
+        "color_palette": "Deep greens, blacks, and cool grays.",
+        "mood": "Intense, action-oriented, and suspenseful.",
+        "setting": "A sterile, modern interior with dark, polished stone walls, possibly a subway station or corporate lobby.",
+        "sound": "Intense, rhythmic electronic music, the rapid-fire sound of automatic gunfire, and the sharp, percussive impact of bullets hitting stone."
+      }
+    },
+    {
+      "index": 86,
+      "start_s": 278.195,
+      "end_s": 278.862,
+      "duration_s": 0.667,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "music",
+        "labels": [
+          "Music",
+          "Bicycle",
+          "Electronic music",
+          "Skateboard",
+          "Vehicle"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "static",
+        "subjects": "A hooded gunman firing an assault rifle, followed by a cut to a woman in a black leather coat and sunglasses leaning against a stone pillar.",
+        "action": "The shot begins with a hooded figure firing a weapon, then cuts to a woman looking cautiously around the corner of a pillar, suggesting an intense firefight environment.",
+        "lighting": "Cool, high-contrast, greenish-tinted industrial lighting with sharp shadows.",
+        "color_palette": "Deep greens, blacks, and slate grays.",
+        "mood": "Tense, urgent, and action-oriented.",
+        "setting": "A sterile, modern lobby or hallway with stone walls and debris.",
+        "sound": "High-energy electronic music, rapid gunfire, and the sound of debris hitting the floor."
+      }
+    },
+    {
+      "index": 87,
+      "start_s": 278.862,
+      "end_s": 281.656,
+      "duration_s": 2.794,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "music",
+        "labels": [
+          "Music",
+          "Walk, footsteps",
+          "Outside, rural or natural",
+          "Inside, large room or hall",
+          "Outside, urban or manmade"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "zoom",
+        "subjects": "A woman in a black leather trench coat and sunglasses, and a SWAT officer in tactical gear holding a rifle.",
+        "action": "The woman engages in hand-to-hand combat, delivering a swift, powerful kick to the SWAT officer's midsection while he is positioned near a damaged concrete pillar.",
+        "lighting": "Cool, high-contrast lighting with a greenish tint, likely from overhead fluorescent sources, creating a sterile and intense atmosphere.",
+        "color_palette": "Dominant shades of dark green, black, and grey, with muted tones.",
+        "mood": "Tense, aggressive, and high-stakes action.",
+        "setting": "A damaged, industrial-looking interior space, possibly a lobby or hallway, filled with smoke and debris.",
+        "sound": "Intense, rhythmic action music, the sharp sound of a physical impact, and the ambient hum of a large, cavernous space."
+      }
+    },
+    {
+      "index": 88,
+      "start_s": 281.656,
+      "end_s": 282.824,
+      "duration_s": 1.168,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Music",
+          "Fusillade",
+          "Gunshot, gunfire",
+          "Explosion",
+          "Walk, footsteps"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "zoom",
+        "subjects": "A woman in a black leather coat and sunglasses fighting a man in a black suit, with another armed man in the foreground.",
+        "action": "The woman performs a high kick against the man in the suit, who falls to the ground, while the camera zooms in on the action from behind the shoulder of an armed man.",
+        "lighting": "High-contrast, cool-toned cinematic lighting with a hazy, smoky atmosphere.",
+        "color_palette": "Dominant shades of teal, slate gray, and black.",
+        "mood": "Intense, chaotic, and action-oriented.",
+        "setting": "A dimly lit, industrial-looking hallway or corridor with concrete pillars and debris on the floor.",
+        "sound": "Intense gunfire, sound of impacts, and heavy ambient mechanical noise."
+      }
+    },
+    {
+      "index": 89,
+      "start_s": 282.824,
+      "end_s": 284.451,
+      "duration_s": 1.627,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Explosion",
+          "Fusillade",
+          "Gunshot, gunfire",
+          "Fire",
+          "Rain"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "static",
+        "subjects": "A man in a black trench coat and dark sunglasses, holding a submachine gun.",
+        "action": "The man is crouched against a wall while a massive explosion of debris and dust erupts from the wall beside him, filling the frame with particles.",
+        "lighting": "Cool, greenish-tinted industrial lighting, high contrast.",
+        "color_palette": "Deep greens, grays, and black.",
+        "mood": "Intense, chaotic, and action-oriented.",
+        "setting": "A damaged, sterile, tiled interior space.",
+        "sound": "Deafening sounds of a massive explosion, continuous gunfire, and the debris of the wall crumbling."
+      }
+    },
+    {
+      "index": 90,
+      "start_s": 284.451,
+      "end_s": 286.411,
+      "duration_s": 1.96,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Slosh",
+          "Liquid",
+          "Splash, splatter",
+          "Fire",
+          "Water"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "static",
+        "subjects": "Neo, wearing a black coat and sunglasses, holding a submachine gun while leaning against a wall.",
+        "action": "Neo stands still against a wall while a massive, turbulent wave of liquid or debris crashes past him in the foreground, filling the left side of the frame.",
+        "lighting": "Cool, clinical, and high-contrast lighting with a greenish tint, emphasizing the texture of the liquid and the sharp features of the subject.",
+        "color_palette": "Deep greens, grays, blacks, and muted teal tones.",
+        "mood": "Intense, chaotic, and stoic.",
+        "setting": "A sterile, industrial-looking corridor or lobby environment, currently being flooded or impacted by a high-velocity substance.",
+        "sound": "Loud, aggressive sounds of rushing liquid, splashing, heavy splattering, and muffled mechanical impacts."
+      }
+    },
+    {
+      "index": 91,
+      "start_s": 286.411,
+      "end_s": 287.662,
+      "duration_s": 1.251,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Bicycle",
+          "Slosh",
+          "Splash, splatter",
+          "Fire",
+          "Music"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "zoom",
+        "subjects": "A man in a black trench coat and sunglasses, holding two submachine guns.",
+        "action": "The man is initially standing against a wall, then he quickly ducks down and moves out of frame to the left while firing his weapons.",
+        "lighting": "Cool, diffused, high-key lighting with a greenish tint, creating a sterile, industrial atmosphere.",
+        "color_palette": "Dominant shades of teal, slate grey, and black.",
+        "mood": "Tense, action-oriented, and clinical.",
+        "setting": "A sterile, concrete-walled corridor or room, possibly in a government or industrial building.",
+        "sound": "Intense sound effects including rapid gunfire, metallic clanging, and a rhythmic, driving electronic music score."
+      }
+    },
+    {
+      "index": 92,
+      "start_s": 287.662,
+      "end_s": 290.999,
+      "duration_s": 3.337,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "music",
+        "labels": [
+          "Music",
+          "Boom",
+          "Smash, crash",
+          "Vehicle",
+          "Fire"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "slow zoom in",
+        "subjects": "A man in a black coat and dark sunglasses (Neo).",
+        "action": "The man is moving forward through a cloud of debris and dust, drawing two handguns and aiming them directly at the camera as the camera slowly zooms in on his face.",
+        "lighting": "Cool, cyan-tinted ambient light with high contrast, emphasizing the texture of the debris.",
+        "color_palette": "Cool teal, slate blue, black, and muted grey.",
+        "mood": "Intense, action-oriented, and determined.",
+        "setting": "An interior space filled with thick, swirling dust and debris from a recent explosion or structural collapse.",
+        "sound": "High-intensity orchestral action music, loud mechanical gun-cocking sounds, the roar of a nearby explosion, and the sound of falling debris."
+      }
+    },
+    {
+      "index": 93,
+      "start_s": 290.999,
+      "end_s": 293.752,
+      "duration_s": 2.753,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "music",
+        "labels": [
+          "Music",
+          "Smash, crash",
+          "Explosion",
+          "Boom",
+          "Whack, thwack"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "zoom",
+        "subjects": "A person in a dark tactical outfit and hooded cloak, firing a weapon.",
+        "action": "The shot begins with a low-angle close-up of the person's boots walking across a floor while spent bullet casings fall to the ground. The camera then zooms out and pans to reveal the person standing in a dimly lit, industrial-style corridor, firing their weapon, which creates a bright, star-shaped muzzle flash and sends debris flying from the wall they are shooting at.",
+        "lighting": "Low-key, high-contrast lighting with cool blue-green tones, punctuated by the intense, bright yellow-white light of the muzzle flash.",
+        "color_palette": "Deep blues, dark grays, blacks, and bright yellow-white highlights.",
+        "mood": "Tense, aggressive, and action-oriented.",
+        "setting": "A dark, sterile, industrial or institutional hallway with tiled floors and walls.",
+        "sound": "Intense action soundscape featuring the rhythmic metallic clinking of falling casings, the loud, sharp reports of gunfire, and the sound of debris shattering and hitting the floor, all underscored by dramatic, driving music."
+      }
+    },
+    {
+      "index": 94,
+      "start_s": 293.752,
+      "end_s": 295.67,
+      "duration_s": 1.919,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "music",
+        "labels": [
+          "Music",
+          "Explosion",
+          "Boom",
+          "Speech",
+          "Sound effect"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "slow zoom in",
+        "subjects": "a person wearing a long dark coat and boots, seen from the knees down",
+        "action": "the person walks forward through a smoky, dimly lit corridor while spent bullet casings fall from the air to the ground in slow motion",
+        "lighting": "low-key, moody, cool-toned ambient light with a slight haze or fog",
+        "color_palette": "muted blues, grays, and dark shadows",
+        "mood": "tense, cinematic, action-oriented",
+        "setting": "a dark, industrial-style corridor or hallway with a concrete floor",
+        "sound": "the metallic clinking of bullet casings hitting the floor, combined with a low-frequency cinematic boom and intense, rhythmic action music"
+      }
+    },
+    {
+      "index": 95,
+      "start_s": 295.67,
+      "end_s": 296.254,
+      "duration_s": 0.584,
+      "camera_motion_detected": "static",
+      "audio_detected": {
+        "bucket": "music",
+        "labels": [
+          "Music",
+          "Boom",
+          "Explosion",
+          "Speech",
+          "Smash, crash"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "static",
+        "subjects": "A man wearing dark sunglasses and a black coat, holding two submachine guns pointed directly at the camera.",
+        "action": "The man remains in a tense, focused stance, holding the guns steady as he aims forward, with slight recoil or vibration visible in the weapons.",
+        "lighting": "Cool, high-contrast studio lighting with a slight green tint, casting soft shadows on the face.",
+        "color_palette": "Deep greens, blacks, and metallic grays.",
+        "mood": "Intense, action-oriented, and menacing.",
+        "setting": "An abstract, sterile environment with a solid, muted green background.",
+        "sound": "High-intensity action music, loud mechanical gunfire, and metallic clatter."
+      }
+    },
+    {
+      "index": 96,
+      "start_s": 296.254,
+      "end_s": 298.298,
+      "duration_s": 2.044,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Boom",
+          "Explosion",
+          "Music",
+          "Smash, crash",
+          "Whack, thwack"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "zoom",
+        "subjects": "Neo, wearing black sunglasses and a black coat, and a SWAT officer in tactical gear.",
+        "action": "The camera zooms in rapidly from Neo firing dual pistols towards a SWAT officer who is firing back, with debris and muzzle flashes filling the air between them.",
+        "lighting": "High-contrast, cool-toned green tint with bright, intense muzzle flashes illuminating the scene.",
+        "color_palette": "Deep greens, blacks, and bright white/yellow muzzle flashes.",
+        "mood": "Intense, chaotic, and action-packed.",
+        "setting": "A sterile, industrial hallway or lobby with concrete walls.",
+        "sound": "Loud, rhythmic gunfire, heavy mechanical thuds, debris shattering, and intense, driving electronic music."
+      }
+    },
+    {
+      "index": 97,
+      "start_s": 298.298,
+      "end_s": 300.342,
+      "duration_s": 2.044,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Explosion",
+          "Gunshot, gunfire",
+          "Fusillade",
+          "Boom",
+          "Music"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium close-up",
+        "camera_movement": "zoom",
+        "subjects": "A man wearing dark sunglasses and a black coat, holding two handguns.",
+        "action": "The camera zooms in quickly on the man's intense face as he aims his weapons forward, followed by a sudden, violent explosion of debris and smoke that fills the frame, obscuring the subject.",
+        "lighting": "High-contrast, cool-toned, slightly diffused lighting with a greenish tint.",
+        "color_palette": "Deep greens, blacks, and muted grays.",
+        "mood": "Intense, action-packed, and urgent.",
+        "setting": "An industrial or interior hallway environment filled with dust and debris.",
+        "sound": "A loud, chaotic mix of rapid gunfire, a massive explosion, and intense, driving orchestral action music."
+      }
+    },
+    {
+      "index": 98,
+      "start_s": 300.342,
+      "end_s": 300.509,
+      "duration_s": 0.167,
+      "camera_motion_detected": "zoom",
+      "audio_detected": {
+        "bucket": "effects",
+        "labels": [
+          "Fusillade",
+          "Explosion",
+          "Gunshot, gunfire",
+          "Speech",
+          "Eruption"
+        ]
+      },
+      "dialogue": null,
+      "description": {
+        "shot_type": "medium",
+        "camera_movement": "zoom",
+        "subjects": "A soldier in tactical gear and a helmet.",
+        "action": "The soldier is firing a weapon, with smoke and muzzle flash erupting from the barrel, while the camera zooms in slightly on the figure amidst the chaotic environment.",
+        "lighting": "Low-key, moody, and cool-toned lighting with harsh highlights from muzzle flashes.",
+        "color_palette": "Dark teals, grays, and muted greens.",
+        "mood": "Intense, chaotic, and aggressive.",
+        "setting": "A dimly lit, industrial or bunker-like corridor with stone or concrete walls.",
+        "sound": "Loud, rapid-fire gunshots, mechanical clatter, and the sharp, echoing sound of gunfire in an enclosed space."
+      }
+    }
+  ],
+  "dialog": [
+    {
+      "start_s": 0.069,
+      "end_s": 1.903,
+      "text": "But you humans do not."
+    },
+    {
+      "start_s": 2.446,
+      "end_s": 5.99,
+      "text": "You move to an area and you multiply..."
+    },
+    {
+      "start_s": 6.241,
+      "end_s": 10.745,
+      "text": "...and multiply until every natural resource is consumed."
+    },
+    {
+      "start_s": 11.08,
+      "end_s": 13.164,
+      "text": "The only way you can survive..."
+    },
+    {
+      "start_s": 13.457,
+      "end_s": 16.417,
+      "text": "...is to spread to another area."
+    },
+    {
+      "start_s": 21.84,
+      "end_s": 24.717,
+      "text": "There is another organism on this planet..."
+    },
+    {
+      "start_s": 24.968,
+      "end_s": 26.928,
+      "text": "...that follows the same pattern."
+    },
+    {
+      "start_s": 27.554,
+      "end_s": 29.222,
+      "text": "Do you know what it is?"
+    },
+    {
+      "start_s": 29.598,
+      "end_s": 31.432,
+      "text": "A virus."
+    },
+    {
+      "start_s": 32.768,
+      "end_s": 35.812,
+      "text": "Human beings are a disease."
+    },
+    {
+      "start_s": 36.188,
+      "end_s": 37.73,
+      "text": "A cancer of this planet."
+    },
+    {
+      "start_s": 37.981,
+      "end_s": 40.108,
+      "text": "You are a plague."
+    },
+    {
+      "start_s": 40.651,
+      "end_s": 42.068,
+      "text": "And we..."
+    },
+    {
+      "start_s": 42.236,
+      "end_s": 43.611,
+      "text": "...are the cure."
+    },
+    {
+      "start_s": 44.613,
+      "end_s": 46.03,
+      "text": "Okay, so what do you need?"
+    },
+    {
+      "start_s": 46.657,
+      "end_s": 47.782,
+      "text": "Besides a miracle."
+    },
+    {
+      "start_s": 48.367,
+      "end_s": 49.575,
+      "text": "Guns."
+    },
+    {
+      "start_s": 50.411,
+      "end_s": 51.619,
+      "text": "Lots of guns."
+    },
+    {
+      "start_s": 61.505,
+      "end_s": 62.714,
+      "text": "Neo..."
+    },
+    {
+      "start_s": 64.466,
+      "end_s": 67.009,
+      "text": "No one has ever done anything like this."
+    },
+    {
+      "start_s": 68.22,
+      "end_s": 70.138,
+      "text": "That's why it's going to work."
+    },
+    {
+      "start_s": 74.226,
+      "end_s": 76.144,
+      "text": "Why isn't the serum working?"
+    },
+    {
+      "start_s": 76.77,
+      "end_s": 79.063,
+      "text": "Perhaps we're asking the wrong questions."
+    },
+    {
+      "start_s": 81.15,
+      "end_s": 82.4,
+      "text": "Leave me with him."
+    },
+    {
+      "start_s": 84.987,
+      "end_s": 86.112,
+      "text": "Now."
+    },
+    {
+      "start_s": 97.332,
+      "end_s": 98.916,
+      "text": "Hold on, Morpheus."
+    },
+    {
+      "start_s": 99.168,
+      "end_s": 101.878,
+      "text": "They're coming for you. They're coming."
+    },
+    {
+      "start_s": 104.256,
+      "end_s": 106.382,
+      "text": "Can you hear me, Morpheus?"
+    },
+    {
+      "start_s": 106.633,
+      "end_s": 109.302,
+      "text": "I'm going to be honest..."
+    },
+    {
+      "start_s": 109.678,
+      "end_s": 110.887,
+      "text": "...with you."
+    },
+    {
+      "start_s": 115.267,
+      "end_s": 116.684,
+      "text": "I..."
+    },
+    {
+      "start_s": 117.561,
+      "end_s": 118.686,
+      "text": "...hate..."
+    },
+    {
+      "start_s": 118.937,
+      "end_s": 120.897,
+      "text": "...this place..."
+    },
+    {
+      "start_s": 121.231,
+      "end_s": 123.524,
+      "text": "...this zoo..."
+    },
+    {
+      "start_s": 123.776,
+      "end_s": 124.901,
+      "text": "...this prison..."
+    },
+    {
+      "start_s": 125.152,
+      "end_s": 128.321,
+      "text": "...this reality, whatever you want to call it."
+    },
+    {
+      "start_s": 128.572,
+      "end_s": 130.865,
+      "text": "I can't stand it any longer."
+    },
+    {
+      "start_s": 131.617,
+      "end_s": 133.493,
+      "text": "It's the smell."
+    },
+    {
+      "start_s": 134.87,
+      "end_s": 136.746,
+      "text": "If there is such a thing."
+    },
+    {
+      "start_s": 137.08,
+      "end_s": 140.374,
+      "text": "I feel saturated by it."
+    },
+    {
+      "start_s": 141.877,
+      "end_s": 143.169,
+      "text": "I can..."
+    },
+    {
+      "start_s": 143.42,
+      "end_s": 144.962,
+      "text": "...taste..."
+    },
+    {
+      "start_s": 145.13,
+      "end_s": 147.173,
+      "text": "...your stink."
+    },
+    {
+      "start_s": 147.424,
+      "end_s": 151.052,
+      "text": "And every time I do, I fear that I have somehow been infected by it."
+    },
+    {
+      "start_s": 151.22,
+      "end_s": 152.22,
+      "text": "It's repulsive."
+    },
+    {
+      "start_s": 153.222,
+      "end_s": 154.597,
+      "text": "Isn't it?"
+    },
+    {
+      "start_s": 156.767,
+      "end_s": 159.06,
+      "text": "I must get out of here."
+    },
+    {
+      "start_s": 159.478,
+      "end_s": 161.687,
+      "text": "I must get free."
+    },
+    {
+      "start_s": 161.939,
+      "end_s": 164.816,
+      "text": "And in this mind is the key."
+    },
+    {
+      "start_s": 165.067,
+      "end_s": 166.734,
+      "text": "My key."
+    },
+    {
+      "start_s": 166.985,
+      "end_s": 169.862,
+      "text": "Once Zion is destroyed, there is no need for me to be here."
+    },
+    {
+      "start_s": 170.113,
+      "end_s": 171.739,
+      "text": "Do you understand?"
+    },
+    {
+      "start_s": 172.032,
+      "end_s": 173.407,
+      "text": "I need the codes."
+    },
+    {
+      "start_s": 173.659,
+      "end_s": 175.993,
+      "text": "I have to get inside Zion..."
+    },
+    {
+      "start_s": 176.328,
+      "end_s": 178.83,
+      "text": "...and you have to tell me how."
+    },
+    {
+      "start_s": 179.248,
+      "end_s": 181.123,
+      "text": "You're going to tell me..."
+    },
+    {
+      "start_s": 181.375,
+      "end_s": 183.543,
+      "text": "...or you're going to die."
+    },
+    {
+      "start_s": 203.73,
+      "end_s": 206.858,
+      "text": "Please remove any metallic items you're carrying. Keys, loose change."
+    },
+    {
+      "start_s": 210.779,
+      "end_s": 211.821,
+      "text": "Holy shit!"
+    },
+    {
+      "start_s": 223.917,
+      "end_s": 226.627,
+      "text": "Backup. Send backup."
+    },
+    {
+      "start_s": 250.444,
+      "end_s": 251.569,
+      "text": "Freeze!"
+    }
+  ]
+}

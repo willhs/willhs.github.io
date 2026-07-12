@@ -2,6 +2,7 @@
 title: "1mb movie"
 description: "A useless but radical compression project: getting films down to 1mb and back again with language models"
 pubDate: 2026-06-16
+image: "/lossy/hero.jpg"
 ---
 
 import PipelineViz from '../../components/PipelineViz.astro';
@@ -15,18 +16,25 @@ How could we compress a film to less than 1 MB while preserving the most quality
 
 One of the early capabilities of large language models has been to summarise text. Only a few years later we now have models which can generate video and audio from short text prompts.
 
-This 1 MB movie challenge seemed like an interesting, practical way to learn what video and audio models are capable of.
+This 1 MB movie challenge seemed like an interesting and practical way to learn what video and audio models are capable of.
 
-Normally when we want a smaller video we do things like
-- lower the picture resolution (1080p, 480p, etc), and 
+Normally when we want a smaller video we reduce things like
+- picture resolution (1080p, 480p, etc), and 
 - audio sample rate (160 kbps is Spotify's High quality), and maybe 
-- the frame rate (movies and tv are usually 24fps). 
+- frame rate (movies and tv are usually 24fps). 
 
 But we'll see why that's not enough for sub-1 MB (5 MB is needed just for audio) in the next section.
 
 In this article I'll explore how we can summarise and compress films & TV using models to get any film down to sub-1 MB, then re-generate the film from its compressed form. 
 
-I'll be optimising for the best quality for the lowest $ cost.
+I'll be optimising for the best quality for the least $.
+
+<figure>
+  <video src="/lossy/demos/moria-compare-teaser.mp4" poster="/lossy/demos/moria-compare-teaser-poster.jpg" autoplay muted loop playsinline controls preload="metadata" style="max-width:560px;display:block;margin:0 auto" />
+  <figcaption>Where we're headed: the original film (top) vs. the reconstruction generated from the sub-1 MB file (bottom). <i>The Fellowship of the Ring</i>, Moria. Unmute for the generated audio.</figcaption>
+</figure>
+
+The code for everything below is at [github.com/willhs/lossy](https://github.com/willhs/lossy).
 
 <aside class="aside">
 
@@ -192,6 +200,8 @@ By summarising the film in English we're still able to preserve a lot of the key
 
 File compression tools like <code>gzip</code> or <code>xz</code> squeeze the summary another ~10×. If you run the same compressor on the original <code>.mp4</code> it shaves under 1%, since H.264 has already wrung almost all of the redundancy out of the pixels.
 
+You can download a real encode: the Matrix lobby scene as <a href="/lossy/the-matrix-lobby.shots.json">the-matrix-lobby.shots.json</a> (99 shots, 155 KB, or <a href="/lossy/the-matrix-lobby.shots.json.xz">21 KB xz'd</a>).
+
 ## Decompress: 1 MB file -> film
 
 > Making the least crap film from the smallest amount of information for the lowest cost.
@@ -303,7 +313,7 @@ It wasn't central here, but it mattered when picking a model to self-host: a qua
 
 ### Self hosting
 
-If you run models on your own hardware, even if rented, you can sometimes save on costs relative to model service providers like fal.ai and replicate.ai. I used runpod.io to provision gpus for me, sometimes with their community hardware which is discounted for its low availability.
+If you run models on your own hardware, even if rented, you can sometimes save on costs relative to model service providers like fal.ai and Replicate. I used runpod.io to provision GPUs for me, sometimes with their community hardware which is discounted for its low availability.
 
 Self-hosting models means significant effort spent researching, building and maintaining a system to run workflows on rented hardware. 
 
@@ -322,7 +332,7 @@ I tried to outsource this to Claude Code, which worked well once established but
   <figcaption>The same Wan 2.2 5B run both ways; the only variable is who owns the GPU. Fal.ai charges $0.15 per clip however short; self-hosting pays A6000 uptime at $0.33/hr. ~5× cheaper.</figcaption>
 </figure>
 
-Some models like Wan 2.1 1.3B can be run on consumer hardware like a Macbook.
+Some models like Wan 2.1 1.3B can be run on consumer hardware like a MacBook.
 
 ### Long shots
 
@@ -351,7 +361,7 @@ Some movie shots are under a second — shorter than the ~2s floor that Wan will
 We can either squeeze the 2-second clip to fit or cut it shorter:
 
 <figure class="side-by-side">
-  <img src="/lossy/demos/lotr-fastcut.gif" alt="Side-by-side of a fast-cut sequence from The Lord of the Rings: Moria, original on the left and the lossy reconstruction on the right. A normal-paced shot, then three rapid sub-second cuts, then another normal shot." />
+  <video src="/lossy/demos/lotr-fastcut.mp4" autoplay muted loop playsinline preload="metadata" />
   <figcaption><em>The Lord of the Rings</em>, Moria. Original (left) vs. reconstruction (right): a normal shot, three sub-second cuts, then another shot. The short cuts are trimmed to length, not sped up.</figcaption>
 </figure>
 
@@ -548,14 +558,41 @@ What astonishing film compression! We took a 632 MB film down to ≈320 KB, that
   <figcaption>Figures from actual runs on <em>Star Wars IV</em> (124.7 min); Seedance 2.0 is fal.ai list price, not run. Only the score's mood survives, not the melody.</figcaption>
 </figure>
 
-Now we can carry over 1000 films on a 1 GB USB drive, and to watch one of them we'll only need to, best-case, pay ≈$30 USD and wait a minimum of 12 hours for processing. People are used to paying for compression, like with [WinRAR](https://www.win-rar.com/start.html?&L=0").
+Now we can carry over 1000 films on a 1 GB USB drive, and to watch one of them we'll only need to, best-case, pay ≈$30 USD and wait a minimum of 12 hours for processing. People are used to paying for compression, like with [WinRAR](https://www.win-rar.com/start.html?&L=0).
 
 Our decompressed films are *lossy*. But the output is indeed a full-length 480p (or up to 1080p for more $) video which retains core aspects of the film including all dialogue, and a basic visual and audio reconstruction (incl. some of the music & sound effects) of every shot in the input film.
 
-<figure class="side-by-side">
-  <video src="/lossy/demos/lotr-sidebyside.mp4" autoplay muted loop playsinline preload="metadata" />
-  <figcaption>Original (left) vs. the lossy reconstruction (right). Gandalf and Frodo in Moria.</figcaption>
-</figure>
+Full scenes, original vs. reconstruction, synced:
+
+<Carousel
+  id="compare-scenes"
+  clips={[
+    {
+      src: "/lossy/demos/lotr-moria-compare.mp4",
+      poster: "/lossy/demos/lotr-moria-compare-poster.jpg",
+      label: "Moria · The Fellowship of the Ring",
+      caption: "Gandalf and Frodo in Moria. Original (top) vs. the reconstruction (bottom) with its generated dialogue, ambience and score.",
+    },
+    {
+      src: "/lossy/demos/sw-r2-leia-compare.mp4",
+      poster: "/lossy/demos/sw-r2-leia-compare-poster.jpg",
+      label: "fixing R2-D2 · Star Wars IV",
+      caption: "Luke repairs R2-D2 and triggers Leia's hologram. Original (top) vs. reconstruction (bottom).",
+    },
+    {
+      src: "/lossy/demos/fmf-toast-compare.mp4",
+      poster: "/lossy/demos/fmf-toast-compare-poster.jpg",
+      label: "a fox's toast · Fantastic Mr. Fox",
+      caption: "Mr. Fox's dinner toast. Original stop-motion (top) vs. reconstruction (bottom).",
+    },
+    {
+      src: "/lossy/demos/apollo13-compare.mp4",
+      poster: "/lossy/demos/apollo13-compare-poster.jpg",
+      label: "\"Houston, we have a problem\" · Apollo 13",
+      caption: "Original (top) vs. reconstruction (bottom). Generated shots don't land on exactly the original durations, so the original is retimed shot-by-shot to keep the cuts aligned.",
+    },
+  ]}
+/>
 
 **The bad:** the continuity issues we talked about earlier make the output film chaotic and disjointed, like every shot is from a different universe where the movie was made with a different crew, at a different location, etc. Our character prompt enrichment can only mitigate that as each clip has been generated in almost total isolation. 
 
