@@ -1,0 +1,22 @@
+---
+// Starts video[data-autoplay] elements when they scroll into view, so
+// below-the-fold looping demos don't buffer during initial page load.
+---
+
+<script>
+  const vids = document.querySelectorAll<HTMLVideoElement>('video[data-autoplay]');
+  const io = new IntersectionObserver(
+    (entries) => {
+      for (const e of entries) {
+        const v = e.target as HTMLVideoElement;
+        if (e.isIntersecting) {
+          v.play().catch(() => {});
+        } else {
+          v.pause();
+        }
+      }
+    },
+    { rootMargin: '200px 0px' }
+  );
+  vids.forEach((v) => io.observe(v));
+</script>
