@@ -4,6 +4,12 @@ import Header from '../components/Header.astro';
 
 const socials = [
   {
+    name: 'Email',
+    url: 'mailto:will@willhs.me',
+    handle: 'will@willhs.me',
+    icon: `<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M1.5 2h13c.83 0 1.5.67 1.5 1.5v9c0 .83-.67 1.5-1.5 1.5h-13C.67 14 0 13.33 0 12.5v-9C0 2.67.67 2 1.5 2zm0 1a.5.5 0 0 0-.5.5v.38l7 4.12 7-4.12V3.5a.5.5 0 0 0-.5-.5h-13zm13.5 2.04-6.74 3.97a.5.5 0 0 1-.52 0L1 5.04V12.5a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5V5.04z"/></svg>`,
+  },
+  {
     name: 'GitHub',
     url: 'https://github.com/willhs',
     handle: 'willhs',
@@ -33,11 +39,8 @@ const socials = [
     <Header />
     <main class="container">
       <h1>about</h1>
-      <p>
-      Software Engineer in Wellington, New Zealand!
-
-      Exploring AI and working on creative projects.
-      </p>
+      <p>Hi, I'm Will Hardwick-Smith <span class="sep">·</span> Software Engineer in Wellington, New Zealand</p>
+      <p>Exploring what's possible with AI and software</p>
       <ul class="socials">
         {socials.map((s) => (
           <li>
@@ -53,6 +56,10 @@ const socials = [
 </html>
 
 <style>
+  .sep {
+    color: var(--color-text-muted);
+    margin: 0 0.15rem;
+  }
   .socials {
     list-style: none;
     padding: 0;
