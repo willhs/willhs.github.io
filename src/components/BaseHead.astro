@@ -29,6 +29,7 @@ const imageURL = image ? new URL(image, Astro.site) : undefined;
   href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
 />
 <link rel="sitemap" href="/sitemap-index.xml" /><meta name="generator" content={Astro.generator} />
+<link rel="alternate" type="application/rss+xml" title={SITE_TITLE} href={new URL('rss.xml', Astro.site)} />
 <title>{pageTitle}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonicalURL} />
