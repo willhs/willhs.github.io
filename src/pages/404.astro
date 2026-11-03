@@ -1,0 +1,19 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title="not found" description="That page doesn't exist." />
+    <meta name="robots" content="noindex" />
+  </head>
+  <body>
+    <Header />
+    <main class="container">
+      <h1>404</h1>
+      <p>That page doesn't exist. Try <a href="/">home</a> or the <a href="/posts/">posts</a>.</p>
+    </main>
+  </body>
+</html>
